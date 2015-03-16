@@ -1,0 +1,224 @@
+body {
+	padding-top: 70px;
+	position: relative;
+	font-family: "Cabin", sans-serif !important;
+}
+
+h1 {
+	font-family: "Lobster", sans-serif !important;
+}
+
+.navbar-brand {
+	font-family: "Lobster", sans-serif;
+	font-size: 30px;
+	padding-top:18px !important;
+	padding-bottom:18px !important;
+}
+
+.navbar-nav > li > a {
+	padding-top:20px !important; 
+	padding-bottom:20px !important;
+	font-size: 14px;
+}
+
+.navbar {
+	min-height:32px !important
+}
+
+.header {
+	background-image: url('../img/header.jpg');
+	min-height: 400px;
+	max-height: 700px;
+	padding-bottom: 40px;
+	height: auto;
+}
+
+.main-section {
+	margin-top: 8% !important;
+	border-radius: 5px;
+}
+
+.main-section h1 {
+	margin-top: 0px;
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #ccc;
+	text-align: center;
+}
+
+.btn-search {
+	border-top: 1px solid #ccc;
+	margin-top: 20px;
+	padding-top: 20px;
+	text-align: center;
+}
+
+.btn-search-btn {
+	font-size: 14pt;
+}
+
+.btn-search-icon {
+	margin-left: 10px;
+}
+
+.container {
+	padding-top: 50px;
+	margin-top: -50px;
+}
+
+#login-modal {
+	padding-top: 100px;
+}
+
+#register-modal {
+	padding-top: 100px;
+}
+
+#register {
+	margin-left: 20px;
+}
+
+.center {
+	text-align: center;
+}
+
+.footer {
+	padding-top: 50px;
+	text-align: center;
+}
+
+.footer-left {
+	font-size: 13px;
+}
+
+.footer-left .copyright {
+	font-size: 14px;
+
+}
+
+.footer-right {
+	text-align: right;
+}
+
+
+a {
+	color: #79c44d;
+}
+
+a:hover, a:focus {
+	color: #528c2f;
+}
+
+.footer p, address {
+	font-size: 13px;
+	color: #aaa;
+}
+
+.user-menu {
+	background-color: #79c44d;
+	border: 1px solid #528c2f;
+}
+
+.user-menu li a {
+	color: #f7fcf3;
+}
+
+.user-menu li a:hover {
+	background-color: #528c2f;
+	color: #f7fcf3;
+}
+
+.choices {
+	display: none;
+}
+
+.ing {
+	position: relative;
+	margin-top: 30px;
+	padding-bottom: 10px;
+}
+
+.remove {
+	font-size: 12px;
+}
+
+.right {
+	text-align: right;
+	float: right;
+}
+
+.center {
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+input[type=checkbox] { display:none; } /* to hide the checkbox itself */
+input[type=checkbox] + label:before {
+  font-family: FontAwesome;
+  display: inline-block;
+}
+
+input[type=checkbox] + label:before { content: "\f096"; } /* unchecked icon */
+input[type=checkbox] + label:before { letter-spacing: 10px; } /* space between checkbox and label */
+
+input[type=checkbox]:checked + label:before { content: "\f046"; } /* checked icon */
+input[type=checkbox]:checked + label:before { letter-spacing: 8px; } /* allow space for check mark */
+
+.remember {
+	font-size: 16px;
+}
+
+.remember label {
+	font-weight: normal;
+}
+
+@media (max-width: 991px) {
+	#register {
+		float:right;
+	}
+
+	.footer-left {
+		text-align: center;
+	}
+
+	.footer-right {
+		text-align: center;
+	}
+
+	.soc-med {
+		position: relative;
+		margin-top: 20px !important;
+		padding-top: 20px;
+	}
+}
+
+@media (max-width: 767px) {
+	.navbar-brand {
+		font-size: 26px !important;
+		padding-top: 13px !important;
+		padding-bottom: 13px !important;
+	}
+
+	.footer-left {
+		display: none;
+	}
+
+	.footer-right {
+		display: none;
+	}
+}
+
+@media (max-width: 640px) {
+	.navbar-brand {
+		font-size: 20px !important;
+	}
+}
+
+.autocomplete-suggestions { border: 1px solid #999; background: #FFF; cursor: default; overflow: auto; -webkit-box-shadow: 1px 4px 3px rgba(50, 50, 50, 0.64); -moz-box-shadow: 1px 4px 3px rgba(50, 50, 50, 0.64); box-shadow: 1px 4px 3px rgba(50, 50, 50, 0.64); }
+.autocomplete-suggestion { padding: 2px 5px; white-space: nowrap; overflow: hidden; }
+.autocomplete-no-suggestion { padding: 2px 5px;}
+.autocomplete-selected { background: #F0F0F0; }
+.autocomplete-suggestions strong { font-weight: bold; color: #000; }
+.autocomplete-group { padding: 2px 5px; }
+.autocomplete-group strong { font-weight: bold; font-size: 16px; color: #000; display: block; border-bottom: 1px solid #000; }
