@@ -23,7 +23,6 @@
 
 ?>
 
-asd
 	<body>
 		
 		<!-- Navbar -->
