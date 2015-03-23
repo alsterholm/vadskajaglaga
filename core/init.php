@@ -24,6 +24,8 @@ spl_autoload_register(function($class){
 
 require_once 'functions/general.php';
 
+// Kontrollerar ifall användaren redan är inloggad vid start, ochi såfall behöver man inte logga in.
+
 if(Cookie::exists(Config::get('remember/cookie_name')) && !Session::exists(Config::get('session/session_name'))){
 	$hash = Cookie::get(Config::get('remember/cookie_name'));
 	$hashCheck = DB::getInstance()->get('users_session', array('hash', '=', $hash));

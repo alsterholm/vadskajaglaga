@@ -1,5 +1,10 @@
 <?php
 
+	/**
+	Klassen som sköter uppkoppling mot SQL-databasen
+
+
+	*/
 	class DB {
 		private static $_instance = null;
 		private $_pdo, 
@@ -8,15 +13,28 @@
 				$_result, 
 				$_count = 0;
 
+		/**
+		Privat construktor som skapar en PDOanslutning till databasen
+
+		*/
 		private function __construct(){
 			try{
-				$this->_pdo = new PDO('mysql:host=' . Config::get('mysql/host') . ';dbname=' . Config::get('mysql/db'), Config::get('mysql/username'), Config::get('mysql/password'));
+				$this->_pdo = new PDO('mysql:host=' . Config::get('mysql/host') . ';dbname=' . Config::get('mysql/db'), 
+					Config::get('mysql/username'), Config::get('mysql/password'),
+					array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf-8')
+					);
+
 			}catch(PDOException $e){
 				//Ändra till databas-fel-redirekt
 				die($e->getMessage());
 			}
-
 		}
+
+		/**
+		Funktion för att skapa en instans av databasen ifall det inte redan finns en instans. Detta görs för att ENDAST skapa en instans och inte flera av databasen
+
+
+		*/
 		public static function getInstance(){
 			if(!isset(self::$_instance)){
 
@@ -25,6 +43,13 @@
 			return self::$_instance;
 		}
 
+		/**
+		Funktionen som utför själv queryn mot databasen
+
+		Parametrar som tas emot är själva queryn($sql) samt en array med parametrar($params) för sökningen 
+
+
+		*/
 		public function query($sql, $params = array()){
 			$this-> _error = false;
 			if($this->_query = $this->_pdo->prepare($sql)){
@@ -46,6 +71,13 @@
 			return $this;
 		}
 
+		/**
+		Funktionen förenklar hur man gör en query mot databasen
+
+		Parametrar som tas emot är vilken typ av handling som skall utföras($action), på vilken tabell($table) samt en array med 3 värde($where).
+
+
+		*/
 		public function action($action, $table, $where = array()){
 			if(count($where) === 3){
 				$operators = array('=', '<', '>', '<=', '>=');
@@ -67,15 +99,34 @@
 
 		}
 
+		/**
+		Funktion för att hämta värde ur databasen
+
+		Parametrar som tas emot är vilken tabell($table) samt vilket värde($where)
+
+
+		*/
 		public function get($table, $where){
 			return $this->action('SELECT *', $table, $where);
 		}
 
+		/**
+		Funktion för att radera värde ur databasen.
 
+		Parametrar som tas emot är vilken tabell($table) samt vilket värde($where)
+
+		*/
 		public function delete($table, $where){
 			return $this->action('DELETE', $table, $where);
 		}
 
+		/**
+		Funktion för att lägga till värde i databasen
+
+		Parametrar som tas emot är vilken tabell($table), samt en array ($fields) med värden som skall läggas till i  databasen
+
+
+		*/
 		public function insert($table, $fields = array()){
 			if(count($fields)){
 				$keys =array_keys($fields);
@@ -99,6 +150,13 @@
 			return false;
 		}
 
+		/**
+		Funktion för att uppdatera värde i databasen
+
+		Parametrar som tas emot är vilken tabell($table), vilket id($id) som skall uppdateras samt en array ($fields) med värden som skall läggas till i  databasen
+
+
+		*/
 		public function update($table, $id, $fields){
 			$set = '';
 			$x = 1;
@@ -119,19 +177,36 @@
 			return false;
 		}
 
+		/**
+		Funktionen returnerar $_result
+
+		*/
 		public function results(){
 			return $this->_result;
 		}
 
+		/**
+		Funktionen returnerar första elementet i $_result
+
+		*/
 		public function first(){
 			return $this->results()[0];
 		}
 
+		/**
+		Funktionen returnerar $_error
+
+		*/
 		public function error(){
 
 			return $this->_error;
 		}
 
+
+		/**
+		Funktionen returnerar $_count
+
+		*/
 		public function count(){
 			return $this->_count;
 
