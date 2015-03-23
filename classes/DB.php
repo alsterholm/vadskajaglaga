@@ -25,8 +25,9 @@
 					);
 
 			}catch(PDOException $e){
+				Redirect::to(505);
 				//Ändra till databas-fel-redirekt
-				die($e->getMessage());
+				//die($e->getMessage());
 			}
 		}
 

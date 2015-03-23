@@ -15,6 +15,11 @@
 							include 'includes/errors/401.php';
 							exit();
 						break;
+						case 500:
+							header('HTTP/1.0 500 Internal Server Error');
+							include 'includes/errors/500.php';
+							exit();
+
 					}
 				}
 				header('location: ' . $location);
