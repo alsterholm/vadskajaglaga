@@ -58,6 +58,7 @@ if (Input::exists()) {
 			Redirect::to('registrera.php?register=false');
 		}
 	}
+	echo 'TOKEN-FEL';
 }
 
 ?>
