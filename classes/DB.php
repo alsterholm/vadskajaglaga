@@ -19,10 +19,12 @@
 		*/
 		private function __construct(){
 			try {
-				$this->_pdo = new PDO('mysql:host=' . Config::get('mysql/host') . ';dbname=' . Config::get('mysql/db'), 
-					Config::get('mysql/username'), Config::get('mysql/password'),
-					array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf-8')
-					);
+				$this->_pdo = new PDO(
+					'mysql:host=' . Config::get('mysql/host') . ';dbname=' . Config::get('mysql/db'),
+					Config::get('mysql/username'),
+					Config::get('mysql/password'),
+					array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8')
+				);
 
 			} catch(PDOException $e) {
 				Redirect::to(500);
