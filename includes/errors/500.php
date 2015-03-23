@@ -1,1 +1,1 @@
-Oops, that page aint up yet
+Oops, that page aint up yet 500

@@ -24,7 +24,9 @@ if (Input::exists()) {
 				'required' => true,
 				'min' => 2,
 				'max' => 50,
-				'fullname' => true
+				'fullname' => true,
+				'alphabetical' => true
+
 			)
 		));
 

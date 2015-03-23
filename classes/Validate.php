@@ -50,6 +50,11 @@
 									$this->addError("{$item} must be a full name.");
 								}
 							break;
+							case 'alphabetical':
+							if(preg_match('/^[A-ZÅÄÖa-zåäö ]+$/', $value) == false){
+								$this->addError("{$item} felformaterat.");
+							}
+							break;
 						}
 					}
 				}
