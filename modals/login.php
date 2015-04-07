@@ -8,26 +8,23 @@
 			<div class="modal-body">
 				<div class="row">
 					<div class="col-md-7">
-						<form action="login-router.php" method="post" class="form-horizontal">
+						<form action="" method="post" class="form-horizontal">
 							<fieldset>
 								<div class="row">
 									<div class="col-md-12">
 										<label for="input_email">E-post</label>
-										<input type="email" name="email" class="form-control" id="input_email" placeholder="sven.ekdahl@hemsida.se" required>
+										<input type="email" class="form-control" id="input_email" placeholder="sven.ekdahl@hemsida.se" required>
 										<br>
 									</div>
 									<div class="col-md-12">
 										<label for="input_password">Lösenord</label>
-										<input type="password" name ="password" class="form-control" id="input_password" placeholder="********" required>
+										<input type="password" class="form-control" id="input_password" placeholder="********" required>
 										<br>
 									</div>
 								</div>
 								<div class="remember">
-									<input type="checkbox" name="remember" id="remember" checked>
-									<label for="remember"><abbr title="Om du kryssar i denna ruta kommer du loggas in automatiskt nästa gång du besöker sidan.">Kom ihåg mig</abbr></label>
-									<a href="glomt-losenord.php" class="right">Glömt lösenord</a>
-									<br><br>
-									<input type="hidden" name="token" value="<?php echo $token ?>">
+									<input type="checkbox" id="remember" checked>
+									<label for="remember"><abbr title="Om du kryssar i denna ruta kommer du loggas in automatiskt nästa gång du besöker sidan">Kom ihåg mig</abbr></label><br><br>
 								</div>
 								<div class="row">
 									<div class="col-md-12">

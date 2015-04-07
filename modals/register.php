@@ -6,7 +6,7 @@
 				<h4 class="modal-title" id="register-modal-label">Registrera</h4>
 			</div>
 			<div class="modal-body">
-				<form action="register.php" method="post" class="form-horizontal">
+				<form action="" method="post" class="form-horizontal">
 					<fieldset>
 						<div class="row">
 							<div class="col-md-12">
@@ -24,9 +24,8 @@
 								<br>
 							</div>
 							<div class="col-md-12 center">
-								<p>Genom att registrera dig godkänner du våra <a href="regler-och-villkor.php">regler och villkor</a>.</p>
+								<p>Genom att registrera dig godkänner du våra <a href="">regler och villkor</a>.</p>
 								<br>
-								<input type="hidden" name="token" value="<?php echo $token; ?>">
 								<button type="submit" class="btn btn-success">Registrera <span class="fa fa-check"></span></button>
 								<br>
 							</div>

@@ -4,7 +4,7 @@
 					<div class="row">
 						<div class="col-md-2"></div>
 						<div class="col-md-8">
-							<div class="well well-lg main-section">
+							<div class="well well-lg search-box">
 								<fieldset>
 									<h1>Hitta recept</h1>
 									<div class="col-md-12">

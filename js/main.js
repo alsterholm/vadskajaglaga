@@ -19,6 +19,14 @@
 			    	addIngr();
 			    }
 			});
+			
+			/*
+			$('#ingredients').keyup(function (e) {
+				if (e.keyCode == 13) {
+					addIngr();
+				}
+			});
+			*/
 
 			$('#register').on('click', function() {
 				registerClicked = true;

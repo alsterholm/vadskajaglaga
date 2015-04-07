@@ -6,22 +6,13 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
     	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<title>Hitta recept - Vad ska jag laga?</title>
+		<title>Vad ska jag laga?</title>
 
 		<link rel="icon" type="image/png" href="img/icon.png">
-
-		<!--  Init-file -->
-		<?php require_once 'core/init.php'; ?>
 
 		<!-- CSS-links -->
 		<?php include 'includes/data/css-links.php'; ?>	
 	</head>
-
-<?php
-	$user = new User();
-	$token = Token::generate();
-
-?>
 
 	<body>
 		
@@ -30,9 +21,9 @@
 
 
 		<!-- Main function -->
-		<?php include 'includes/modules/hitta-recept.php'; ?> 
+		<?php include 'includes/modules/search.php'; ?> 
 
-
+		
 		<!-- Footer -->
 		<?php include 'includes/footer.php'; ?>
 
