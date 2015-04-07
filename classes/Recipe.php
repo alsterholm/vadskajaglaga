@@ -28,21 +28,21 @@
 			return false;
 		}
 
-		public function search($fields = array()){
-			if(count($fields){
+		public function search($fields = array()) {
+			if (count($fields) {
 				$values = null;
 				$x = 1;
 
-				foreach($fields as $field){
+				foreach ($fields as $field) {
 					$values .= "?";
-					if($x < count($fields)){
+					if ($x < count($fields)) {
 						$values .= ', ';		
 					}
 					$x++;
 				}
 				
 
-			}else{
+			} else {
 				return false;
 			}
 
