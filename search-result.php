@@ -40,16 +40,17 @@
 				<a href="#" class="btn btn-success" >Läs mer..</a>
 			</a>
 	</div>	
-<div class="view view-first"> 
-<div class="view">  
-     <img src="img/lasagne1.jpg" />  
-     <div class="mask">  
-     <h2 class="rubrik">Pastagratäng med kyckling</h2>
-     <br>  
-     <p>Är du sugen på en härlig gratäng? Testa att laga till en riktigt krämig pastagratäng med kyckling. Servera pastagratängen varm tillsammans med en krispig och god sallad. Mättande, matigt och supergott!</p>  
-         <a href="#" class="info" >Läs mer..</a>
-     </div>  
-</div>  
+	<div class="view view-first"> 
+		<div class="view">
+			<img src="img/lasagne1.jpg">  
+				<div class="mask">
+					<h2 class="rubrik">Pastagratäng med kyckling</h2>
+					<br>
+					<p>Är du sugen på en härlig gratäng? Testa att laga till en riktigt krämig pastagratäng med kyckling. Servera pastagratängen varm tillsammans med en krispig och god sallad. Mättande, matigt och supergott!</p>  
+					<a href="#" class="info" >Läs mer..</a>
+				</div>  
+		</div>
+	</div>
 
 		<!-- Footer -->
 		<?php include 'includes/footer.php'; ?>
