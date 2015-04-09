@@ -5,29 +5,29 @@
 						<div class="col-md-2"></div>
 						<div class="col-md-8">
 							<div class="well well-lg main-section">
-								<h1>Ändra uppgifter</h1>
+								<h1>Byta lösenord</h1>
 								<div class="row">
 									<div class="col-md-12">
-										<form action="update-settings.php" method="post" class="form-horizontal">
+										<form action="" method="post" class="form-horizontal">
 											<fieldset>
 												<div class="form-group">
-													<label for="fullname" class="col-md-2 control-label">Namn:</label>
+													<label for="oldpass" class="col-md-2 control-label">Nuvarande lösenord:</label>
 													<div class="col-md-10">
-														<input type="text" name="fullname" id="fullname" value="<?php echo $user->data()->fullname; ?>" class="form-control">
+														<input type="text" name="fullname" id="oldpass" value="**********" class="form-control">
+													</div>
+													<div class="form-group">
+													<label for="newpass" class="col-md-2 control-label">Nytt lösenord:</label>
+													<div class="col-md-10">
+														<input type="text" name="fullname" id="newpass" value="**********" class="form-control">
 													</div>
 												</div>
 												<div class="form-group">
-													<label for="email" class="col-md-2 control-label">E-post:</label>
+													<label for="repnewpass" class="col-md-2 control-label">Repetera nytt lösenord:</label>
 													<div class="col-md-10">
-														<input type="email" name="email" id="email" value="<?php echo $user->data()->email; ?>" class="form-control">
+														<input type="email" name="email" id="repnewpass" value="**********" class="form-control">
 													</div>
 												</div>
-												<div class="center">
-													<div class="checkbox">
-														<input type="checkbox" name="newsletter" id="newsletter" checked>
-														<label for="newsletter" class="control-label">Ta emot nyhetsbrev från <a href="">Vad ska jag laga?</a></label>
-													</div>
-												</div>
+												
 												<br><br><br>
 												<div class="center">
 													<button type="submit" class="btn btn-success"><span class="fa fa-check"></span> Spara</button>
