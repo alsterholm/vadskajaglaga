@@ -14,7 +14,7 @@
 									<div class="col-md-12 choices">
 										<div class="ing">
 											<label>Valda ingredienser</label>
-											<p id="chosen-ingredients"></p>
+											<div id="chosen-ingredients"></div>
 										</div>
 										<div class="btn-search">
 											<button class="btn btn-success btn-search-btn">Sök recept <span class="fa fa-search btn-search-icon"></span></button>
@@ -27,3 +27,13 @@
 				</div>
 			</section>
 		</header>
+
+		<script>
+			var ingredients = [
+				<?php
+					foreach(Ingredient::all() as $ingredient) {
+						echo '{ id: "' . $ingredient->id . '", value: "' . $ingredient->name . '", bgcolor: "' . $ingredient->bgcolor . '", fgcolor: "' . $ingredient->fgcolor . '" },';
+					}
+				?>
+			]
+		</script>

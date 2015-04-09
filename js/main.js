@@ -3,15 +3,6 @@
 			});
 
 			var registerClicked = false;
-			var ingredients = [
-			   { value: "Potatis" },
-			   { value: "Rödlök" },
-			   { value: "Gul paprika" },
-			   { value: "Röd paprika" },
-			   { value: "Kyckling" },
-			   { value: "Nötfärs" },
-			   { value: "Falukorv" }
-			];
 
 			$('#ingredients').autocomplete ({
 			    lookup: ingredients,

@@ -23,7 +23,6 @@
 <?php
 
 	$user = new User();
-	$token = Token::generate();
 
 ?>
 

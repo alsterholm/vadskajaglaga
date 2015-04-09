@@ -9,10 +9,8 @@ if(!$user->isLoggedIn()){
 
 if(Input::exists()){
 	if(Token::check(Input::get('token'))){
-
 		$validate = new Validate();
-		echo Input::get('email');
-		echo $user->data()->email;
+
 		if(!Input::get('email') ==  $user->data()->email){
 			$validation = $validate->check($_POST, array(
 				'fullname' => array(
@@ -42,7 +40,6 @@ if(Input::exists()){
 
 		}
 		if($validation->passed()){
-				Redirect::to('abc.php');
 
 			try{
 				$user->update(array(
