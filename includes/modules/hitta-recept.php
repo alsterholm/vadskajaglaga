@@ -15,9 +15,13 @@
 										<div class="ing">
 											<label>Valda ingredienser</label>
 											<div id="chosen-ingredients"></div>
+											
 										</div>
 										<div class="btn-search">
-											<button class="btn btn-success btn-search-btn">Sök recept <span class="fa fa-search btn-search-icon"></span></button>
+											<form action="sokresultat.php" method="post">
+												<input type="hidden" name="ingr_ids" id="ingr_ids">
+												<button class="btn btn-success btn-search-btn">Sök recept <span class="fa fa-search btn-search-icon"></span></button>
+											</form>
 										</div>
 									</div>
 								</fieldset>
