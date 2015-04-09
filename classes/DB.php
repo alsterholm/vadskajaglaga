@@ -95,6 +95,11 @@
 
 					}
 				}	
+			} else {
+				$sql = "{$action} FROM {$table}";
+				if (!$this->query($sql)->error()) {
+					return $this;
+				}
 			}
 			return false;
 
@@ -109,6 +114,13 @@
 		*/
 		public function get($table, $where){
 			return $this->action('SELECT *', $table, $where);
+		}
+
+		/**
+		Funtkion för att hämta samtliga värden ur en specifik tabell.
+		*/
+		public function getAll($table) {
+			return $this->action('SELECT *', $table);
 		}
 
 		/**
