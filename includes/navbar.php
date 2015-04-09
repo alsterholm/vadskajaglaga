@@ -25,7 +25,7 @@
 				} else {
 ?>
 						<ul class="nav navbar-nav navbar-right">
-							<li><a href="#" data-toggle="modal" data-target="#login-modal"><span class="glyphicon glyphicon-user"></span> Logga in</a></li>
+							<li><a href="logga-in.php"><span class="glyphicon glyphicon-user"></span> Logga in</a></li>
 						</ul>
 <?php
 				}

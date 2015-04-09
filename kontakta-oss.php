@@ -34,19 +34,9 @@
 
 		<!-- Main function -->
 		<?php include 'includes/modules/kontakta-oss.php'; ?> 
-
 		
 		<!-- Footer -->
 		<?php include 'includes/footer.php'; ?>
-
-
-		<!-- Modals -->
-			<!-- Login-modal -->
-			<?php include 'modals/login.php'; ?>
-
-			<!-- Register-modal -->
-			<?php include 'modals/register.php'; ?>
-
 
 		<!-- JavaScript-links -->
 		<?php include 'includes/data/js-links.php'; ?>
