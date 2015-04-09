@@ -24,9 +24,9 @@
 													</div>
 												</div>
 												<div class="center">
-													<div class="checkbox">
+													<div class="checkbox disabled">
 														<input type="checkbox" name="newsletter" id="newsletter" disabled="" checked>
-														<label for="newsletter" class="control-label">Ta emot nyhetsbrev från <a href="">Vad ska jag laga?</a></label>
+														<label for="newsletter" class="control-label">Ta emot nyhetsbrev från Vad ska jag laga?</label>
 													</div>
 												</div>
 												<br><br><br>
