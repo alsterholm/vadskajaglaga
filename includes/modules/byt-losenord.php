@@ -53,36 +53,27 @@ if(Input::exists()){
 			<section class="header">
 				<div class="container">
 					<div class="row">
-						<div class="col-md-2"></div>
-						<div class="col-md-8">
+						<div class="col-md-3"></div>
+						<div class="col-md-6">
 							<div class="well well-lg main-section">
-								<h1>Byta lösenord</h1>
+								<h1>Byt lösenord</h1>
 								<div class="row">
 									<div class="col-md-12">
 										<form action="" method="post" class="form-horizontal">
 											<fieldset>
-												<div class="form-group">
-													<label for="password_current" class="col-md-2 control-label">Nuvarande lösenord:</label>
-													<div class="col-md-10">
-														<input type="password" name="password_current" id="password_current" placeholder="**********" autocomplete="off" class="form-control">
-													</div>
-													<div class="form-group">
-													<label for="password_new" class="col-md-2 control-label">Nytt lösenord:</label>
-													<div class="col-md-10">
-														<input type="password" name="password_new" id="password_new" placeholder="**********" autocomplete="off" class="form-control">
-													</div>
-												</div>
-												<div class="form-group">
-													<label for="password_new_again" class="col-md-2 control-label">Repetera nytt lösenord:</label>
-													<div class="col-md-10">
-														<input type="password" name="password_new_again" id="password_new_again" placeholder="**********" autocomplete="off" class="form-control">
-													</div>
-												</div>
-												
-												<br><br><br>
+												<label for="pw_cur">Nuvarande lösenord:</label>
+												<input type="password" name="password_current" id="pw_cur" class="form-control">
+												<br>
+												<label for="pw_new">Nytt lösenord:</label>
+												<input type="password" name="password_new" id="pw_new" class="form-control">
+												<div style="margin-top: 10px"></div>
+												<label for="pw_new_r">Upprepa nytt lösenord:</label>
+												<input type="password" name="password_new_again" id="pw_new_r" class="form-control">
+												<input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
+												<br><br>
 												<div class="center">
 													<button type="submit" class="btn btn-success"><span class="fa fa-check"></span> Spara</button>
-													<input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
+													<a href="mina-uppgifter.php" class="btn btn-danger" style="margin-left: 120px"><span class="fa fa-close"></span> Tillbaka</a>
 												</div>
 											</fieldset>
 										</form>

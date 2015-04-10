@@ -99,6 +99,7 @@ if(Input::exists()){
 												<br><br><br>
 												<div class="center">
 													<button type="submit" class="btn btn-success"><span class="fa fa-check"></span> Spara</button>
+													<a href="mina-uppgifter.php" class="btn btn-danger" style="margin-left: 120px"><span class="fa fa-close"></span> Tillbaka</a>
 													<input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
 												</div>
 											</fieldset>
