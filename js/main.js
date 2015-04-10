@@ -45,7 +45,7 @@
 					var str = $('#chosen-ingredients').html();
 					if (str.indexOf(ingredient.value) < 0) {
 						$('#ingr_ids').val($('#ingr_ids').val() + ingredient.id + ",");
-						$('#chosen-ingredients').append('<button href="#" class="btn btn-default btn-ingr" id="' + ingredient.id + '" style="color: #' + ingredient.fgcolor + '; background-color: #' + ingredient.bgcolor + ';">' + ingredient.value + '</button>');
+						$('#chosen-ingredients').append('<button href="#" class="btn btn-default btn-ingr" id="' + ingredient.id + '" style="color: ' + ingredient.fgcolor + '; background-color: ' + ingredient.bgcolor + ';">' + ingredient.value + '</button>');
 
 						$('#' + ingredient.id).on('click', function() {
 							$(this).remove();
