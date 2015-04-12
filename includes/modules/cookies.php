@@ -24,11 +24,6 @@
 										Genom att använda <a href="index.php">Vad ska jag laga?</a> och dess funktioner så godkänner du att vi lagrar cookies på din dator. Tyvärr så finns det ingen möjlighet för oss att bedriva
 										hemsidan utan deras hjälp.
 									</p>
-									<br>
-									<h4>Kan cookies ge mig virus?</h4>
-									<p>
-										Nej då! Faktum är att de allra flesta webbplatser använder cookies, till och med <a href="http://www.google.se/">Google</a>!
-									</p> 
 							</div>
 						</div>
 					</div>
