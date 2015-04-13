@@ -82,10 +82,18 @@ h1 {
 	text-align: center;
 }
 
+textarea {
+	resize: none;
+}
+
 .footer {
 	position: relative;
 	padding-top: 50px;
 	text-align: center;
+}
+
+.footer > .container {
+	position: relative;
 }
 
 .footer-left {
