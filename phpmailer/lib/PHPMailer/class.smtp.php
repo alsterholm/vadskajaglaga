@@ -244,6 +244,8 @@ class SMTP
      * @access public
      * @return boolean
      */
+
+    
     public function connect($host, $port = null, $timeout = 30, $options = array())
     {
         static $streamok;

@@ -1,7 +1,8 @@
 <?php
+
 require_once 'lib/PHPMailer/PHPMailerAutoload.php';
 
-$mail = new PHPMailer;
+$mail = new PHPMailer();
 
 $mail->isSMTP(); //vi vill använda smtp
 $mail->SMTPAuth = true; 
@@ -10,8 +11,8 @@ $mail->SMTPDebug = 4; //2=meddelande, 1= meddelande och errorcodes
 $mail->Host = 'smtp.gmail.com';
 $mail->Username = 'testaren7@gmail.com';
 $mail->Password = 'hejhejhej';
-$mail->SMTPSecure = 'ssl';
-$mail->Port = 465;
+$mail->SMTPSecure = 'tls';
+$mail->Port = 587;
 
 $mail->From = 'emil.kicken@gmail.com';
 $mail->FromName = 'Emil Andersson';
