@@ -264,7 +264,7 @@ input[type=checkbox]:checked + label:before { letter-spacing: 8px; } /* allow sp
 	background-color: #EEE;
 }
 
-@media (max-width: 990px) {
+@media (max-width: 767px) {
 	.mob-space {
 		margin-bottom: 10px;
 	}
@@ -272,12 +272,31 @@ input[type=checkbox]:checked + label:before { letter-spacing: 8px; } /* allow sp
 	.footer {
 		display: none;
 	}
+
+	.btn-social {
+		font-size: 16px;
+	}
 }
 
-@media (min-width: 990px) {
+@media (min-width: 768px) {
 	.mob-only {
 		display: none;
 	}
+}
+
+.btn-ingr {
+	border: solid 1px #000;
+	-moz-box-shadow:inset 0px 39px 0px -22px rgba(255, 255, 255, 0.15);
+	-webkit-box-shadow:inset 0px 39px 0px -22px rgba(255, 255, 255, 0.15);
+	box-shadow:inset 0px 39px 0px -22px rgba(255, 255, 255, 0.15);
+}
+
+.well-lg {
+	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+}
+
+.note {
+	color: #444;
 }
 
 .autocomplete-suggestions { border: 1px solid #999; background: #FFF; cursor: default; overflow: auto; -webkit-box-shadow: 1px 4px 3px rgba(50, 50, 50, 0.64); -moz-box-shadow: 1px 4px 3px rgba(50, 50, 50, 0.64); box-shadow: 1px 4px 3px rgba(50, 50, 50, 0.64); }

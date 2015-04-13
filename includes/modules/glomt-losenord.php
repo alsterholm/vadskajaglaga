@@ -5,8 +5,7 @@
 						<div class="col-md-2"></div>
 						<div class="col-md-8">
 							<div class="well well-lg main-section">
-								<h1>Glömt lösenord</h1>
-									
+								<h1>Glömt lösenord</h1>								
 <?php
 								if (Input::exists('get')) {
 									if (Input::get('success') == 'true') {
@@ -31,9 +30,12 @@
 											<div class="col-md-10">
 												<input type="email" name="email" id="email" class="form-control">
 											</div>
-											<br><br><br>
-											<div class="center">
+											<br><br><br><br>
+											<div class="col-xs-6 center">
 												<button type="submit" class="btn btn-success"><span class="fa fa-paper-plane"></span> Skicka</button>
+											</div>
+											<div class="col-xs-6 center">
+												<a href="logga-in.php" class="btn btn-danger"><span class="fa fa-close"></span> Tillbaka</a>
 											</div>
 										</fieldset>
 									</form>

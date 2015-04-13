@@ -15,7 +15,8 @@
 										<div class="ing">
 											<label>Valda ingredienser</label>
 											<div id="chosen-ingredients"></div>
-											
+											<br>
+											<p class="note">Tips! För att ta bort en ingrediens är det bara att klicka på den!</p>
 										</div>
 										<div class="btn-search">
 											<form action="sokresultat.php" method="post">

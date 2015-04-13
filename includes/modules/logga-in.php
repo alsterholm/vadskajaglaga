@@ -6,7 +6,6 @@
 						<div class="col-md-8">
 							<div class="well well-lg main-section">
 								<h1>Logga in</h1>
-
 <?php
 						if (Input::exists('get')) {
 							if (Input::get('login') == 'false') {
@@ -27,7 +26,8 @@
 						}
 ?>
 								<div class="row">
-									<div class="col-md-7">
+									<div class="col-md-2"></div>
+									<div class="col-md-8">
 										<form action="login-router.php" method="post" class="form-horizontal">
 											<fieldset>
 												<div class="row">
@@ -52,17 +52,14 @@
 												<div class="row">
 													<div class="col-md-12">
 														<button type="submit" class="btn btn-success"><span class="fa fa-sign-in"></span> Logga in</button>
-														<a class="btn btn-default" href="registrera.php" id="register"><span class="fa fa-pencil"></span> Registrera dig</a>
+														<a class="btn btn-default right" href="registrera.php" id="register"><span class="fa fa-pencil"></span> Registrera dig</a>
 
 													</div>
 												</div>
+												<br><br>
+												<a class="btn btn-block btn-social btn-lg btn-facebook"><span class="fa fa-facebook"></span> Logga in med Facebook</a>
 											</fieldset>
 										</form>
-									</div>
-									<div class="col-md-5 soc-med">
-										<a class="btn btn-block btn-social btn-lg btn-facebook"><i class="fa fa-facebook"></i> Logga in med Facebook</a>
-										<a class="btn btn-block btn-social btn-lg btn-twitter"><i class="fa fa-twitter"></i> Logga in med Twitter</a>
-										<a class="btn btn-block btn-social btn-lg btn-google-plus"><i class="fa fa-google"></i> Logga in med Google</a>
 									</div>
 								</div>
 							</div>
