@@ -1,6 +1,6 @@
 <?php
-session_start();
 
+session_start();
 
 $GLOBALS['config'] = array(
 	'mysql' => array(
@@ -15,27 +15,33 @@ $GLOBALS['config'] = array(
 	),
 	'session' => array(
 		'session_name' => 'user',
-		'token_name' => 'token'
+		'token_name' => 'token',
+		'facebook' => ''
 	)
 );
 
 spl_autoload_register(function($class) {
-	require_once 'classes/' . $class . '.php';
+	if (file_exists('classes/' . $class . '.php')) {
+		require_once 'classes/' . $class . '.php';
+	}
 });
 
 require_once 'functions/general.php';
 
 // Kontrollerar ifall användaren valt att bli ihågkommen, och loggar i så fall in denne.
 
-if(Cookie::exists(Config::get('remember/cookie_name')) && !Session::exists(Config::get('session/session_name'))){
+if (Cookie::exists(Config::get('remember/cookie_name')) && !Session::exists(Config::get('session/session_name'))) {
 	$hash = Cookie::get(Config::get('remember/cookie_name'));
 	$hashCheck = DB::getInstance()->get('users_session', array('hash', '=', $hash));
 
-	if($hashCheck->count()){
+	if ($hashCheck->count()) {
 		$user = new User($hashCheck->first()->user_id);
 		$user->login();
 	}
-
+} else if (Session::exists(Config::get('session/facebook'))) {
+	$request = new FacebookRequest(Session::get(Config::get('session/facebook')), 'POST', '/me');
+	$response = $request->execute();
+	$graph = $response->getGraphObject(Graphuser::classname());
 }
 
 ?>

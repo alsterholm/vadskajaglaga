@@ -20,9 +20,7 @@
 <?php
 
 	$user = new User();
-	if (!Input::exists('get')) {
-		$token = Token::generate();
-	}
+	$token = Token::generate();
 ?>
 
 
