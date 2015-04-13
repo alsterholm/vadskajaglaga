@@ -30,10 +30,10 @@
 													</div>
 												</div>
 												<br><br><br>
-												<div class="col-xs-6 center">
-													<a href="andra-uppgifter.php" class="btn btn-success"><span class="fa fa-pencil"></span> Ändra uppgifter</a>
+												<div class="col-sm-6 center">
+													<a href="andra-uppgifter.php" class="btn btn-success mob-space"><span class="fa fa-pencil"></span> Ändra uppgifter</a>
 												</div>
-												<div class="col-xs-6 center">
+												<div class="col-sm-6 center">
 													<a href="byt-losenord.php" class="btn btn-danger"><span class="fa fa-lock"></span> Byt lösenord</a>
 												</div>
 											</fieldset>
