@@ -32,7 +32,14 @@
 						</ul>
 <?php
 				}
-?>
+?>					
+						<ul class="nav navbar-nav navbar-right mob-only">
+							<li role="presentation" class="divider"></li>
+							<li role="presentation"><a href="om-oss.php"><span class="fa fa-users"></span> Om oss</a></li>
+							<li role="presentation"><a href="regler-och-villkor.php"><span class="fa fa-book"></span> Regler och villkor</a></li>
+							<li role="presentation"><a href="cookies.php"><span class="fa fa-info"></span> Cookiepolicy</a></li>
+							<li role="presentation"><a href="kontakta-oss.php"><span class="fa fa-envelope"></span> Kontakta oss</a></li>
+						</ul>
 					</div>
 				</div>
 			</nav>
