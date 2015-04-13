@@ -260,6 +260,10 @@ input[type=checkbox]:checked + label:before { letter-spacing: 8px; } /* allow sp
 	.mob-space {
 		margin-bottom: 10px;
 	}
+
+	.footer {
+		display none;
+	}
 }
 
 
