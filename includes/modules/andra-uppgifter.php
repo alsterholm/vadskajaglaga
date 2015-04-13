@@ -96,11 +96,13 @@ if(Input::exists()){
 														<label for="newsletter" class="control-label">Ta emot nyhetsbrev från <a href="">Vad ska jag laga?</a></label>
 													</div>
 												</div>
+												<input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
 												<br><br><br>
-												<div class="center">
+												<div class="col-md-6 center">
 													<button type="submit" class="btn btn-success"><span class="fa fa-check"></span> Spara</button>
-													<a href="mina-uppgifter.php" class="btn btn-danger" style="margin-left: 120px"><span class="fa fa-close"></span> Tillbaka</a>
-													<input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
+												</div>
+												<div class="col-md-6 center">
+													<a href="mina-uppgifter.php" class="btn btn-danger"><span class="fa fa-close"></span> Tillbaka</a>
 												</div>
 											</fieldset>
 										</form>

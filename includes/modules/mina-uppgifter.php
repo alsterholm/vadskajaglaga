@@ -33,8 +33,7 @@
 												<div class="col-md-6 center">
 													<a href="andra-uppgifter.php" class="btn btn-success"><span class="fa fa-pencil"></span> Ändra uppgifter</a>
 												</div>
-												<div class="col-md-1"></div>
-												<div class="col-md-5 center">
+												<div class="col-md-6 center">
 													<a href="byt-losenord.php" class="btn btn-danger"><span class="fa fa-lock"></span> Byt lösenord</a>
 												</div>
 											</fieldset>
