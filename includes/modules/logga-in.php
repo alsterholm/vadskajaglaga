@@ -57,7 +57,7 @@
 													</div>
 												</div>
 												<br><br>
-												<a class="btn btn-block btn-social btn-lg btn-facebook"><span class="fa fa-facebook"></span> Logga in med Facebook</a>
+												<a href="#" class="btn btn-block btn-social btn-lg btn-facebook"><span class="fa fa-facebook"></span> Logga in med Facebook</a>
 											</fieldset>
 										</form>
 									</div>

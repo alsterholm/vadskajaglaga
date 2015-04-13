@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+
 $GLOBALS['config'] = array(
 	'mysql' => array(
 		'host' => '127.0.0.1',
@@ -18,13 +19,13 @@ $GLOBALS['config'] = array(
 	)
 );
 
-spl_autoload_register(function($class){
+spl_autoload_register(function($class) {
 	require_once 'classes/' . $class . '.php';
 });
 
 require_once 'functions/general.php';
 
-// Kontrollerar ifall användaren redan är inloggad vid start, ochi såfall behöver man inte logga in.
+// Kontrollerar ifall användaren valt att bli ihågkommen, och loggar i så fall in denne.
 
 if(Cookie::exists(Config::get('remember/cookie_name')) && !Session::exists(Config::get('session/session_name'))){
 	$hash = Cookie::get(Config::get('remember/cookie_name'));
