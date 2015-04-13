@@ -96,6 +96,7 @@
 								'ip' => $_SERVER['REMOTE_ADDR'],
 								'time' => date('Y-m-d H:i:s')
 							));
+							
 							Cookie::put($this->_cookieName, $hash, Config::get('remember/cookie_expiry'));
 						}
 						return true;

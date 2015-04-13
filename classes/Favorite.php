@@ -1,6 +1,6 @@
 <?php
 
-	class Favorite() {
+	class Favorite {
 
 		public static function get() {
 			$user = new User();
