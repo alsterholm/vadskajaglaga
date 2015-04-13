@@ -6,7 +6,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
     	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<title>Hitta recept - Vad ska jag laga?</title>
+		<title>Favoritrecept - Vad ska jag laga?</title>
 
 		<link rel="icon" type="image/png" href="img/icon.png">
 
@@ -20,7 +20,6 @@
 <?php
 	$user = new User();
 	$token = Token::generate();
-
 ?>
 
 	<body>

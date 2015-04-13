@@ -7,7 +7,7 @@
 					<div class="col-md-8">
 						<div class="list-group">
 							<div class="well well-lg main-section">
-								<h1> Sökresultat: </h1>
+								<h1>Sökresultat</h1>
 									<?php
 										if (Input::exists()) {
 											$ingredients = explode(',', Input::get('ingr_ids'));
@@ -40,8 +40,7 @@
 																	<h4 class="list-group-item-heading">'. $recipe->name . '</h4>
 																</a>
 																<p class="list-group-item-text">' . $recipe->description . '</p>
-																<h6><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Tid: Ca ' . $recipe->time . ' minuter</h6>
-																<h6 style="float:right"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> ' . Rating::get($recipe->id) . '/5</h6>
+																<h6><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Tid: Ca ' . $recipe->time . ' minuter <span class="right"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> ' . Rating::get($recipe->id) . '/5</span></h6>
 															</div>
 														</div>
 													';
