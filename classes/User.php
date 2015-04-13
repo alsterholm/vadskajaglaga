@@ -94,7 +94,7 @@
 							$this->_db->insert('ip_log', array(
 								'user' => $this->_data->id,
 								'ip' => $_SERVER['REMOTE_ADDR'],
-								'time' => date('Y-m-d H:i:s');
+								'time' => date('Y-m-d H:i:s')
 							));
 							Cookie::put($this->_cookieName, $hash, Config::get('remember/cookie_expiry'));
 						}
