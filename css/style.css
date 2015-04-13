@@ -27,13 +27,14 @@ h1 {
 
 .header {
 	background-image: url('../img/header.jpg');
-	min-height: 400px;
+	min-height: 700px;
 	max-height: 700px;
 	padding-bottom: 40px;
 	height: auto;
 }
 
 .main-section {
+	display: none;
 	margin-top: 8% !important;
 	border-radius: 5px;
 }
