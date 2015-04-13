@@ -10,6 +10,9 @@
 						<a class="navbar-brand" href="index.php">Vad ska jag laga?</a>
 					</div>
 					<div class="collapse navbar-collapse">
+						<ul class="nav navbar-nav">
+							<li role="presentation" id="findrecipe"><a href="index.php"><span class="fa fa-search"></span> Hitta recept</a></li>
+						</ul>
 <?php
 				if ($user->isLoggedIn()) {
 					$fullname = $user->data()->fullname;

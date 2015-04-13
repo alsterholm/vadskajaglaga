@@ -10,21 +10,25 @@
 								<div class="row">
 									<div class="col-md-12">
 										<?php
-											foreach (Favorite::get() as $favorite) {
-												$recipe = new Recipe($favorite->recipe_id);
-												echo'
-													<a href="recipe.php?id=' . $recipe->data()->id . '">
-														<div class="row favrecipe">
-															<div class="col-md-2">
-																<img src="img/recipe/' . $recipe->data->id . '" class="img-responsive">
+											if (Favorite::exists()) {
+												foreach (Favorite::get() as $favorite) {
+													$recipe = new Recipe($favorite->recipe_id);
+													echo'
+														<a href="recipe.php?id=' . $recipe->data()->id . '">
+															<div class="row favrecipe">
+																<div class="col-md-2">
+																	<img src="img/recipe/' . $recipe->data->id . '" class="img-responsive">
+																</div>
+																<div class="col-md-10">
+																	<h2>' . $recipe->data()->name . '</h2>
+																	<p>' . $recipe->data()->description . '</p>
+																</div>
 															</div>
-															<div class="col-md-10">
-																<h2>' . $recipe->data()->name . '</h2>
-																<p>' . $recipe->data()->description . '</p>
-															</div>
-														</div>
-													</a>
-												';
+														</a>
+													';
+												}
+											} else {
+												echo '<div class="center">Du har inte lagt till några favoritrecept!';
 											}
 										?>
 										</div>
