@@ -27,22 +27,23 @@
 												if ($valid) {
 													$results = 1;
 
-													echo '<div class="list-group-item">
-																<div class="row">
-																	<div class="col-md-3">
-																	<a href="recept.php?id=' . $recipe->id . '" class="thumbnail">
-																		<img class="img-responsive" src="img/recipes/' . $recipe->id . '.jpg" title="' . $recipe->name . '">
-																	</a>
-																</div>
-																<div class="col-md-9">
-																	<a href="recept.php?id=' . $recipe->id . '">
-																		<h4 class="list-group-item-heading">'. $recipe->name . '</h4>
-																	</a>
-																	<p class="list-group-item-text">' . $recipe->description . '</p>
-																	<h6><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Tid: Ca ' . $recipe->time . ' minuter</h6>
-																	<h6 style="float:right"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> ' . Rating::get($recipe->id) . '/5</h6>
-																</div>
+													echo '
+														<div class="list-group-item">
+															<div class="row">
+																<div class="col-md-3">
+																<a href="recept.php?id=' . $recipe->id . '" class="thumbnail">
+																	<img class="img-responsive" src="img/recipes/' . $recipe->id . '.jpg" title="' . $recipe->name . '">
+																</a>
 															</div>
+															<div class="col-md-9">
+																<a href="recept.php?id=' . $recipe->id . '">
+																	<h4 class="list-group-item-heading">'. $recipe->name . '</h4>
+																</a>
+																<p class="list-group-item-text">' . $recipe->description . '</p>
+																<h6><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Tid: Ca ' . $recipe->time . ' minuter</h6>
+																<h6 style="float:right"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> ' . Rating::get($recipe->id) . '/5</h6>
+															</div>
+														</div>
 													';
 												}							
 											}
