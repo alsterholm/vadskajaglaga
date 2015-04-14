@@ -12,22 +12,24 @@
 							</div>
 							<br>
 								<p class="lead"><small>En stor, mättande pastagratäng som är extra festlig. Använd gärna mafaldinepasta, som är vacker och bitig! Går utmärkt att frysa in till matlådan. Lägg till lite grädde för extra krämighet!</small></p>
-								<div class="recipe-time">
-									<span class="glyphicon glyphicon-time" aria-hidden="true"></span> Tid: Ca 45 minuter
+								<div class="row">
+									<div class="recipe-time">
+										<span class="glyphicon glyphicon-time" aria-hidden="true"></span> Tid: Ca 45 minuter
+									</div>
+									<div class="right">
+										<button type="button" class="btn btn-default" aria-label="left align" data-toggle="tooltip" data-placement="top" title="Lägg till i favoriter">
+											<span class="glyphicon glyphicon-heart-empty"></span>
+										</button>
+										<button type="button" class="btn btn-default" aria-label="left align" data-toggle="tooltip" data-placement="top" title="Spara som PDF">
+											<span class="fa fa-file-pdf-o"></span>
+										</button>
+										<button type="button" class="btn btn-default" aria-label="left align" data-toggle="tooltip" data-placement="top" title="Skriv ut">
+											<span class="glyphicon glyphicon-print"></span>
+										</button>
+										<br>
+									</div>
 								</div>
-								<div class="recipe-actions">
-									<button type="button" class="btn btn-default" aria-label="left align" data-toggle="tooltip" data-placement="top" title="Lägg till i favoriter">
-										<span class="glyphicon glyphicon-heart-empty"></span>
-									</button>
-									<button type="button" class="btn btn-default" aria-label="left align" data-toggle="tooltip" data-placement="top" title="Spara som PDF">
-										<span class="fa fa-file-pdf-o"></span>
-									</button>
-									<button type="button" class="btn btn-default" aria-label="left align" data-toggle="tooltip" data-placement="top" title="Skriv ut">
-										<span class="glyphicon glyphicon-print"></span>
-									</button>
-									<br>
-									<hr>
-								</div>
+								<hr>
 								<div class="row">
 									<div class="col-md-4">
 									<h1> Ingredienser </h1>
