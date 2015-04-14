@@ -51,9 +51,14 @@
 								}
 							break;
 							case 'alphabetical':
-							if(preg_match('/^[A-ZÅÄÖa-zåäö ]+$/', $value) == false){
-								$this->addError("{$item} felformaterat.");
-							}
+								if(preg_match('/^[A-ZÅÄÖa-zåäö ]+$/', $value) == false){
+									$this->addError("{$item} felformaterat.");
+								}
+							break;
+							case 'numerical':
+								if (!is_numeric($value)) {
+									$this->addError("{$item} är inget nummer}");
+								}
 							break;
 						}
 					}

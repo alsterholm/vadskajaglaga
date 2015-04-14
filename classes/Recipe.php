@@ -40,6 +40,14 @@
 				throw new Exception('Receptfel!');
 			}
 		}
+
+		public static function suggestion($fields = array()) {
+			$db = DB::getInstance();
+
+			if (!$db->insert('recipe_sugs', $fields)) {
+				throw new Exception('Receptfel!');
+			}
+		}
 	}
 
 ?>

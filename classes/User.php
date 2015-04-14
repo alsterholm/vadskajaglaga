@@ -132,6 +132,13 @@
 			return $this->_isLoggedIn;
 		}
 
+		public static function all() {
+			$db = DB::getInstance();
+			$db->getAll('users');
+
+			return $db->results();
+		}
+
 	}
 
 ?>
