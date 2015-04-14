@@ -7,7 +7,7 @@
 							<div class="well well-lg main-section">
 								<fieldset>
 									<h1>Kontakta oss</h1>
-<?php
+							<?php
 
 								if ($user->isLoggedIn()) {
 									$fullname = $user->data()->fullname;
@@ -30,24 +30,53 @@
 										if (Input::exists()) {
 											if (Token::check(Input::get('token'))) {
 
-												//validera input
+												$validate = new Validate();
+												$validation = $validate->check($_POST, array(
+													'email' => array(
+														'required' => true,
+														'email' => true
+													),
+													'fullname' => array(
+														'required' => true,
+														'min' => 2,
+														'max' => 50,
+														'fullname' => true,
+														'alphabetical' => true
+													),
+													'message' => array(
+														'required' => true
+													)
+												));
 
-												$fullname = escape(Input::get('fullname'));
-												$email = escape(Input::get('email'));
-												$message = nl2br(escape(Input::get('message')));
+												if ($validation->passed()) {
+													$message = new Message();
 
-												//skicka mail till kontakt@vadskajaglaga.se
+													try {
+														$message->create(array(
 
-												Redirect::to('kontakta-oss.php?go=success');
+															'email' => Input::get('email'),
+															'fullname' => Input::get('fullname'),
+															'message' => Input::get('message')
+
+														));
+														
+														Redirect::to('kontakta-oss.php?go=success');
+
+													} catch (Exception $e) {
+														Redirect::to(500);
+													}
+												} else {
+													//fixa error-hantering på registrera.php
+													echo 'Valideringsfel';
+													
+												}
 											} else {
 												Redirect::to(404);
 											}
-										} else {
-											Redirect::to(404);
-										}
+										} 
 									}
 								} else {
-?>
+							?>
 									<p>
 										Är det något du undrar över, eller har du märkt att det finns ett recept som på något sätt bryter mot <a href="regler-och-villkor.php" title="Regler &amp; villkor">reglerna</a>?
 										Kanske vill du rent av bara tipsa oss om något? Då får du mer än gärna skriva till oss och berätta!
@@ -60,12 +89,12 @@
 													<legend>Kontaktformulär</legend>
 													<label for="fullname" class="col-md-2 control-label">Namn:</label>
 													<div class="col-md-10">
-														<input type="text" name="fullname" id="fullname" value="<?php echo $fullname; ?>" <?php if ($user->isLoggedIn()) { echo 'disabled=""'; } ?> class="form-control" required>
+														<input type="text" name="fullname" id="fullname" value="<?php echo $fullname; ?>" <?php if ($user->isLoggedIn()) { echo 'readonly'; } ?> class="form-control" required>
 													</div>
 													<br><br>
 													<label for="email" class="col-md-2 control-label">E-post:</label>
 													<div class="col-md-10">
-														<input type="email" name="email" id="email" value="<?php echo $email; ?>" <?php if ($user->isLoggedIn()) { echo 'disabled=""'; } ?> class="form-control" required>
+														<input type="email" name="email" id="email" value="<?php echo $email; ?>" <?php if ($user->isLoggedIn()) { echo 'readonly'; } ?> class="form-control" required>
 													</div>
 													<br><br>
 													<label for="message" class="col-md-2 control-label">Meddelande:</label>
