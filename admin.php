@@ -122,6 +122,10 @@
 						include 'admin/modules/start.php';
 					}
 				?>
+
+				<div class="mob-only">
+					Administratörspanelen är inaktiverad för mobila enheter.
+				</div>
 			</div>
 
 			<script>
