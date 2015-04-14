@@ -34,7 +34,6 @@
 
 		<!-- Main function -->
 		<?php include 'includes/modules/skicka-in.php'; ?> 
-
 		
 		<!-- Footer -->
 		<?php include 'includes/footer.php'; ?>
