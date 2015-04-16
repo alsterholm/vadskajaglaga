@@ -316,15 +316,19 @@ input[type=checkbox]:checked + label:before { letter-spacing: 8px; } /* allow sp
 
 .recipe-name{
 	text-decoration: underline;
+	text-align: center;
+	font-family: "Lobster", sans-serif;
+	font-size: 40px;
+	margin-bottom: 20px;
 }
 
 .recipe-actions{
-	text-align: right;
+	text-align: center;
 }
 
 .recipe-time{
-	float: left;
-	margin-top: 7px;
+	margin: 10px;
+	text-align: center;
 }
 
 .lead{
@@ -353,6 +357,16 @@ input[type=checkbox]:checked + label:before { letter-spacing: 8px; } /* allow sp
 
 .table > tbody > tr:hover {
 	background-color: rgba(0, 0, 0, 0.05);
+}
+
+.recipe-pic{
+	margin-bottom: 50px;
+	margin-top: 10px;
+	height: 150px;
+	width: auto;
+	padding:1px;
+ 	border:1px solid #fff;
+ 	position: relative;
 }
 
 .autocomplete-suggestions { border: 1px solid #999; background: #FFF; cursor: default; overflow: auto; -webkit-box-shadow: 1px 4px 3px rgba(50, 50, 50, 0.64); -moz-box-shadow: 1px 4px 3px rgba(50, 50, 50, 0.64); box-shadow: 1px 4px 3px rgba(50, 50, 50, 0.64); }

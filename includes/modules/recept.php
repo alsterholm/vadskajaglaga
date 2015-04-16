@@ -6,18 +6,13 @@
 					<div class="col-md-8">
 						<div class="list-group">
 							<div class="well well-lg main-section">
-								<h1 class="recipe-name"> Pastagratäng </h1>
-							<div class="center">
-								<img src="img/pastagratang.jpg" alt="Pastagratäng" class="img-thumbnail">
-							</div>
-							<br>
-								<p class="lead"><small>En stor, mättande pastagratäng som är extra festlig. Använd gärna mafaldinepasta, som är vacker och bitig! Går utmärkt att frysa in till matlådan. Lägg till lite grädde för extra krämighet!</small></p>
-								<div class="row">
+								<div class="col-xs-8">
+									<p class="recipe-name"> Spagetti och köttfärsås </p>
 									<div class="recipe-time">
 										<span class="glyphicon glyphicon-time" aria-hidden="true"></span> Tid: Ca 45 minuter
 									</div>
-									<div class="right">
-										<button type="button" class="btn btn-default" aria-label="left align" data-toggle="tooltip" data-placement="top" title="Lägg till i favoriter">
+									<div class="recipe-actions">
+										<button type="button" class="btn btn-default" aria-label="left align" data-toggle="tooltip" data-placement="top" title="Lägg till i favoritrecept">
 											<span class="glyphicon glyphicon-heart-empty"></span>
 										</button>
 										<button type="button" class="btn btn-default" aria-label="left align" data-toggle="tooltip" data-placement="top" title="Spara som PDF">
@@ -26,38 +21,36 @@
 										<button type="button" class="btn btn-default" aria-label="left align" data-toggle="tooltip" data-placement="top" title="Skriv ut">
 											<span class="glyphicon glyphicon-print"></span>
 										</button>
-										<br>
 									</div>
 								</div>
-								<hr>
+								<div class="col-xs-3">
+									<img src="img/spagetti.jpg" class="recipe-pic">
+								</div>
 								<div class="row">
 									<div class="col-md-4">
 									<h1> Ingredienser </h1>
 										<ul>
-											<li>1st gullök</li>
-											<li>3st vitlöksklyftor</li>
-											<li>1st morot</li>
-											<li>400 gram nötfärs</li>
+											<li>400 g köttfärs</li>
+											<li>1 st gullök</li>
+											<li>1 st vitlöksklyfta</li>
+											<li>2 msk smör/rapsolja</li>
+											<li>1/2 köttbuljong</li>
+											<li>3/4 vispgrädde</li>
+											<li>1⁄2 dl rött vin</li>
 											<li>400 gram krossade tomater</li>
-											<li>5st soltorkade tomater</li>
-											<li>5st sardellfiléer i olja (kan uteslutas)</li>
-											<li>4 msk  balsamvinäger</li>
-											<li>500 gram  pasta</li>
-											<li>1 burk(ar) crème fraiche</li>
-											<li>1 burk(ar)  keso naturell</li>
-											<li>2 dl  riven parmesan</li>
-											<li> Salt och peppar efter smak!</li>
+											<li>1/2 tesked strösocker</li>
+											<li> Riven ost</li>
 										</ul>
 									</div>
 									<div class="col-md-8">
 									<h1> Tillagning:</h1>
 										<ol class="recipe-diretions">
-										    <li>Hacka löken, pressa vitlöken och riv moroten. Fräs tillsammans med nötfärsen i en gryta.</li>
-										    <li>Tillsätt krossade tomater och finhackade soltorkade tomater. Låt puttra under lock i 10 minuter.</li>
-										    <li>Koka upp vatten till pastan. Mosa sardellfiléerna med en gaffel och tillsätt i grytan tillsammans med balsamvinägern. Smaka av med salt och peppar och låt gärna puttra i 10 minuter till.</li>
-										    <li>Sätt ugnen på 225 grader. Koka pastan al dente. Sila bort vattnet och blanda pastan med crème fraiche, keso och örter.</li>
-										    <li>Varva pasta, köttfärs och parmesanost i en stor, ugnsfast form. Salta och peppra mellan varven och avsluta med ett lager ost.</li>
-										    <li>Gratinera i 15-20 minuter, tills gratängen fått fin färg. Servera med en god sallad!</li>
+										    <li>Skala och hacka lök och vitlök fint. Fräs den i smör-&rapsolja någon min. Lägg i köttfärsen, salta, peppra och bryn den. </li>
+										    <li>Tillsätt vin och smulad buljongtärning. Låt koka på medelvärme 5 min. Rör om då och då.</li>
+										    <li>Häll i grädde och låt koka ytterligare 5 min. Tillsätt tomater och socker. Låt såsen koka under lock minst 30 min.</li>
+										    <li>Rör om då och då, häll i lite vatten om den blir torr.</li>
+										    <li>Koka pastan enligt anvisning på förpackningen. Häll av pastan och blanda med köttfärssåsen. Servera med riven ost.</li>
+										   
 									  	</ol>
 									</div>
 								</div>
