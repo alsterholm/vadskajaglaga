@@ -11,20 +11,6 @@
 			    }
 			});
 
-			
-
-			$('#register').on('click', function() {
-				registerClicked = true;
-				$('#login-modal').modal('hide');
-			});
-
-			$('#login-modal').on('hidden.bs.modal', function() {
-				if (registerClicked) {
-					$('#register-modal').modal('show');
-					registerClicked = false;
-				}
-			})
-
 			$('#add-ingredient').on('click', function() {
 				addIngr();
 			});

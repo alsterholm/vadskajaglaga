@@ -3,13 +3,13 @@ require_once 'core/init.php';
 
 $user = new User();
 
-if(!$user->isLoggedIn()){
+if (!$user->isLoggedIn()) {
 	Redirect::to('index.php');
 }
 
-if(Input::exists()){
+if (Input::exists()) {
 
-	if(Token::check(Input::get('token'))){
+	if (Token::check(Input::get('token'))) {
 		
 		$validate = new Validate();
 		$validation = $validate->check($_POST, array(
@@ -25,22 +25,22 @@ if(Input::exists()){
 				'matches' => 'password_new')
 		));
 
-		if($validation->passed()){
-			if(Hash::make(Input::get('password_current'), $user->data()->salt) !== $user->data()->password){
+		if ($validation->passed()) {
+			if (Hash::make(Input::get('password_current'), $user->data()->salt) !== $user->data()->password) {
 				echo 'Your current password is wrong';
-			}else{
+			} else {
 				$salt = Hash::salt(32);
 				$user->update(array(
 					'password' => Hash::make(Input::get('password_new'), $salt),
 					'salt' =>$salt
-					));
+				));
 
 				Session::flash('home', 'Your password has been changed!');
 				Redirect::to('mina-uppgifter.php');
 			}
 
-		}else{
-			foreach($validation->errors() as $error){
+		} else {
+			foreach ($validation->errors() as $error) {
 				echo $error, '<br>';
 			}
 		}
