@@ -1,14 +1,28 @@
 <h1>Lägg till recept</h1>
 <br>
+<?php
+	if (Input::exists()) {
+		Recipe::create(array(
+			'name' => Input::get('name'),
+			'description' => Input::get('description'),
+			'instructions' => Input::get('instructions'),
+			'ingredients' => Input::get('ingr'),
+			'amount' => Input::get('amounts'),
+			'time' => Input::get('time')
+		));
+	}
+?>
 <div class="row">
 	<div class="col-md-4">
 		<div class="row">
 			<div class="col-md-12">
-				<input type="text" name="name" class="form-control" placeholder="Receptets namn">
+				<input type="text" name="name" class="form-control" placeholder="Receptets namn" required>
 				<br>
-				<textarea placeholder="Beskrivning" class="form-control"></textarea>
+				<input type="text" name="time" class="form-control" placeholder="Tid för tillagning (i minuter)" required>
 				<br>
-				<textarea placeholder="Instruktioner" class="form-control" rows="14"></textarea>
+				<textarea placeholder="Beskrivning" name="description" class="form-control" required></textarea>
+				<br>
+				<textarea placeholder="Instruktioner" name="instructions" class="form-control" rows="14" required></textarea>
 				<br>
 				<input type="hidden" id="ingr" name="ingr">
 				<input type="hidden" id="amounts" name="amounts">
@@ -21,7 +35,7 @@
 		<div id="ingr-add">
 			<div class="row">
 				<div class="col-md-5">
-					<p>Potatis</p>
+					<p></p>
 				</div>
 				<div class="col-md-7">
 					<div class="input-group">

@@ -13,7 +13,6 @@
 			try {
 				Ingredient::add(array(
 					'name' => Input::get('name'),
-					'unit' => Input::get('unit'),
 					'fgcolor' => Input::get('fgcolor'),
 					'bgcolor' => Input::get('bgcolor')
 				));
