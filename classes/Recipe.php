@@ -48,6 +48,13 @@
 				throw new Exception('Receptfel!');
 			}
 		}
+
+		public static function getSuggestions() {
+			$db = DB::getInstance();
+			$db->getAll('recipe_sugs');
+
+			return $db->results();
+		}
 	}
 
 ?>
