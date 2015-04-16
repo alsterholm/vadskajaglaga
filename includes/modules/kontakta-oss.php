@@ -40,7 +40,6 @@
 														'required' => true,
 														'min' => 2,
 														'max' => 50,
-														'fullname' => true,
 														'alphabetical' => true
 													),
 													'message' => array(
