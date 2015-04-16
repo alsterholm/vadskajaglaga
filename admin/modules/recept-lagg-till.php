@@ -2,57 +2,63 @@
 <br>
 <?php
 	if (Input::exists()) {
+		try {
 		Recipe::create(array(
 			'name' => Input::get('name'),
 			'description' => Input::get('description'),
 			'instructions' => Input::get('instructions'),
 			'ingredients' => Input::get('ingr'),
-			'amount' => Input::get('amounts'),
+			'amounts' => Input::get('amounts'),
 			'time' => Input::get('time')
 		));
+		} catch (Exception $e) {
+			echo $e;
+		}
 	}
 ?>
 <div class="row">
-	<div class="col-md-4">
-		<div class="row">
-			<div class="col-md-12">
-				<input type="text" name="name" class="form-control" placeholder="Receptets namn" required>
-				<br>
-				<input type="text" name="time" class="form-control" placeholder="Tid för tillagning (i minuter)" required>
-				<br>
-				<textarea placeholder="Beskrivning" name="description" class="form-control" required></textarea>
-				<br>
-				<textarea placeholder="Instruktioner" name="instructions" class="form-control" rows="14" required></textarea>
-				<br>
-				<input type="hidden" id="ingr" name="ingr">
-				<input type="hidden" id="amounts" name="amounts">
-				<button class="btn btn-primary" type="submit">Lägg till</button>
+	<form class="form-horizontal" action="" method="post">
+		<div class="col-md-4">
+			<div class="row">
+				<div class="col-md-12">
+					<input type="text" name="name" class="form-control" placeholder="Receptets namn" required>
+					<br>
+					<input type="text" name="time" class="form-control" placeholder="Tid för tillagning (i minuter)" required>
+					<br>
+					<textarea placeholder="Beskrivning" name="description" class="form-control" required></textarea>
+					<br>
+					<textarea placeholder="Instruktioner" name="instructions" class="form-control" rows="14" required></textarea>
+					<br>
+					<input type="hidden" id="ingr" name="ingr">
+					<input type="hidden" id="amounts" name="amounts">
+					<button class="btn btn-primary" type="submit">Lägg till</button>
+				</div>
 			</div>
 		</div>
-	</div>
-	<div class="col-md-4">
-		<input type="text" name="ingredients" id="ingredients" class="form-control" placeholder="Ingredienser">
-		<div id="ingr-add">
-			<div class="row">
-				<div class="col-md-5">
-					<p></p>
-				</div>
-				<div class="col-md-7">
-					<div class="input-group">
-						<input type="text" class="form-control" id="ingr-amount" placeholder="Mängd">
-						<span class="input-group-btn">
-							<a class="btn btn-primary" id="add-ingr" type="button">Lägg till</a>
-						</span>
+		<div class="col-md-4">
+			<input type="text" name="ingredients" id="ingredients" class="form-control" placeholder="Ingredienser">
+			<div id="ingr-add">
+				<div class="row">
+					<div class="col-md-5">
+						<p></p>
+					</div>
+					<div class="col-md-7">
+						<div class="input-group">
+							<input type="text" class="form-control" id="ingr-amount" placeholder="Mängd">
+							<span class="input-group-btn">
+								<a class="btn btn-primary" id="add-ingr" type="button">Lägg till</a>
+							</span>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<div class="col-md-4">
-		<div id="recipeIngredients">
+		<div class="col-md-4">
+			<div id="recipeIngredients">
 
+			</div>
 		</div>
-	</div>
+	</form>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

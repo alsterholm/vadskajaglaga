@@ -4,7 +4,7 @@
 					$_data;
 
 		public function __construct($id = null) {
-			if (!$id) {
+			if ($id) {
 				$this->_db = DB::getInstance();
 				$this->_db->get('recipes', array('id', '=', $id));
 
