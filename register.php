@@ -42,7 +42,7 @@ if (Input::exists()) {
 					'salt' => $salt,
 					'fullname' => Input::get('fullname'),
 					'joined' => date('Y-m-d H:i:s'),
-					'group' => 1,
+					'group' => 0,
 					'register_ip' => $_SERVER['REMOTE_ADDR']
 
 				));

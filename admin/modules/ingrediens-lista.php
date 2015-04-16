@@ -2,7 +2,7 @@
 <br>
 <div class="row">
 	<div class="col-md-12">
-		<table class="table table-striped"> 
+		<table class="table table-striped sortable"> 
 			<thead>
 				<tr>
 					<td>ID</td>
@@ -45,6 +45,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
 <script src="js/jquery.autocomplete.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script src="js/sorttable.js"></script>
 
 <script>
 	$(document).ready(function() {
