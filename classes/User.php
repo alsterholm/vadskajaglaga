@@ -139,6 +139,13 @@
 			return $db->results();
 		}
 
+		public static function nameFromId($id){
+			$db = DB::getInstance();
+			$db->get('users', array('id', '=', $id));
+
+			return $db->first()->fullname;
+		}
+
 	}
 
 ?>
