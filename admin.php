@@ -67,6 +67,7 @@
 						<li id="u-bans"><a href="?p=u-bans">Avstängningar</a></li>
 						<li id="u-ip-bans"><a href="?p=u-ip-bans">IP-bansystem</a></li>
 						<li id="u-reports"><a href="?p=u-reports">Anmälningar</a></li>
+						<li id="u-contact"><a href="?p=u-contact">Kontakta oss</a></li>
 					</ul>
 				</div>
 			</div>
@@ -113,6 +114,9 @@
 							break;
 
 							case 'u-reports': include 'admin/modules/user-reports.php';
+							break;
+
+							case 'u-contact': include 'admin/modules/contact-us.php';
 							break;
 
 							default: include 'admin/modules/start.php';

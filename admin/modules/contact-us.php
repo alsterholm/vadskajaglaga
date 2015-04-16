@@ -1,4 +1,4 @@
-<h1>Inskickade recept</h1>
+<h1>Kontakta oss</h1>
 <br>
 <div class="row">
 	<div class="col-md-12">
@@ -6,20 +6,24 @@
 			<thead>
 				<tr>
 					<td>ID</td>
+					<td>Status</td>
 					<td>Namn</td>
-					<td>Användare</td>
+					<td>Email</td>
+					<td>Meddelande</td>
 				</tr>
 			</thead>
 			<tbody>
 				<?php
 
-					foreach (Recipe::getSuggestions() as $suggestion) {
+					foreach (Message::all() as $message) {
 
 						echo '
 							<tr>
-								<td>' . $suggestion->id . '</td>
-								<td><a href="?p=suggestion&id=' . $suggestion->id . '">' . $suggestion->name . '</a></td>
-								<td>' . User::nameFromId($suggestion->user_id) . '</td>
+								<td>' . $message->id . '</td>
+								<td>' . $message->status . '</td>
+								<td><a href="?p=suggestion&id=' . $message->id . '">' . $message->fullname . '</a></td>
+								<td>' . $message->email . '</td>
+								<td>' . $message->message . '</td>
 							</tr>
 						';
 					}
@@ -30,6 +34,7 @@
 	</div>
 </div>
 
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
 <script src="js/jquery.autocomplete.js"></script>
@@ -38,6 +43,6 @@
 
 <script>
 	$(document).ready(function() {
-		$('#r-sent').addClass('active');
+		$('#u-ip-bans').addClass('active');
 	});
 </script>
