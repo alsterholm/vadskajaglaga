@@ -22,6 +22,11 @@
 							<li role="presentation" id="sendrecipe"><a href="skicka-in.php"><span class="fa fa-pencil"></span> Skicka in recept</a></li>
 							<li role="presentation" id="favorites"><a href="favoriter.php"><span class="fa fa-heart"></span> Favoritrecept</a></li>
 							<li role="presentation" id="settings"><a href="mina-uppgifter.php"><span class="fa fa-user"></span> <?php echo $fullname; ?></a></li>
+<?php
+				if ($user->data()->group > 0) {
+					echo '<li role="presentation"><a href="admin.php"><span class="fa fa-cog"></span> Admin</a></li>';
+				}
+?>
 							<li role="presentation"><a href="logout.php"><span class="fa fa-sign-out"></span> Logga ut</a></li>
 						</ul>
 <?php
