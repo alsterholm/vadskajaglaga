@@ -338,6 +338,7 @@ input[type=checkbox]:checked + label:before { letter-spacing: 8px; } /* allow sp
 }
 
 #ingr-add {
+	margin-top: 10px;
 	display: none;
 }
 

@@ -10,30 +10,32 @@
 				<br>
 				<textarea placeholder="Instruktioner" class="form-control" rows="14"></textarea>
 				<br>
-				<input type="text" id="ingr" name="ingr">
-				<input type="text" id="amounts" name="amounts">
+				<input type="hidden" id="ingr" name="ingr">
+				<input type="hidden" id="amounts" name="amounts">
 				<button class="btn btn-primary" type="submit">Lägg till</button>
 			</div>
 		</div>
 	</div>
-	<div class="col-md-3">
+	<div class="col-md-4">
 		<input type="text" name="ingredients" id="ingredients" class="form-control" placeholder="Ingredienser">
 		<div id="ingr-add">
 			<div class="row">
-				<div class="col-md-6">
+				<div class="col-md-5">
 					<p>Potatis</p>
 				</div>
-				<div class="col-md-6">
+				<div class="col-md-7">
 					<div class="input-group">
 						<input type="text" class="form-control" id="ingr-amount" placeholder="Mängd">
 						<span class="input-group-btn">
-							<button class="btn btn-primary" id="add-ingr" type="button">Lägg till</button>
+							<a class="btn btn-primary" id="add-ingr" type="button">Lägg till</a>
 						</span>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div id="chosen-ingredients">
+	</div>
+	<div class="col-md-4">
+		<div id="recipeIngredients">
 
 		</div>
 	</div>
@@ -51,15 +53,15 @@
 		$('#r-add').addClass('active');
 	});
 
+	var ingredient;
+
 	var ingredients = [
 		<?php
 			foreach(Ingredient::all() as $ingredient) {
 				echo '{ id: "' . $ingredient->id . '", value: "' . $ingredient->name . '", bgcolor: "' . $ingredient->bgcolor . '", fgcolor: "' . $ingredient->fgcolor . '" },';
 			}
 		?>
-	]
-
-	var registerClicked = false;
+	];
 
 	$('#ingredients').autocomplete ({
 	    lookup: ingredients,
@@ -69,41 +71,36 @@
 	});
 
 	function addIngr() {
-		var ingredient = $('#ingredients').val();
+		ingredient = $('#ingredients').val();
 		var exists = false;
 
 		for (var i = 0; i < ingredients.length; i++) {
 			if (ingredients[i].value == ingredient) {
-				exists = true;
 				ingredient = ingredients[i];
-				break;
+				exists = true;
 			}
 		}
 
-		if (exists == true) {
-			var str = $('#chosen-ingredients').html();
-			if (str.indexOf(ingredient.value) < 0) {
-				$('#ingr-add').slideDown(500);
-				$('#ingredients').slideUp(500);
-				$('#ingr-add p').html(ingredient.value);
+		$('#ingredients').val('');
 
-				$('#add-ingr').on('click', function() {
-					$('#ingr').val($('#ingr').val() + ingredient.id + ',');
-					$('#amounts').val($('#amounts').val() + $('#ingr-amount').val() + ',');
-				
-					//Lägg till ingrediens i lista
-
-					$('#ingr-add').slideUp(500);
-					$('#ingredients').slideDown(500);
-					$('#ingr-amount').val('');
-				});
-
+		if (exists) {
+			var str = $('#recipeIngredients').html();
+			if (str.indexOf(ingredient.value) >= 0) {
+				$("#recipeIngredients:contains('" + ingredient.value + "')").effect('shake', {times: 2, distance: 5}, 200);
 			} else {
-				$("#chosen-ingredients:contains('" + ingredient.value + "')").effect('shake', {times: 2, distance: 5}, 200);
+				$('#ingr-add p').html(ingredient.value);
+				$('#ingr-add').slideDown(500);
 			}
 		}
-
-		$('#ingredients').val("");
-		$('#ingredients').focus();
 	}
+
+	$('#add-ingr').on('click', function() {
+		$('#amounts').val($('#amounts').val() + $('#ingr-amount').val() + ',');
+		$('#ingr').val($('#ingr').val() + ingredient.id + ',');
+		$('#recipeIngredients').append('<p>' + ingredient.value + ': ' + $('#ingr-amount').val() + '</p>');
+		$('#ingr-amount').val('');
+
+		$('#ingr-add').slideUp(500);
+
+	});
 </script>
