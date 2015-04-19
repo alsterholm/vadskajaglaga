@@ -17,7 +17,7 @@
 			if (!$user) {
 				if (Session::exists($this->_sessionName)) {
 					$user = Session::get($this->_sessionName);
-					
+
 					if ($this->find($user)) {
 						$this->_isLoggedIn = true;
 					} else {
@@ -68,8 +68,8 @@
 		}
 
 		public function login($email = null, $password = null, $remember = false) {
-					
-			if (!$email && !$password && $this->exists()) {	
+
+			if (!$email && !$password && $this->exists()) {
 				Session::put($this->_sessionName, $this->data()->id);
 			} else {
 				$user = $this->find($email);
@@ -96,7 +96,7 @@
 								'ip' => $_SERVER['REMOTE_ADDR'],
 								'time' => date('Y-m-d H:i:s')
 							));
-							
+
 							Cookie::put($this->_cookieName, $hash, Config::get('remember/cookie_expiry'));
 						}
 						return true;
@@ -108,10 +108,10 @@
 
 		public function hasPermission($key) {
 			$group = $this->_db->get('groups', array('id', '=', $this->data()->group));
-			
+
 			if ($group->count()) {
 				$permissions = json_decode($group->first()->permissions, true);
-				
+
 				if ($permissions[$key] == true) {
 					return true;
 				}
@@ -130,6 +130,10 @@
 
 		public function isLoggedIn() {
 			return $this->_isLoggedIn;
+		}
+
+		public function isAdmin() {
+			return ($this->_data->group == 1) ? true : false;
 		}
 
 		public static function all() {

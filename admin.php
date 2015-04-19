@@ -18,7 +18,16 @@
 
 		<?php
 			require_once 'core/init.php';
+
+			if ($user->isLoggedIn()) {
+				if (!$user->isAdmin()) {
+					Redirect::to(401);
+				}
+			} else {
+				Redirect::to(401);
+			}
 		?>
+
 		<nav class="navbar navbar-inverse navbar-fixed-top">
 			<div class="container-fluid">
 				<div class="navbar-header">
