@@ -23,7 +23,7 @@
 			$db = DB::getInstance();
 
 			if (!$db->insert('ratings', $fields)) {
-				throw new Exception('Receptfel!');
+				throw new Exception('Gick ej lägga till rating');
 			}
 		}
 

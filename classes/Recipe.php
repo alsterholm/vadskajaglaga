@@ -45,7 +45,7 @@
 			$db = DB::getInstance();
 
 			if (!$db->insert('recipe_sugs', $fields)) {
-				throw new Exception('Receptfel!');
+				throw new Exception('Gick ej lägga till förslag');
 			}
 		}
 
@@ -56,7 +56,7 @@
 			return $db->results();
 		}
 
-		
+
 	}
 
 ?>
