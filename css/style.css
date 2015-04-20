@@ -16,7 +16,7 @@ h1 {
 }
 
 .navbar-nav > li > a {
-	padding-top:20px !important; 
+	padding-top:20px !important;
 	padding-bottom:20px !important;
 	font-size: 14px;
 }
@@ -367,6 +367,31 @@ input[type=checkbox]:checked + label:before { letter-spacing: 8px; } /* allow sp
 	padding:1px;
  	border:1px solid #fff;
  	position: relative;
+}
+
+.message-finished,
+.message-finished a,
+.message-finished a:hover {
+	color: #ccc;
+	text-decoration: none;
+}
+
+.message-finished td:before {
+	content: " ";
+	position: absolute;
+	top: 60%;
+	left: 0;
+	border-bottom: 1px solid #ddd;
+	width: 100%;
+}
+
+.message-flagged,
+.message-flagged a {
+	color: #F76700;
+}
+
+.message-flagged a:hover {
+	color: #D15700;
 }
 
 .autocomplete-suggestions { border: 1px solid #999; background: #FFF; cursor: default; overflow: auto; -webkit-box-shadow: 1px 4px 3px rgba(50, 50, 50, 0.64); -moz-box-shadow: 1px 4px 3px rgba(50, 50, 50, 0.64); box-shadow: 1px 4px 3px rgba(50, 50, 50, 0.64); }

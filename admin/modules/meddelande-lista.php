@@ -6,10 +6,8 @@
 			<thead>
 				<tr>
 					<td>ID</td>
-					<td>Status</td>
-					<td>Namn</td>
 					<td>Email</td>
-					<td>Meddelande</td>
+					<td>Status</td>
 				</tr>
 			</thead>
 			<tbody>
@@ -17,13 +15,21 @@
 
 					foreach (Message::all() as $message) {
 
+						$trclass = '';
+						$link = 'href="?p=message&id=' . $message->id . '"';
+
+						if ($message->status == 2) {
+							$trclass = 'class="message-finished"';
+							$link = '';
+						} else if ($message->status == 3) {
+							$trclass = 'class="message-flagged"';
+						}
+
 						echo '
-							<tr>
+							<tr ' . $trclass . '>
 								<td>' . $message->id . '</td>
-								<td>' . $message->status . '</td>
-								<td><a href="?p=message&id=' . $message->id . '">' . $message->fullname . '</a></td>
-								<td>' . $message->email . '</td>
-								<td>' . $message->message . '</td>
+								<td><a ' . $link . '>' . $message->email . '</a></td>
+								<td>' . Message::status($message->status) . '</td>
 							</tr>
 						';
 					}

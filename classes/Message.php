@@ -41,6 +41,24 @@
 				throw new Exception('Receptfel!');
 			}
 		}
+
+		public static function status($code = null) {
+			if ($code !== null) {
+				switch ($code) {
+					case '0': return 'Nytt';
+					break;
+					
+					case '1': return 'Påbörjat';
+					break;
+
+					case '2': return 'Avslutat';
+					break;
+
+					case '3': return 'Flaggad';
+					break;
+				}
+			}
+		}
 	}
 
 
