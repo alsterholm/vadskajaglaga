@@ -93,13 +93,24 @@
 							case 'stats': include 'admin/modules/statistik.php';
 							break;
 
-							case 'message': include 'admin/modules/meddelande-lista.php';
+							case 'message':
+								if (Input::get('id') != '') {
+									include 'admin/modules/meddelande.php';
+								} else {
+									include 'admin/modules/meddelande-lista.php';
+								}
 							break;
 
 							case 'r-start': include 'admin/modules/recept-oversikt.php';
 							break;
 
-							case 'r-list': include 'admin/modules/recept-lista.php';
+							case 'r-list':
+
+								if (Input::get('id') != '') {
+									include 'admin/modules/recept.php';	
+								} else {
+									include 'admin/modules/recept-lista.php';
+								}
 							break;
 
 							case 'r-sent': include 'admin/modules/recept-inskickade.php';

@@ -4,7 +4,7 @@
 					$_data;
 
 		public function __construct($id = null) {
-			if (!$id) {
+			if ($id) {
 				$this->_db = DB::getInstance();
 				$this->_db->get('contact', array('id', '=', $id));
 
@@ -47,7 +47,7 @@
 				switch ($code) {
 					case '0': return 'Nytt';
 					break;
-					
+
 					case '1': return 'Påbörjat';
 					break;
 
