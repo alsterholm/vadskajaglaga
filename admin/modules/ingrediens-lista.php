@@ -2,14 +2,11 @@
 <br>
 <div class="row">
 	<div class="col-md-12">
-		<table class="table table-striped sortable"> 
+		<table class="table table-striped sortable">
 			<thead>
 				<tr>
 					<td>ID</td>
 					<td>Namn</td>
-					<td>Textfärg</td>
-					<td>Bakgrundsfärg</td>
-					<td></td>
 				</tr>
 			</thead>
 			<tbody>
@@ -17,28 +14,17 @@
 
 					foreach (Ingredient::all() as $ingredient) {
 
-						switch($ingredient->fgcolor) {
-							case '#ffffff': $fgcolor = 'Vit';
-							break;
-
-							case '#000000': $fgcolor = 'Svart';
-							break;
-						}
-
 						echo '
 							<tr>
 								<td>' . $ingredient->id . '</td>
-								<td>' . $ingredient->name . '</td>
-								<td>' . $fgcolor . '</td>
-								<td>' . strtoupper($ingredient->bgcolor) . '</td>
-								<td style="text-align: right"><a href="#" id="delete' . $ingredient->id . '">Ta bort</a>
+								<td><a href="?p=ingredient&id=' . $ingredient->id . '">' . $ingredient->name . '</a></td>
 							</tr>
 						';
 					}
 
 				?>
 			</tbody>
-		</table> 
+		</table>
 	</div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

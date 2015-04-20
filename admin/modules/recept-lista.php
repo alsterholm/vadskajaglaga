@@ -2,12 +2,11 @@
 <br>
 <div class="row">
 	<div class="col-md-12">
-		<table class="table table-striped sortable">  
+		<table class="table table-striped sortable">
 			<thead>
 				<tr>
 					<td>ID</td>
 					<td>Namn</td>
-					<td></td>
 				</tr>
 			</thead>
 			<tbody>
@@ -18,15 +17,14 @@
 						echo '
 							<tr>
 								<td>' . $recipe->id . '</td>
-								<td>' . $recipe->name . '</td>
-								<td style="text-align: right"><a href="#" id="delete' . $recipe->id . '">Mer info</a>
+								<td><a href="?p=recipe&id=' . $recipe->id . '">' . $recipe->name . '</a></td>
 							</tr>
 						';
 					}
 
 				?>
 			</tbody>
-		</table> 
+		</table>
 	</div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
