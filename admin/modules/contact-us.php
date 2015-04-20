@@ -21,7 +21,7 @@
 							<tr>
 								<td>' . $message->id . '</td>
 								<td>' . $message->status . '</td>
-								<td><a href="?p=suggestion&id=' . $message->id . '">' . $message->fullname . '</a></td>
+								<td><a href="?p=message&id=' . $message->id . '">' . $message->fullname . '</a></td>
 								<td>' . $message->email . '</td>
 								<td>' . $message->message . '</td>
 							</tr>
