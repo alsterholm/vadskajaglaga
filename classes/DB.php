@@ -7,10 +7,10 @@
 	*/
 	class DB {
 		private static $_instance = null;
-		private $_pdo, 
-				$_query, 
-				$_error = false, 
-				$_result, 
+		private $_pdo,
+				$_query,
+				$_error = false,
+				$_result,
 				$_count = 0;
 
 		/**
@@ -47,7 +47,7 @@
 		/**
 		Funktionen som utför själv queryn mot databasen
 
-		Parametrar som tas emot är själva queryn($sql) samt en array med parametrar($params) för sökningen 
+		Parametrar som tas emot är själva queryn($sql) samt en array med parametrar($params) för sökningen
 
 
 		*/
@@ -94,7 +94,7 @@
 						return $this;
 
 					}
-				}	
+				}
 			} else {
 				$sql = "{$action} FROM {$table}";
 				if (!$this->query($sql)->error()) {
@@ -149,7 +149,7 @@
 				foreach($fields as $field){
 					$values .= "?";
 					if($x < count($fields)){
-						$values .= ', ';		
+						$values .= ', ';
 					}
 					$x++;
 				}
@@ -181,7 +181,7 @@
 				}
 				$x++;
 			}
-			
+
 			$sql = "UPDATE {$table} SET {$set} WHERE id = {$id}";
 
 			if(!$this->query($sql, $fields)->error()){
@@ -224,6 +224,10 @@
 			return $this->_count;
 
 
+		}
+
+		public function lastInsertId() {
+			return $this->_pdo->lastInsertId();
 		}
 
 	}

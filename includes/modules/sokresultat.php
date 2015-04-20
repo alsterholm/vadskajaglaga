@@ -15,7 +15,12 @@
 
 											foreach(Recipe::all() as $recipe) {
 												$valid = true;
-												$req_ingr = explode(',', $recipe->ingredients);
+
+												foreach (Ingredients::in($recipe->id) as $ingredient) {
+													$req_ingr .= $ingredient->ingredient . ',';
+												}
+
+												$req_ingr = explode(',', $req_ingr);
 
 												foreach($req_ingr as $ingr) {
 													if (!in_array($ingr, $ingredients)) {
@@ -44,7 +49,7 @@
 															</div>
 														</div>
 													';
-												}							
+												}
 											}
 										} else {
 											Redirect::to('index.php');
@@ -54,10 +59,10 @@
 											echo '<div class="center">Tyvärr gav din sökning inga resultat! <a href="index.php">Försök gärna igen!</a></div>';
 										}
 									?>
-							</div>	
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>	
+			</div>
 		</section>
 	</header>

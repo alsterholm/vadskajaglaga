@@ -105,9 +105,8 @@
 							break;
 
 							case 'r-list':
-
 								if (Input::get('id') != '') {
-									include 'admin/modules/recept.php';	
+									include 'admin/modules/recept.php';
 								} else {
 									include 'admin/modules/recept-lista.php';
 								}

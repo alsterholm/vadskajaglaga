@@ -1,64 +1,52 @@
 <h1>Lägg till recept</h1>
 <br>
-<?php
-	if (Input::exists()) {
-		try {
-		Recipe::create(array(
-			'name' => Input::get('name'),
-			'description' => Input::get('description'),
-			'instructions' => Input::get('instructions'),
-			'ingredients' => Input::get('ingr'),
-			'amounts' => Input::get('amounts'),
-			'time' => Input::get('time')
-		));
-		} catch (Exception $e) {
-			echo $e;
-		}
-	}
-?>
 <div class="row">
-	<form class="form-horizontal" action="" method="post">
-		<div class="col-md-4">
+	<div class="col-md-4 add-recipe">
+		<div class="row">
+			<div class="col-md-12">
+				<input type="text" name="name" id="rname" class="form-control" placeholder="Receptets namn" required>
+				<br>
+				<input type="text" name="time" id="rtime" class="form-control" placeholder="Tid för tillagning (i minuter)" required>
+				<br>
+				<textarea placeholder="Beskrivning" id="rdesc" name="description" class="form-control" required></textarea>
+				<br>
+				<textarea placeholder="Instruktioner" id="rinst" name="instructions" class="form-control" rows="14" required></textarea>
+				<br>
+				<a href="#" class="btn btn-primary" id="add-recipe">Lägg till</a>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4 add-ingredients">
+		<input type="text" name="ingredients" id="ingredients" class="form-control" placeholder="Ingredienser">
+		<div id="ingr-add">
+			<input type="hidden" id="rec-id" name="rec-id" value="">
 			<div class="row">
 				<div class="col-md-12">
-					<input type="text" name="name" class="form-control" placeholder="Receptets namn" required>
+					<p></p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<input type="text" id="ingr-id">
+					<input type="text" class="form-control" id="ingr-amount" placeholder="Mängd">
+				</div>
+				<div class="col-md-6">
+					<input type="text" class="form-control" id="ingr-unit" placeholder="Enhet">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
 					<br>
-					<input type="text" name="time" class="form-control" placeholder="Tid för tillagning (i minuter)" required>
-					<br>
-					<textarea placeholder="Beskrivning" name="description" class="form-control" required></textarea>
-					<br>
-					<textarea placeholder="Instruktioner" name="instructions" class="form-control" rows="14" required></textarea>
-					<br>
-					<input type="hidden" id="ingr" name="ingr">
-					<input type="hidden" id="amounts" name="amounts">
-					<button class="btn btn-primary" type="submit">Lägg till</button>
+					<a class="btn btn-primary" id="add-ingr" type="button">Lägg till</a>
 				</div>
 			</div>
 		</div>
-		<div class="col-md-4">
-			<input type="text" name="ingredients" id="ingredients" class="form-control" placeholder="Ingredienser">
-			<div id="ingr-add">
-				<div class="row">
-					<div class="col-md-5">
-						<p></p>
-					</div>
-					<div class="col-md-7">
-						<div class="input-group">
-							<input type="text" class="form-control" id="ingr-amount" placeholder="Mängd">
-							<span class="input-group-btn">
-								<a class="btn btn-primary" id="add-ingr" type="button">Lägg till</a>
-							</span>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-4">
-			<div id="recipeIngredients">
+	</div>
+	<div class="col-md-4">
+		<div id="recipeIngredients">
 
-			</div>
 		</div>
-	</form>
+	</div>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -83,6 +71,25 @@
 		?>
 	];
 
+	$('#add-recipe').on('click', function() {
+		var rname = $('#rname').val();
+		var rtime = $('#rtime').val();
+		var rdesc = $('#rdesc').val();
+		var rinst = $('#rinst').val();
+
+		$.post('add_recipe.php', { name: rname, time: rtime, description: rdesc, instructions: rinst })
+			.done(function(data) {
+				if (data == 0) {
+					alert("fail")
+				} else {
+					$('.add-recipe').fadeOut(500);
+					$('.add-ingredients').delay(500).fadeIn(500);
+
+					$('#rec-id').val(data);
+				}
+			})
+	});
+
 	$('#ingredients').autocomplete ({
 	    lookup: ingredients,
 	    onSelect: function (suggestion) {
@@ -106,20 +113,31 @@
 		if (exists) {
 			var str = $('#recipeIngredients').html();
 			if (str.indexOf(ingredient.value) >= 0) {
-				$("#recipeIngredients:contains('" + ingredient.value + "')").effect('shake', {times: 2, distance: 5}, 200);
+				alert("Finns redan");
 			} else {
 				$('#ingr-add p').html(ingredient.value);
+				$('#ingr-id').val(ingredient.id);
 				$('#ingr-add').slideDown(500);
 			}
 		}
 	}
 
 	$('#add-ingr').on('click', function() {
-		$('#amounts').val($('#amounts').val() + $('#ingr-amount').val() + ',');
-		$('#ingr').val($('#ingr').val() + ingredient.id + ',');
-		$('#recipeIngredients').append('<p>' + ingredient.value + ': ' + $('#ingr-amount').val() + '</p>');
-		$('#ingr-amount').val('');
+		var irecipe = $('#rec-id').val();
+		var iingredient = $('#ingr-id').val();
+		var iamount = $('#ingr-amount').val();
+		var iunit = $('#ingr-unit').val();
 
+		$.post('add_ingr.php', { recipe: irecipe, ingredient: iingredient, amount: iamount, unit: iunit })
+			.done(function(data) {
+				if (data == 1) {
+					alert("Success");
+				} else {
+					alert("Fel");
+				}
+			});
+
+		$('#ingr-amount').val('');
 		$('#ingr-add').slideUp(500);
 
 	});
