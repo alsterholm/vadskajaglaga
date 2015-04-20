@@ -27,7 +27,7 @@
 			</div>
 			<div class="row">
 				<div class="col-md-6">
-					<input type="text" id="ingr-id">
+					<input type="hidden" id="ingr-id">
 					<input type="text" class="form-control" id="ingr-amount" placeholder="Mängd">
 				</div>
 				<div class="col-md-6">
@@ -42,10 +42,19 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-md-4">
-		<div id="recipeIngredients">
-
-		</div>
+	<div class="col-md-4 ingr-list">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<td>Ingrediens</td>
+					<td class="center">Mängd</td>
+					<td class="center">Enhet</td>
+					<td class="center">Ta bort</td>
+				</tr>
+			</thead>
+			<tbody id="recipeIngredients">
+			</tbody>
+		</table>
 	</div>
 </div>
 
@@ -111,9 +120,9 @@
 		$('#ingredients').val('');
 
 		if (exists) {
-			var str = $('#recipeIngredients').html();
+			var str = $('#recipeIngredients').html();         //FIXA
 			if (str.indexOf(ingredient.value) >= 0) {
-				alert("Finns redan");
+				$('#recipeIngredients').parent().effect('shake', {times: 2, distance: 5}, 200);
 			} else {
 				$('#ingr-add p').html(ingredient.value);
 				$('#ingr-id').val(ingredient.id);
@@ -131,13 +140,39 @@
 		$.post('add_ingr.php', { recipe: irecipe, ingredient: iingredient, amount: iamount, unit: iunit })
 			.done(function(data) {
 				if (data == 1) {
-					alert("Success");
+					$.post('recipe_ingredients.php', { recipe_id: irecipe })
+						.done(function(jsonData) {
+							$('#recipeIngredients').html('');
+							$.each(jsonData, function(key, value) {
+								var ingrName = '';
+								$.each(ingredients, function(i, j) {
+									if (value['ingredient'] == j.id) {
+										ingrName = j.value;
+										return;
+									}
+								});
+								$('.ingr-list').fadeIn(500);
+								$('#recipeIngredients').append('<tr><td>' + ingrName + '</td><td class="center">' + value['amount'] + '</td><td class="center">' + value['unit'] + '</td><td class="center"><button class="btn btn-danger btn-xs rem-ingr" id="' + value['id'] + '"><span class="glyphicon glyphicon-remove"></span></button></td></tr>');
+
+								$('.rem-ingr').on('click', function() {
+									var entry_id = $(this).attr('id');
+									var row = $(this).parent().parent();
+									$.post('remove_ingr.php', { id: entry_id })
+										.done(function(success) {
+											if (success == 1) {
+												row.hide();
+											}
+										});
+								});
+							});
+						});
 				} else {
 					alert("Fel");
 				}
 			});
 
 		$('#ingr-amount').val('');
+		$('#ingr-unit').val('');
 		$('#ingr-add').slideUp(500);
 
 	});
