@@ -323,12 +323,20 @@ input[type=checkbox]:checked + label:before { letter-spacing: 8px; } /* allow sp
 }
 
 .recipe-actions{
-	text-align: center;
+	text-align: right;
+	float: left;
+	margin-left: 120px;
+
 }
 
 .recipe-time{
-	margin: 10px;
-	text-align: center;
+	margin-right: 50px;
+	margin-left: 10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	text-align: left;
+	float:left;
+	color: #79c44d;
 }
 
 .lead{

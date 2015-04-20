@@ -23,7 +23,7 @@
 										</button>
 									</div>
 								</div>
-								<div class="col-xs-3">
+								<div class="col-xs-4">
 									<img src="img/spagetti.jpg" class="recipe-pic">
 								</div>
 								<div class="row">
