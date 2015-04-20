@@ -118,7 +118,15 @@
 							case 'r-add': include 'admin/modules/recept-lagg-till.php';
 							break;
 
-							case 'i-list': include 'admin/modules/ingrediens-lista.php';
+							case 'i-list':
+
+								if(Input::get('id') != ''){
+									include 'admin/modules/ingrediens.php';
+
+								} else {
+									include 'admin/modules/ingrediens-lista.php';
+								}
+
 							break;
 
 							case 'i-add': include 'admin/modules/ingrediens-lagg-till.php';
@@ -127,7 +135,15 @@
 							case 'u-start': include 'admin/modules/user-oversikt.php';
 							break;
 
-							case 'u-list': include 'admin/modules/user-lista.php';
+							case 'u-list':
+
+								if (Input::get('id') != ''){
+									include 'admin/modules/user.php';
+
+								}else{
+									include 'admin/modules/user-lista.php';
+								}
+
 							break;
 
 							case 'u-bans': include 'admin/modules/user-bans.php';

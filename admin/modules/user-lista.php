@@ -26,7 +26,7 @@
 						<tr>
 							<td>' . $user->id . '</td>
 							<td>' . $user->email . '</td>
-							<td><a href="?p=user&id=' . $user->id . '">' . $user->fullname . '</a></td>
+							<td><a href="?p=u-list&id=' . $user->id . '">' . $user->fullname . '</a></td>
 							<td>' . $group . '</td>
 						</tr>
 						';

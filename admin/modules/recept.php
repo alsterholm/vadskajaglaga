@@ -1,21 +1,9 @@
-<h1>Lägg till recept</h1>
+<h1>Detaljer recept</h1>
 <br>
 <?php
 	if (Input::exists('get')) {
     $id = Input::get('id');
-    $recipe = Recipe($id);
-		try {
-		Recipe::create(array(
-			'name' => $recipe->name,
-			'description' => $recipe->description,
-			'instructions' => $recipe->instructions,
-			'ingredients' => $recipe->ingr,
-			'amounts' => $recipe->amounts,
-			'time' => $recipe->time
-		));
-		} catch (Exception $e) {
-			echo $e;
-		}
+    $recipe = new Recipe($id);
 	}
 ?>
 <div class="row">
@@ -23,13 +11,13 @@
 		<div class="col-md-4">
 			<div class="row">
 				<div class="col-md-12">
-					<input type="text" name="name" class="form-control" value=<?php echo $recipe->name; ?> required>
+					<input type="text" name="name" class="form-control" value="<?php echo $recipe->data()->name; ?>" required>
 					<br>
-					<input type="text" name="time" class="form-control" value=<?php echo $recipe->time; ?> required>
+					<input type="text" name="time" class="form-control" value="<?php echo $recipe->data()->time; ?>" required>
 					<br>
-					<textarea name="description" class="form-control" required><?php echo $recipe->description; ?></textarea>
+					<textarea name="description" class="form-control" required>"<?php echo $recipe->data()->description; ?>"</textarea>
 					<br>
-					<textarea name="instructions" class="form-control" rows="14" required>value=<?php echo $recipe->instruktions; ?></textarea>
+					<textarea name="instructions" class="form-control" rows="14" required><?php echo $recipe->data()->instructions; ?>"</textarea>
 					<br>
 					<input type="hidden" id="ingr" name="ingr">
 					<input type="hidden" id="amounts" name="amounts">

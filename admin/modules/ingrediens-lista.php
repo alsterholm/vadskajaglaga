@@ -17,11 +17,11 @@
 						echo '
 							<tr>
 								<td>' . $ingredient->id . '</td>
-								<td><a href="?p=ingredient&id=' . $ingredient->id . '">' . $ingredient->name . '</a></td>
+								<td><a href="?p=i-list&id=' . $ingredient->id . '">' . $ingredient->name . '</a></td>
 							</tr>
 						';
 					}
-
+					
 				?>
 			</tbody>
 		</table>

@@ -17,7 +17,7 @@
 						echo '
 							<tr>
 								<td>' . $recipe->id . '</td>
-								<td><a href="?p=recipe&id=' . $recipe->id . '">' . $recipe->name . '</a></td>
+								<td><a href="?p=r-list&id=' . $recipe->id . '">' . $recipe->name . '</a></td>
 							</tr>
 						';
 					}

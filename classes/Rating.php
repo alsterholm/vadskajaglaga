@@ -1,5 +1,5 @@
 <?php
-	
+
 	class Rating {
 
 		/**
@@ -17,6 +17,21 @@
 
 				return $rating / $db->count();
 			}
+		}
+
+		public static function ratings($fields = array()) {
+			$db = DB::getInstance();
+
+			if (!$db->insert('ratings', $fields)) {
+				throw new Exception('Receptfel!');
+			}
+		}
+
+		public static function getRatings() {
+			$db = DB::getInstance();
+			$db->getAll('ratings');
+
+			return $db->results();
 		}
 	}
 
