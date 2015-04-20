@@ -10,16 +10,21 @@
 								<h1>Sökresultat</h1>
 									<?php
 										if (Input::exists()) {
-											$ingredients = explode(',', Input::get('ingr_ids'));
+											$ingredients = rtrim(Input::get('ingr_ids'), ',');
+											$ingredients = explode(',', $ingredients);
 											$results = 0;
 
 											foreach(Recipe::all() as $recipe) {
 												$valid = true;
 
-												foreach (Ingredients::in($recipe->id) as $ingredient) {
-													$req_ingr .= $ingredient->ingredient . ',';
+
+												$req_ingr = '';
+
+												foreach (Ingredient::in($recipe->id) as $recipe_ingr) {
+													$req_ingr .= $recipe_ingr->ingredient . ',';
 												}
 
+												$req_ingr = rtrim($req_ingr, ',');
 												$req_ingr = explode(',', $req_ingr);
 
 												foreach($req_ingr as $ingr) {
