@@ -93,7 +93,7 @@
 							case 'stats': include 'admin/modules/statistik.php';
 							break;
 
-							case 'message': include 'admin/modules/message.php';
+							case 'message': include 'admin/modules/meddelande-lista.php';
 							break;
 
 							case 'r-start': include 'admin/modules/recept-oversikt.php';
