@@ -57,7 +57,7 @@
 					<ul class="nav nav-sidebar">
 						<li id="a-start"><a href="?p=start">Översikt</a></li>
 						<li id="a-stats"><a href="?p=stats">Statistik</a></li>
-						<li id="a-contact"><a href="?p=message">Meddelande</a></li>
+						<li id="a-message"><a href="?p=message">Meddelande</a></li>
 					</ul>
 					<h4>Recept</h4>
 					<ul class="nav nav-sidebar">

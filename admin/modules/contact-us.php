@@ -2,7 +2,7 @@
 <br>
 <div class="row">
 	<div class="col-md-12">
-		<table class="table table-striped sortable">  
+		<table class="table table-striped sortable">
 			<thead>
 				<tr>
 					<td>ID</td>
@@ -30,7 +30,7 @@
 
 				?>
 			</tbody>
-		</table> 
+		</table>
 	</div>
 </div>
 
@@ -43,6 +43,6 @@
 
 <script>
 	$(document).ready(function() {
-		$('#u-ip-bans').addClass('active');
+		$('#a-message').addClass('active');
 	});
 </script>
