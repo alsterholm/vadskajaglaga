@@ -15,7 +15,11 @@
 					$rating += $entry;
 				}
 
-				return $rating / $db->count();
+				if ($db->count()) {
+					return $rating / $db->count();
+				} else {
+					return false;
+				}
 			}
 		}
 

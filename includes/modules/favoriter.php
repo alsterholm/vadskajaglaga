@@ -17,7 +17,7 @@
 														<a href="recept.php?id=' . $recipe->data()->id . '">
 															<div class="row favrecipe">
 																<div class="col-md-2">
-																	<img src="img/recipe/' . $recipe->data()->id . '" class="img-responsive">
+																	<img src="img/recipe/' . $recipe->data()->id . '.jpg" class="img-responsive">
 																</div>
 																<div class="col-md-10">
 																	<h2>' . $recipe->data()->name . '</h2>
