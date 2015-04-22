@@ -1,18 +1,43 @@
  	<!-- Recipes -->
+<?php
+
+   require_once 'core/init.php';
+   if (Input::exists('get')) {
+      $recipe = new Recipe(Input::get('id'));
+
+      if (file_exists('img/recipe/' . $recipe->data()->id) . '.jpg') {
+         $image = 'img/recipe/' . $recipe->data()->id . '.jpg';
+      } else {
+         $image = 'img/recipe/noimage.jpg';
+      }
+?>
  	<section class="header">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-2"></div>
 					<div class="col-md-8">
-						<div class="list-group">
-							<div class="well well-lg main-section">
-								<div class="col-xs-8">
-									<p class="recipe-name"> Spagetti och köttfärsås </p>
-									<div class="recipe-time">
-										<span class="glyphicon glyphicon-time" aria-hidden="true"></span> Tid: Ca 45 minuter
+						<div class="well well-lg main-section">
+                     <div class="row">
+								<div class="col-md-8 col-sm-9">
+									<h1 class="recipe"><?php echo $recipe->data()->name; ?></h1>
+                           <p class="recipe-description">
+                              <?php echo $recipe->data()->description; ?>
+                           </p>
+								</div>
+								<div class="col-md-4 col-sm-3">
+									<img src="<?php echo $image; ?>" class="img-responsive recipe-pic">
+								</div>
+                     </div>
+                     <br>
+                     <div class="row">
+                        <div class="col-sm-5">
+                           <div class="recipe-time">
+										<span class="glyphicon glyphicon-time" aria-hidden="true"></span> Tid: Ca <?php echo $recipe->data()->time; ?> minuter
 									</div>
-									<div class="recipe-actions">
-										<button type="button" class="btn btn-default" aria-label="left align" data-toggle="tooltip" data-placement="top" title="Lägg till i favoritrecept">
+                        </div>
+                        <div class="col-sm -7">
+									<div class="recipe-btns right">
+										<button type="button" class="btn btn-default" aria-label="left align" data-toggle="tooltip" data-placement="top" title="Lägg till som favorit">
 											<span class="glyphicon glyphicon-heart-empty"></span>
 										</button>
 										<button type="button" class="btn btn-default" aria-label="left align" data-toggle="tooltip" data-placement="top" title="Spara som PDF">
@@ -22,42 +47,48 @@
 											<span class="glyphicon glyphicon-print"></span>
 										</button>
 									</div>
+                        </div>
+                     </div>
+                     <br>
+							<div class="row">
+								<div class="col-md-4 ingredients">
+								<h2 class="recipe">Ingredienser</h2>
+                        <table class="table table-striped ingredients">
+                           <tbody>
+                              <?php
+
+                              foreach (Ingredient::in($recipe->data()->id) as $ingredient) {
+                                 echo '
+                                 <tr>
+                                    <td>' . $ingredient->amount . ' ' . $ingredient->unit . '</td>
+                                    <td>' . Ingredient::get($ingredient->ingredient) . '</td>
+                                 </tr>
+                                 ';
+                              }
+
+                              ?>
+                           </tbody>
+                        </table>
 								</div>
-								<div class="col-xs-4">
-									<img src="img/spagetti.jpg" class="recipe-pic">
+								<div class="col-md-8">
+   							<h2 class="recipe">Tillagning</h2>
+									<ol class="recipe-directions">
+                              <?php
+                                 $instructions = explode('§', ltrim($recipe->data()->instructions, '§'));
+
+                                 foreach($instructions as $instruction) {
+                                    echo '<li>' . $instruction . '</li>';
+                                 }
+                              ?>
+								  	</ol>
 								</div>
-								<div class="row">
-									<div class="col-md-4">
-									<h1> Ingredienser </h1>
-										<ul>
-											<li>400 g köttfärs</li>
-											<li>1 st gullök</li>
-											<li>1 st vitlöksklyfta</li>
-											<li>2 msk smör/rapsolja</li>
-											<li>1/2 köttbuljong</li>
-											<li>3/4 vispgrädde</li>
-											<li>1⁄2 dl rött vin</li>
-											<li>400 gram krossade tomater</li>
-											<li>1/2 tesked strösocker</li>
-											<li> Riven ost</li>
-										</ul>
-									</div>
-									<div class="col-md-8">
-									<h1> Tillagning:</h1>
-										<ol class="recipe-diretions">
-										    <li>Skala och hacka lök och vitlök fint. Fräs den i smör-&rapsolja någon min. Lägg i köttfärsen, salta, peppra och bryn den. </li>
-										    <li>Tillsätt vin och smulad buljongtärning. Låt koka på medelvärme 5 min. Rör om då och då.</li>
-										    <li>Häll i grädde och låt koka ytterligare 5 min. Tillsätt tomater och socker. Låt såsen koka under lock minst 30 min.</li>
-										    <li>Rör om då och då, häll i lite vatten om den blir torr.</li>
-										    <li>Koka pastan enligt anvisning på förpackningen. Häll av pastan och blanda med köttfärssåsen. Servera med riven ost.</li>
-										   
-									  	</ol>
-									</div>
-								</div>
-							</div>	
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>	
+			</div>
 		</section>
 	</header>
+<?php
+   }
+?>

@@ -322,21 +322,13 @@ input[type=checkbox]:checked + label:before { letter-spacing: 8px; } /* allow sp
 	margin-bottom: 20px;
 }
 
-.recipe-actions{
-	text-align: right;
-	float: left;
-	margin-left: 120px;
-
+.recipe-time{
+	font-size: 16px;
 }
 
-.recipe-time{
-	margin-right: 50px;
-	margin-left: 10px;
-	margin-top: 5px;
-	margin-bottom: 5px;
-	text-align: left;
-	float:left;
-	color: #79c44d;
+.recipe-time span {
+	font-size: 14px;
+	margin-top: 4%;
 }
 
 .lead{
@@ -368,13 +360,7 @@ input[type=checkbox]:checked + label:before { letter-spacing: 8px; } /* allow sp
 }
 
 .recipe-pic{
-	margin-bottom: 50px;
-	margin-top: 10px;
-	height: 150px;
-	width: auto;
-	padding:1px;
  	border:1px solid #fff;
- 	position: relative;
 }
 
 .message-finished,
@@ -413,6 +399,43 @@ input[type=checkbox]:checked + label:before { letter-spacing: 8px; } /* allow sp
 
 .ingr-list a {
 	color: #AD3232;
+}
+
+h1.recipe {
+	margin-top: 2%;
+	margin-bottom: 0px;
+	text-align: left;
+	border: none;
+}
+
+h2.recipe {
+	font-family: "Lobster", serif;
+}
+
+hr.recipe {
+	color: #000 !important;
+}
+
+.recipe-btns {
+	margin-right: 15px;
+}
+
+ol.recipe-directions li {
+	margin-bottom: 4%;
+}
+
+ol.recipe-directions {
+	padding-left: 15px !important;
+}
+
+.ingredients > tbody > tr > td {
+	line-height: 14px !important;
+}
+
+@media (max-width: 990px) {
+	recipe-pic {
+		display: none;
+	}
 }
 
 .autocomplete-suggestions { border: 1px solid #999; background: #FFF; cursor: default; overflow: auto; -webkit-box-shadow: 1px 4px 3px rgba(50, 50, 50, 0.64); -moz-box-shadow: 1px 4px 3px rgba(50, 50, 50, 0.64); box-shadow: 1px 4px 3px rgba(50, 50, 50, 0.64); }

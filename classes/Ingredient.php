@@ -16,6 +16,14 @@
 			}
 		}
 
+		public static function get($id) {
+			if ($id) {
+				$db = DB::getInstance();
+				$db->get('ingredients', array('id', '=', $id));
+
+				return $db->first()->name;
+			}
+		}
 		public static function in($recipe) {
 			if ($recipe) {
 				$db = DB::getInstance();
