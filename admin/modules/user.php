@@ -3,7 +3,7 @@
 <?php
 	if (Input::exists('get')) {
     $id = Input::get('id');
-    $user = new User($id);
+    //$user = new User($id);
 	}
 ?>
 
@@ -92,8 +92,8 @@
 		<table class="table table-striped sortable">
 			<thead>
 				<tr>
-					<td>IP-logg</td>
-					<td></td>
+					<td>IP</td>
+					<td>Tid</td>
 				</tr>
 			</thead>
 			<tbody>
@@ -102,8 +102,8 @@
 					if ($log->user == $id){
 						echo '
 						<tr>
-							<td><a href="?p=u-list&id=' . $log->id . '">' . 'IP: ' . $log->ip . '</a></td>
-							<td>' . 'Tid: ' . $log->time . '</td>
+							<td><a href="?p=u-list&id=' . $log->id . '">' . $log->ip . '</a></td>
+							<td>' . $log->time . '</td>
 						</tr>
 						';
 					}
