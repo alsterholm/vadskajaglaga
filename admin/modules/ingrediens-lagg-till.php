@@ -65,7 +65,7 @@
 	<div class="col-md-1"></div>
 	<div class="col-md-4">
 		<b>Knapp-preview:</b><br><br>
-		<button id="preview" class="btn btn-default" style="border: 1px solid #000"></button>
+		<button id="preview" class="btn btn-default btn-ingr" style="border: 1px solid #000"></button>
 	</div>
 </div>
 

@@ -116,6 +116,10 @@
 			return $this->action('SELECT *', $table, $where);
 		}
 
+		public function getLatest($table) {
+			return $this->query("SELECT * FROM {$table} ORDER BY id DESC LIMIT 5");
+		}
+
 		/**
 		Funtkion för att hämta samtliga värden ur en specifik tabell.
 		*/

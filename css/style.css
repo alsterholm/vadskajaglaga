@@ -287,9 +287,9 @@ input[type=checkbox]:checked + label:before { letter-spacing: 8px; } /* allow sp
 
 .btn-ingr {
 	border: solid 1px #000;
-	-moz-box-shadow:inset 0px 39px 0px -22px rgba(255, 255, 255, 0.15);
-	-webkit-box-shadow:inset 0px 39px 0px -22px rgba(255, 255, 255, 0.15);
-	box-shadow:inset 0px 39px 0px -22px rgba(255, 255, 255, 0.15);
+	-moz-box-shadow:inset 0px 39px 0px -22px rgba(255, 255, 255, 0.25);
+	-webkit-box-shadow:inset 0px 39px 0px -22px rgba(255, 255, 255, 0.25);
+	box-shadow:inset 0px 39px 0px -22px rgba(255, 255, 255, 0.25);
 }
 
 .well-lg {
@@ -391,6 +391,14 @@ input[type=checkbox]:checked + label:before { letter-spacing: 8px; } /* allow sp
 .add-ingredients {
 	display: none;
 	margin-top: 37px;
+}
+
+.update-ingredients input[type="text"] {
+	background: none;
+	border: none;
+	padding: 0;
+	width: 50px;
+	text-align: center;
 }
 
 .ingr-list {

@@ -1,4 +1,4 @@
-<h1>Meddelande</h1>
+<h1>Meddelanden</h1>
 <br>
 <div class="row">
 	<div class="col-md-12">

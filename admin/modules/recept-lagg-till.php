@@ -174,6 +174,5 @@
 		$('#ingr-amount').val('');
 		$('#ingr-unit').val('');
 		$('#ingr-add').slideUp(500);
-
 	});
 </script>

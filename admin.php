@@ -58,10 +58,9 @@
 					</ul>
 					<h4>Recept</h4>
 					<ul class="nav nav-sidebar">
-						<li id="r-start"><a href="?p=r-start">Översikt</a></li>
 						<li id="r-list"><a href="?p=r-list">Lista recept</a></li>
-						<li id="r-sent"><a href="?p=r-sent">Inskickade recept</a></li>
 						<li id="r-add"><a href="?p=r-add">Lägg till recept</a></li>
+						<li id="r-sent"><a href="?p=r-sent">Inskickade recept</a></li>
 					</ul>
 					<h4>Ingredienser</h4>
 					<ul class="nav nav-sidebar">
@@ -70,7 +69,6 @@
 					</ul>
 					<h4>Användare</h4>
 					<ul class="nav nav-sidebar">
-						<li id="u-start"><a href="?p=u-start">Översikt</a></li>
 						<li id="u-list"><a href="?p=u-list">Lista användare</a></li>
 						<li id="u-bans"><a href="?p=u-bans">Avstängningar</a></li>
 						<li id="u-ip-bans"><a href="?p=u-ip-bans">IP-bansystem</a></li>
