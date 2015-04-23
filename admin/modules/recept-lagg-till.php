@@ -160,7 +160,7 @@
 									$.post('remove_ingr.php', { id: entry_id })
 										.done(function(success) {
 											if (success == 1) {
-												row.hide();
+												row.remove();
 											}
 										});
 								});

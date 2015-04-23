@@ -6,7 +6,7 @@ if (Input::exists('get')) {
 	$message = new Message($id);
 ?>
 
-	<h1>Meddelande</h1>
+	<h1>Meddelande från <?php echo $message->data()->fullname ?></h1>
 	<br>
 	<div class="row">
 		<div class="col-md-4 col-sm-6">

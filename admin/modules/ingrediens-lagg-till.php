@@ -27,25 +27,46 @@
 	}
 
 ?>
-
-<div style="margin-top: 20px; width: 200px; float:left;">
-	<form action="" method="post">
-		<input type="text" name="name" id="name" style="width: 200px; padding: 3px;" placeholder="Namn på ingrediens"><br>
-		<div style="margin-top: 5px"></div>
-		<input type="text" name="unit" style="width: 200px; padding: 3px;" placeholder="Enhet (g, dl, ml)"><br>
-		<div style="margin-top: 25px"></div>
-		Textfärg:
-		<input style="margin-left: 40px" type="radio" name="fgcolor" value="#000000" checked> Svart <input style="margin-left: 20px" type="radio" name="fgcolor" value="#ffffff"> Vit
-		<div style="margin-top: 5px"></div>
-		Bakgrundsfärg: <input style="float:right;" type="color" value="#ffffff" id="bgcolor" name="bgcolor">
-		<br><br><br>
-		<button type="submit" class="btn btn-primary">Lägg till</button>
-	</form>
-</div>
-
-<div style="float:left; margin-left: 120px; margin-top: 20px">
-	<b>Knapp-preview:</b><br><br>
-	<button id="preview" class="btn btn-default" style="border: 1px solid #000"></button>
+<br>
+<div class="row">
+	<div class="col-md-4">
+		<form action="" method="post" class="form-horizontal">
+			<input type="text" name="name" id="name" class="form-control" placeholder="Namn på ingrediens"><br>
+			<hr>
+			<br>
+			<div class="row">
+				<div class="col-md-6">
+					<label>Textfärg:</label>
+				</div>
+				<div class="col-md-6">
+					<div class="row">
+						<div class="col-md-6">
+							<label for="black"><input id="black" type="radio" name="fgcolor" value="#000000" checked> Svart</label>
+						</div>
+						<div class="col-md-6">
+							<label for="white"><input id="white" type="radio" name="fgcolor" value="#ffffff"> Vit</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col-md-6">
+					<label for="bgcolor">Bakgrundsfärg:</label>
+				</div>
+				<div class="col-md-6">
+					<input class="form-control" type="color" value="#ffffff" id="bgcolor" name="bgcolor">
+				</div>
+			</div>
+			<br>
+			<button type="submit" class="btn btn-primary">Lägg till</button>
+		</form>
+	</div>
+	<div class="col-md-1"></div>
+	<div class="col-md-4">
+		<b>Knapp-preview:</b><br><br>
+		<button id="preview" class="btn btn-default" style="border: 1px solid #000"></button>
+	</div>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

@@ -42,10 +42,7 @@
 				</div>
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#">Dashboard</a></li>
-						<li><a href="#">Settings</a></li>
-						<li><a href="#">Profile</a></li>
-						<li><a href="#">Help</a></li>
+						<li><a href="index.php">Tillbaka till startsidan</a></li>
 					</ul>
 				</div>
 			</div>
@@ -57,7 +54,7 @@
 					<ul class="nav nav-sidebar">
 						<li id="a-start"><a href="?p=start">Översikt</a></li>
 						<li id="a-stats"><a href="?p=stats">Statistik</a></li>
-						<li id="a-message"><a href="?p=message">Meddelande</a></li>
+						<li id="a-message"><a href="?p=message">Meddelanden</a></li>
 					</ul>
 					<h4>Recept</h4>
 					<ul class="nav nav-sidebar">
