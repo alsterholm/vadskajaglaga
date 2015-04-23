@@ -393,12 +393,17 @@ input[type=checkbox]:checked + label:before { letter-spacing: 8px; } /* allow sp
 	margin-top: 37px;
 }
 
-.update-ingredients input[type="text"] {
+.update-ingredients input[type="text"],
+.update-ingredients input[type="text"]:active
+.update-ingredients input[type="text"]:focus {
 	background: none;
-	border: none;
+	border: none !important;
 	padding: 0;
 	width: 50px;
 	text-align: center;
+	-webkit-box-shadow: 0 0 0 0;
+	-moz-box-shadow: 0 0 0 0;
+	box-shadow: 0 0 0 0;
 }
 
 .ingr-list {
@@ -438,6 +443,10 @@ ol.recipe-directions {
 
 .ingredients > tbody > tr > td {
 	line-height: 14px !important;
+}
+
+.table-striped a {
+	font-weight: bold;
 }
 
 @media (max-width: 990px) {

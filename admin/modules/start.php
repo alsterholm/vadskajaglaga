@@ -26,6 +26,8 @@
 				?>
 			</tbody>
 		</table>
+		<a href="admin.php?p=r-list">Se alla recept &raquo;</a>
+		<br><br>
 	</div>
 	<div class="col-md-4">
 		<table class="table table-striped">
@@ -44,6 +46,8 @@
 				?>
 			</tbody>
 		</table>
+		<a href="admin.php?p=i-list">Se alla ingredienser &raquo;</a>
+		<br><br>
 	</div>
 	<div class="col-md-4">
 		<table class="table table-striped">
@@ -62,6 +66,7 @@
 				?>
 			</tbody>
 		</table>
+		<a href="admin.php?p=u-list">Se alla användare &raquo;</a>
 	</div>
 </div>
 

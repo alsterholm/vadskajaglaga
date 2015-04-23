@@ -1,6 +1,10 @@
 <h1>Ändra recept</h1>
 <br>
 <?php
+	if (Input::exists()) {
+		
+	}
+
 	if (Input::exists('get')) {
    	$id = Input::get('id');
    	$recipe = new Recipe($id);
@@ -29,49 +33,56 @@
 			</div>
 		</div>
 		<div class="col-md-4">
-			<div id="recipeIngredients">
-				<table class="table table-striped">
-					<thead>
-						<tr>
-							<td>Ingrediens</td>
-							<td class="center">Mängd</td>
-							<td class="center">Enhet</td>
-							<td class="center">Uppdatera</td>
-							<td class="center">Ta bort</td>
-						</tr>
-					</thead>
-					<tbody id="recipeIngredients" class="update-ingredients">
-						<?php
-							foreach($ingredients as $ingredient) {
-								echo '
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<td>Ingrediens</td>
+						<td class="center">Mängd</td>
+						<td class="center">Enhet</td>
+						<td class="center">Uppdatera</td>
+						<td class="center">Ta bort</td>
+					</tr>
+				</thead>
+				<tbody id="recipeIngredients" class="update-ingredients">
+					<?php
+						foreach($ingredients as $ingredient) {
+							echo '
 									<tr>
 										<td>' . Ingredient::get($ingredient->ingredient) . '</td>
-										<td class="center"><input type="text" value="' . $ingredient->unit . '"></td>
-										<td class="center"><input type="text" value="' . $ingredient->amount . '"></td>
-										<td class="center"><button class="btn btn-primary btn-xs">Uppdatera</button></td>
-										<td class="center"><button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></button></td>
+										<td class="center"><input type="text" id="amount' . $ingredient->id . '" name="amount" value="' . $ingredient->amount . '"></td>
+										<td class="center"><input type="text" id="unit' . $ingredient->id . '" name="unit" value="' . $ingredient->unit . '"></td>
+										<td class="center"><a id="' . $ingredient->id . '" class="btn btn-primary btn-xs update-ingr">Uppdatera</a></td>
+										<td class="center"><a id="' . $ingredient->id . '" class="btn btn-danger btn-xs rem-ingr"><span class="glyphicon glyphicon-remove"></span></a></td>
 									</tr>
-								';
-							}
-						?>
-					</tbody>
-				</table>
-				<br>
-				<label for="ingredients">Lägg till ny ingrediens</label>
-				<input type="text" name="ingredients" id="ingredients" class="form-control" placeholder="Ingrediens">
-				<div id="ingr-add">
-					<div class="row">
-						<div class="col-md-5">
-							<p></p>
-						</div>
-						<div class="col-md-7">
-							<div class="input-group">
-								<input type="text" class="form-control" id="ingr-amount" placeholder="Mängd">
-								<span class="input-group-btn">
-									<a class="btn btn-primary" id="add-ingr" type="button">Lägg till</a>
-								</span>
-							</div>
-						</div>
+								</form>
+							';
+						}
+					?>
+				</tbody>
+			</table>
+			<br>
+			<label for="ingredients">Lägg till ny ingrediens</label>
+			<input type="text" name="ingredients" id="ingredients" class="form-control" placeholder="Ingrediens">
+			<div id="ingr-add">
+				<input type="hidden" id="rec-id" name="rec-id" value="<?php echo $recipe->data()->id ?>">
+				<div class="row">
+					<div class="col-md-12">
+						<p></p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<input type="hidden" id="ingr-id">
+						<input type="text" class="form-control" id="ingr-amount" placeholder="Mängd">
+					</div>
+					<div class="col-md-6">
+						<input type="text" class="form-control" id="ingr-unit" placeholder="Enhet">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<br>
+						<a class="btn btn-primary" id="add-ingr" type="button">Lägg till</a>
 					</div>
 				</div>
 			</div>
@@ -122,23 +133,85 @@
 		$('#ingredients').val('');
 
 		if (exists) {
-			var str = $('#recipeIngredients').html();
+			var str = $('#recipeIngredients').html();         //FIXA
 			if (str.indexOf(ingredient.value) >= 0) {
-				$("#recipeIngredients:contains('" + ingredient.value + "')").effect('shake', {times: 2, distance: 5}, 200);
+				$('#recipeIngredients').parent().effect('shake', {times: 2, distance: 5}, 200);
 			} else {
 				$('#ingr-add p').html(ingredient.value);
+				$('#ingr-id').val(ingredient.id);
 				$('#ingr-add').slideDown(500);
 			}
 		}
 	}
 
+	$('.rem-ingr').on('click', function() {
+		var entry_id = $(this).attr('id');
+		var row = $(this).parent().parent();
+		$.post('remove_ingr.php', { id: entry_id })
+			.done(function(success) {
+				if (success == 1) {
+					row.remove();
+				}
+			});
+	});
+
+	$('.update-ingr').on('click', function() {
+		var id = $(this).attr('id');
+		var unit = $('#unit' + id).val();
+		var amount = $('#amount' + id).val();
+		var button = $(this);
+
+		$.post('update-ingredient.php', { id: id, unit: unit, amount: amount }, function(data) {
+			if (data == 1) {
+				button.switchClass('btn-primary', 'btn-success', 500);
+				button.delay(2000).switchClass('btn-success', 'btn-primary', 500);
+			} else {
+				alert("Något gick fel...");
+			}
+		});
+	});
+
 	$('#add-ingr').on('click', function() {
-		$('#amounts').val($('#amounts').val() + $('#ingr-amount').val() + ',');
-		$('#ingr').val($('#ingr').val() + ingredient.id + ',');
-		$('#recipeIngredients').append('<p>' + ingredient.value + ': ' + $('#ingr-amount').val() + '</p>');
+		var irecipe = $('#rec-id').val();
+		var iingredient = $('#ingr-id').val();
+		var iamount = $('#ingr-amount').val();
+		var iunit = $('#ingr-unit').val();
+
+		$.post('add_ingr.php', { recipe: irecipe, ingredient: iingredient, amount: iamount, unit: iunit })
+			.done(function(data) {
+				if (data == 1) {
+					$.post('recipe_ingredients.php', { recipe_id: irecipe })
+						.done(function(jsonData) {
+							$('#recipeIngredients').html('');
+							$.each(jsonData, function(key, value) {
+								var ingrName = '';
+								$.each(ingredients, function(i, j) {
+									if (value['ingredient'] == j.id) {
+										ingrName = j.value;
+										return;
+									}
+								});
+								$('#recipeIngredients').append('<tr><td>' + ingrName + '</td><td class="center"><input type="text" id="amount' + value['id'] + '" value"' + value['amount'] + '"></td><td class="center"><input type="text" id="unit' + value['id'] + '" value="' + value['unit'] + '"></td><td class="center"><button type="submit" id="' + value['id'] + '" class="btn btn-primary btn-xs update-ingr">Uppdatera</button></td><td class="center"><button class="btn btn-danger btn-xs rem-ingr" id="' + value['id'] + '"><span class="glyphicon glyphicon-remove"></span></button></td></tr>');
+
+								$('.rem-ingr').on('click', function() {
+									var entry_id = $(this).attr('id');
+									var row = $(this).parent().parent();
+									$.post('remove_ingr.php', { id: entry_id })
+										.done(function(success) {
+											if (success == 1) {
+												row.remove();
+											}
+										});
+								});
+							});
+						});
+				} else {
+					alert("Fel");
+				}
+			});
+
 		$('#ingr-amount').val('');
-
+		$('#ingr-unit').val('');
 		$('#ingr-add').slideUp(500);
-
 	});
 </script>
