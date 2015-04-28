@@ -37,7 +37,8 @@
                         </div>
                         <div class="col-sm -7">
 									<div class="recipe-btns right">
-										<button type="button" class="btn <?php if (Favorite::check($recipe->data()->id)) { echo 'btn-danger'; } else { echo 'btn-default'; } ?>" aria-label="left align"
+                              <input type="hidden" id="recipe-id" value="<?php echo Input::get('id') ?>">
+										<button type="button" id="favorite-btn" class="btn <?php if (Favorite::check($recipe->data()->id)) { echo 'btn-danger'; } else { echo 'btn-default'; } ?>" aria-label="left align"
                                  data-toggle="tooltip" data-placement="top" title="<?php if (Favorite::check($recipe->data()->id)) { echo 'Favoritmarkerat'; } else { echo 'Lägg till som favorit'; } ?>">
 											<span class="glyphicon glyphicon-heart-empty"></span>
 										</button>

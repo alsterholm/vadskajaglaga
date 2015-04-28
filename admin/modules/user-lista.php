@@ -1,33 +1,23 @@
 <h1>Lista användare</h1>
 <br>
+<input type="search" id="input-filter" class="form-control" placeholder="Sök bland användare">
+<br><br>
 <div class="row">
 	<div class="col-md-12">
-		<table class="table table-striped sortable">
+		<table id="user-table" class="table table-striped sortable">
 			<thead>
 				<tr>
 					<td>ID</td>
 					<td>E-post</td>
-					<td>Namn</td>
-					<td>Användargrupp</td>
 				</tr>
 			</thead>
 			<tbody>
 				<?php
 					foreach(User::all() as $user) {
-						switch($user->group) {
-							case '0': $group = 'Medlem';
-							break;
-
-							case '1': $group = 'Administratör';
-							break;
-						}
-
 						echo '
 						<tr>
 							<td>' . $user->id . '</td>
-							<td>' . $user->email . '</td>
-							<td><a href="?p=u-list&id=' . $user->id . '">' . $user->fullname . '</a></td>
-							<td>' . $group . '</td>
+							<td><a href="?p=u-list&id=' . $user->id . '">' . $user->email . '</a></td>
 						</tr>
 						';
 					}
@@ -42,9 +32,13 @@
 <script src="js/jquery.autocomplete.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/sorttable.js"></script>
+<script src="admin/js/filtertable.min.js"></script>
 
 <script>
 	$(document).ready(function() {
+		$('#user-table').filterTable({
+			inputSelector: '#input-filter'
+		});
 		$('#u-list').addClass('active');
 	});
 </script>

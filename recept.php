@@ -15,7 +15,7 @@
     	<?php require_once 'core/init.php'; ?>
 
     	<!-- CSS-links -->
-    	<?php include 'includes/data/CSS-links.php'; ?>
+    	<?php include 'includes/data/css-links.php'; ?>
     </head>
 
 <?php 	
@@ -39,6 +39,23 @@
 			$(function () {
 			  $('[data-toggle="tooltip"]').tooltip()
 			});
-		</script>
 
+			$('#favorite-btn').on('click', function() {
+				var recipe = $('#recipe-id').val();
+				$.post('manage-favorite.php', { recipe: recipe })
+					.done(function(data) {
+						if (data == 1) {
+							if ($('#favorite-btn').hasClass('btn-default')) {
+								$('#favorite-btn').switchClass('btn-default', 'btn-danger', 500);
+							} else {
+								$('#favorite-btn').switchClass('btn-danger', 'btn-default', 500);
+							}
+						} else {
+							console.log(data);
+						}
+					});
+			})
+
+		</script>
+		
 	</body>

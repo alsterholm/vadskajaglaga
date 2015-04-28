@@ -1,8 +1,10 @@
 <h1>Lista ingredienser</h1>
 <br>
+<input type="search" id="input-filter" class="form-control" placeholder="Sök bland ingredienser">
+<br><br>
 <div class="row">
 	<div class="col-md-12">
-		<table class="table table-striped sortable">
+		<table id="ingredients-table" class="table table-striped sortable">
 			<thead>
 				<tr>
 					<td>ID</td>
@@ -32,9 +34,13 @@
 <script src="js/jquery.autocomplete.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/sorttable.js"></script>
+<script src="admin/js/filtertable.min.js"></script>
 
 <script>
 	$(document).ready(function() {
+		$('#ingredients-table').filterTable({
+			inputSelector: '#input-filter'
+		});
 		$('#i-list').addClass('active');
 	});
 </script>

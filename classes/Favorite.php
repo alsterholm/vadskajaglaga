@@ -30,10 +30,10 @@
 		}
 
 		public static function add($fields) {
-				$db = DB::getInstance();
-				if (!$db->insert('favorites', $fields)) {
-					throw new Exception("Problemz");
-				}
+			$db = DB::getInstance();
+			if (!$db->insert('favorites', $fields)) {
+				throw new Exception("Problemz");
+			}
 		}
 	}
 

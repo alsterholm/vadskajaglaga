@@ -1,5 +1,4 @@
 <h1>Översikt</h1>
-<br>
 <?php
 	$db = DB::getInstance();
 
@@ -10,15 +9,18 @@
 ?>
 <div class="row">
 	<div class="col-md-4">
+	<h4>Senast inlagda recepten</h4>
 		<table class="table table-striped">
 			<thead>
-				<td>Senast inlagda recepten</td>
+				<td>#</td>
+				<td>Namn</td>
 			</thead>
 			<tbody>
 				<?php
 					foreach($recipes as $recipe) {
 						echo '
 							<tr>
+								<td>' . $recipe->id . '</td>
 								<td><a href="admin.php?p=r-list&id=' . $recipe->id . '">' . $recipe->name . '</a></td>
 							</tr>
 						';
@@ -30,15 +32,18 @@
 		<br><br>
 	</div>
 	<div class="col-md-4">
+	<h4>Senast inlagda ingredienserna</h4>
 		<table class="table table-striped">
 			<thead>
-				<td>Senast inlagda ingredienserna</td>
+				<td>#</td>
+				<td>Namn</td>
 			</thead>
 			<tbody>
 				<?php
 					foreach($ingredients as $ingredient) {
 						echo '
 							<tr>
+								<td>' . $ingredient->id . '</td>
 								<td><a href="admin.php?p=i-list&id=' . $ingredient->id . '">' . $ingredient->name . '</a></td>
 							</tr>
 						';
@@ -50,15 +55,18 @@
 		<br><br>
 	</div>
 	<div class="col-md-4">
+	<h4>Senast registrerade användarna</h4>
 		<table class="table table-striped">
 			<thead>
-				<td>Senast registrerade användarna</td>
+				<td>#</td>
+				<td>E-post</td>
 			</thead>
 			<tbody>
 				<?php
 					foreach($users as $user) {
 						echo '
 							<tr>
+								<td>' . $user->id . '</td>
 								<td><a href="admin.php?p=u-list&id=' . $user->id . '">' . $user->email . '</a></td>
 							</tr>
 						';

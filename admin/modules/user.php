@@ -1,13 +1,13 @@
-<H1>Detaljer användare</H1>
-<br>
 <?php
 	if (Input::exists('get')) {
-    $id = Input::get('id');
-    //$user = new User($id);
+	    $id = Input::get('id');
+	    $user = new User($id);
+	} else {
+		Redirect::to('admin.php?p=u-list');
 	}
 ?>
-
-
+<h1>Detaljer för <?php echo $user->data()->fullname . '(id: ' . $user->data()->id . ')'; ?></h1>
+<br>
 <div class="row">
 	<div class="col-md-12">
 		<div class="col-md-6">
@@ -20,71 +20,78 @@
 					</tr>
 				</thead>
 				<tbody>
-					<?php
-	        // kollar hur många receptförslag användaren skickat in
-	        $submitted = 0;
-	        foreach (Recipe::getSuggestions() as $suggestion){
-	          if($suggestion->user_id == $id){
-	            $submitted++;
-	          }
-	        }
-	        //kollar hur många recept användaren betygsatt
-	        $rated = 0;
-	        foreach (Rating::getRatings() as $rating){
-	          if($rating->user_id == $id){
-	            $rated++;
-	          }
-	        }
-					//kollar ifall användaren prenumerar på nyhetsbrev
-					switch ($user->data()->newsletter){
-						case '0' : $newsletter = 'Nej';
-						break;
-						case '1' : $newsletter = 'Ja';
-						break;
-						default: $newsletter = 'Nej';
+				<?php
+					// kollar hur många receptförslag användaren skickat in
+					$submitted = 0;
+					foreach (Recipe::getSuggestions() as $suggestion){
+						if($suggestion->user_id == $id){
+							$submitted++;
+						}
 					}
 
+					//kollar hur många recept användaren betygsatt
+					$rated = 0;
+					foreach (Rating::getRatings() as $rating){
+						if($rating->user_id == $id){
+							$rated++;
+						}
+					}
+
+					foreach($user->data() as $key => $value) {
+						
+						if ($key != 'salt' && $key != 'password') {
+							switch ($key) {
+								case 'id': $key = 'ID:';
+								break;
+								case 'email': $key = 'E-post:';
+								break;
+								case 'fullname': $key = 'Namn:';
+								break;
+								case 'joined': $key = 'Registreringsdatum:';
+								break;
+								case 'group': $key = 'Användargrupp:';
+									switch ($value) {
+										case 0: $value = 'Vanlig medlem';
+										break;
+										case 1: $value = 'Administratör';
+										break;
+									}
+								break;
+								case 'register_ip': $key = 'Registrerings-IP:';
+								break;
+								case 'newsletter': $key = 'Nyhetsbrev:';
+									switch ($value) {
+										case 0: $value = 'Nej';
+										break;
+										case 1: $value = 'Ja';
+										break;
+									}
+								break;
+							}
 
 							echo '
-							<tr>
-								<td>' . 'Användarid: ' .'</td>
-								<td>' . $user->data()->id . '</td>
-							</tr>
-	            <tr>
-								<td>' . 'E-mail: ' . '</td>
-								<td>' . $user->data()->email . '</td>
-							</tr>
-	            <tr>
-								<td>' . 'Namn: ' . '</td>
-								<td>' . $user->data()->fullname . '</td>
-							</tr>
-	            <tr>
-								<td>' . 'Registrerade sig: ' . '</td>
-								<td>' . $user->data()->joined . '</td>
-							</tr>
-	            <tr>
-	              <td>' . 'RegistreringsIP: ' . '</td>
-	              <td>' . $user->data()->register_ip . '</td>
-	            </tr>
-	            <tr>
-	              <td>' . 'Behörighet: ' . '</td>
-	              <td>' . $user->data()->group . '</td>
-	            </tr>
-							<tr>
-	              <td>' . 'Prenumererar på nyhetsbrev: ' . '</td>
-	              <td>' . $newsletter . '</td>
-	            </tr>
-	            <tr>
-	              <td>' . 'Inskickade recept: ' . '</td>
-	              <td>' . $submitted . '</td>
-	            </tr>
-	            <tr>
-	              <td>' . 'Betygsatta recept: ' . '</td>
-	              <td>' . $rated . '</td>
-	            </tr>
+								<tr>
+									<td>' . $key . '</td>
+									<td>' . $value . '</td>
+								</tr>
 							';
+						}
+					}
 
-					?>
+					echo '<tr><td></td><td></td></tr>';
+
+					echo '
+						<tr>
+							<td>' . 'Antal inskickade recept: ' . '</td>
+							<td>' . $submitted . '</td>
+						</tr>
+						<tr>
+							<td>' . 'Antal betygsatta recept: ' . '</td>
+							<td>' . $rated . '</td>
+						</tr>
+					';
+
+				?>
 				</tbody>
 			</table>
 		</div>
@@ -92,13 +99,13 @@
 		<table class="table table-striped sortable">
 			<thead>
 				<tr>
-					<td>IP</td>
-					<td>Tid</td>
+					<td>IP-adress</td>
+					<td>Tidpunkt</td>
 				</tr>
 			</thead>
 			<tbody>
-				<?php
-				foreach (Log::getALL() as $log){
+			<?php
+				foreach (Log::getAll() as $log){
 					if ($log->user == $id){
 						echo '
 						<tr>
@@ -108,7 +115,7 @@
 						';
 					}
 				}
-				?>
+			?>
 			</tbody>
 		</div>
 	</div>
@@ -122,6 +129,6 @@
 
 <script>
 	$(document).ready(function() {
-		$('#i-list').addClass('active');
+		$('#u-list').addClass('active');
 	});
 </script>
