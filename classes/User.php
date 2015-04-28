@@ -21,7 +21,7 @@
 					if ($this->find($user)) {
 						$this->_isLoggedIn = true;
 					} else {
-						//process logout
+						$this->logout();
 					}
 				}
 
@@ -47,10 +47,10 @@
 			}
 		}
 
-		public function find($email = null) {
-			if ($email) {
-				$field = (is_numeric($email)) ? 'id' : 'email';
-				$data = $this->_db->get('users', array($field, '=', $email));
+		public function find($user = null) {
+			if ($user) {
+				$field = (is_numeric($user)) ? 'id' : 'email';
+				$data = $this->_db->get('users', array($field, '=', $user));
 
 				if ($data->count()) {
 					$this->_data = $data->first();

@@ -9,9 +9,26 @@
 <?php
 								if (Input::exists('get')) {
 									if (Input::get('success') == 'true') {
+										if (Input::exists()) {
+											$db = DB::getInstance();
+											$email = Input::get('email');
+											$user = new User($email);
+
+											if ($user->exists()) {
+												$hash = hash('sha256', microtime());
+												$user_id = $user->data()->id;
+
+												$db->insert('password_resets', array(
+													'hash' => $hash,
+													'user_id' => $user_id,
+													'time' => time();
+												));
+											}
+										}
+
 										echo '
 											<p class="center">
-												Ett meddelande med instruktioner för hur du återställer ditt lösenord har nu skickats till din e-postadress.
+												Tack! Om din e-postadress finns i vår databas så skickar vi ett meddelande med instruktioner för hur du återställer ditt lösenord.
 												<br><br>
 												<a href="index.php" class="btn btn-success"><span class="fa fa-home"></span> Tillbaka till startsidan</a>
 											</p>
