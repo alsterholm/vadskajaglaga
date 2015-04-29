@@ -27,7 +27,7 @@
 													<br><br>
 													Med vänliga hälsningar,<br>
 													Vad ska jag laga?
-												'
+												';
 
 												if (Mail::send($user->data()->fullname, $email, 'Glömt lösenord', $message, 'info')) {
 													$db->insert('password_resets', array(
