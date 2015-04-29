@@ -8,9 +8,8 @@
 
 <?php
 	$db = DB::getInstance();
-	echo '<script>alert("Input finns")</script>';
 	if (Input::exists()) {
-		
+		echo '<script>alert("Input finns")</script>';
 
 		$hash = Input::get('h');
 		$reset = $db->get('password_resets', array('hash', '=', $hash))->results();
