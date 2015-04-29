@@ -29,12 +29,10 @@
 			$salt = Hash::salt(32);
 			echo '<script>alert("Validation success")</script>';
 
-			$user->update(array(
+			$db->update('users', $reset->user_id, array(
 				'password' => Hash::make(Input::get('password'), $salt),
-				'salt' => $salt,
-			), $reset->user_id);
-			$db->delete('password_resets', array('hash', '=', $hash));
-
+				'salt' => $salt
+			));
 			
 			echo 'success';
 
