@@ -52,7 +52,7 @@
 	}
 
 	if (Input::exists('get')) {
-		$hash = Input::get('reset');
+		$hash = Input::get('h');
 		$reset = $db->get('password_resets', array('hash', '=', $hash))->results();
 
 		//Kontrollera att hashen finns i databasen
