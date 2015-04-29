@@ -20,7 +20,7 @@
 
 												$message = '
 													Hej!<br><br>
-													För att återställa ditt lösenord, gå till följande länk: <a href="http://www.vadskajaglaga.se/aterstall.php?h=' . $hash . '">http://www.vadskajaglaga.se/aterstall.php?h=' . $hash . '<br>
+													För att återställa ditt lösenord, gå till följande länk: <a href="http://www.vadskajaglaga.se/aterstall.php?h=' . $hash . '">http://www.vadskajaglaga.se/aterstall.php?h=' . $hash . '</a><br>
 													Länken gäller i 15 minuter.
 													<br><br>
 													Om du inte bett oss att återställa ditt lösenord kan du strunta i det här mailet.
