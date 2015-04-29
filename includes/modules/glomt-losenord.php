@@ -33,7 +33,7 @@
 													$db->insert('password_resets', array(
 														'hash' => $hash,
 														'user_id' => $user_id,
-														'time' => time();
+														'time' => time()
 													));
 												} else {
 													Redirect::to(404);
