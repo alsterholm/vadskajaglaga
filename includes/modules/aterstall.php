@@ -27,6 +27,7 @@
 
 		if ($validation->passed()) {
 			$salt = Hash::salt(32);
+			echo '<script>alert("Validation success")</script>';
 
 			$user->update(array(
 				'password' => Hash::make(Input::get('password'), $salt),
@@ -34,7 +35,7 @@
 			), $reset->user_id);
 			$db->delete('password_resets', array('hash', '=', $hash));
 
-			echo '<script>alert("Validation success")</script>';
+			
 			echo 'success';
 
 		} else {
