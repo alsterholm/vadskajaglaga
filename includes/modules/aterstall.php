@@ -11,7 +11,7 @@
 	if (Input::exists()) {
 
 		$hash = Input::get('h');
-		$reset = $db->get('password_resets', array('hash', '=', $hash))->results();
+		$reset = $db->get('password_resets', array('hash', '=', $hash))->first();
 
 		$validate = new Validate();
 		$validation = $validate->check(array(
@@ -55,7 +55,7 @@
 
 	if (Input::exists('get')) {
 		$hash = Input::get('h');
-		$reset = $db->get('password_resets', array('hash', '=', $hash))->results();
+		$reset = $db->get('password_resets', array('hash', '=', $hash))->first();
 
 		print_r($reset);
 
