@@ -56,7 +56,7 @@
 								<p class="center">
 									Har du glömt av ditt lösenord? Ingen fara, det är inte lätt att hålla koll på allt! Fyll i din e-postadress nedan så ska vi hjälpa dig att återställa det!
 									<br><br><br>
-									<form action="glomt-losenord.php?success=true" method="" class="form-horizontal">
+									<form action="glomt-losenord.php?success=true" method="post" class="form-horizontal">
 										<fieldset>
 											<label for="email" class="col-md-2 control-label">E-post:</label>
 											<div class="col-md-10">
