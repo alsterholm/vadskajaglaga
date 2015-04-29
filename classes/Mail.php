@@ -18,6 +18,9 @@
  				case 'kontakt': $from = 'kontakt@vadskajaglaga.se';
  				break;
 
+ 				case 'info': $from = 'info@vadskajaglaga.se';
+ 				break;	
+
  				default: $from = 'info@vadskajaglaga.se';
  			}
 
@@ -31,7 +34,9 @@
 
 
  			if(!mail($to, $subject, $message, $headers)){
- 				echo 'error sending mail';
+ 				return false;
+ 			} else {
+ 				return true;
  			}
 		}
 

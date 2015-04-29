@@ -4,7 +4,7 @@
 	$db = DB::getInstance();
 
 	if (Input::exists()) {
-		$hash = Input::get('hash');
+		$hash = Input::get('h');
 		$reset = $db->get('password_resets', array('hash', '=', $hash))->result();
 
 		$validate = new Validate();
