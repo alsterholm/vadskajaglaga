@@ -14,7 +14,7 @@
 		$reset = $db->get('password_resets', array('hash', '=', $hash))->first();
 
 		$validate = new Validate();
-		$validation = $validate->check(array(
+		$validation = $validate->check($_POST, array(
 			'password' => array(
 				'required' => true,
 				'min' => 6
