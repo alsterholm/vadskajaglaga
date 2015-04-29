@@ -8,8 +8,10 @@
 
 <?php
 	$db = DB::getInstance();
-
+	echo '<script>alert("Input finns")</script>';
 	if (Input::exists()) {
+		
+
 		$hash = Input::get('h');
 		$reset = $db->get('password_resets', array('hash', '=', $hash))->results();
 
@@ -34,6 +36,7 @@
 			), $reset->user_id);
 			$db->delete('password_resets', array('hash', '=', $hash));
 
+			echo 'success';
 
 		} else {
 ?>
