@@ -5,7 +5,7 @@
 
 	if (Input::exists()) {
 		$hash = Input::get('h');
-		$reset = $db->get('password_resets', array('hash', '=', $hash))->result();
+		$reset = $db->get('password_resets', array('hash', '=', $hash))->results();
 
 		$validate = new Validate();
 		$validation = $validate->check(array(

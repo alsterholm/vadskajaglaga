@@ -34,6 +34,7 @@
 ?>
 						<ul class="nav navbar-nav navbar-right">
 							<li><a href="logga-in.php"><span class="glyphicon glyphicon-user"></span> Logga in</a></li>
+							<li><a href="registrera.php"><span class="glyphicon glyphicon-pencil"></span> Registrera</a></li>
 						</ul>
 <?php
 				}
