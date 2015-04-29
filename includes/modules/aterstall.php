@@ -60,7 +60,7 @@
 		//Kontrollera att hashen finns i databasen
 		if ($db->count()) {
 			//Kontrollera att det inte har gått mer än 15 minuter sedan mailet skickades.
-			if (time() < ($reset->time + 900)) {
+			if (time() > ($reset->time + 900)) {
 ?>
 
 						<form action="" method="post">
