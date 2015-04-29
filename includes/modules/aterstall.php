@@ -9,7 +9,6 @@
 <?php
 	$db = DB::getInstance();
 	if (Input::exists()) {
-		echo '<script>alert("Input finns")</script>';
 
 		$hash = Input::get('h');
 		$reset = $db->get('password_resets', array('hash', '=', $hash))->results();
@@ -25,6 +24,8 @@
 				'matches' => 'password'
 			)
 		));
+
+		echo '<script>alert("Validation genomförd")</script>';
 
 		if ($validation->passed()) {
 			$salt = Hash::salt(32);
