@@ -57,11 +57,6 @@
 		$hash = Input::get('h');
 		$reset = $db->get('password_resets', array('hash', '=', $hash))->first();
 
-		print_r($reset);
-
-		echo '<br><br>Reset-tid: ' . ($reset->time + 900) . '<br>';
-		echo 'Nuvarande tid: ' . time();
-
 		//Kontrollera att hashen finns i databasen
 		if ($db->count()) {
 			//Kontrollera att det inte har gått mer än 15 minuter sedan mailet skickades.
@@ -95,15 +90,12 @@
 <?php
 			} else {
 				$db->delete('password_resets', array('hash', '=', $hash));
-				echo 'tid';
-				// Redirect::to('index.php');
+				Redirect::to('index.php');
 			}
 		} else {
-			echo 'finns inte';
-			// Redirect::to('index.php');
+			Redirect::to('index.php');
 		}
 	} else {
-		echo 'Ingen input';
-		// Redirect::to('index.php');
+		Redirect::to('index.php');
 	}
 ?>
