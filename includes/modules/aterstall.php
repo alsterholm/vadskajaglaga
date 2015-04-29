@@ -25,8 +25,6 @@
 			)
 		));
 
-		echo '<script>alert("Validation genomförd")</script>';
-
 		if ($validation->passed()) {
 			$salt = Hash::salt(32);
 
@@ -36,9 +34,11 @@
 			), $reset->user_id);
 			$db->delete('password_resets', array('hash', '=', $hash));
 
+			echo '<script>alert("Validation success")</script>';
 			echo 'success';
 
 		} else {
+			echo '<script>alert("Validation fail")</script>';
 ?>
 	
 						<div class="row">
