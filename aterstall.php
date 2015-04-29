@@ -1,59 +1,41 @@
-<?php
+<!DOCTYPE html>
+<html lang="sv">
+	<head>
+		<meta charset="utf-8">
+		<meta name="description" content="">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	require_once 'core/init.php';
-	$db = DB::getInstance();
+		<title>Glömt lösenord - Vad ska jag laga?</title>
 
-	if (Input::exists()) {
-		$hash = Input::get('h');
-		$reset = $db->get('password_resets', array('hash', '=', $hash))->results();
+		<link rel="icon" type="image/png" href="img/icon.png">
 
-		$validate = new Validate();
-		$validation = $validate->check(array(
-			'password' => array(
-				'required' => true,
-				'min' => 6
-			),
-			'password_again' => array(
-				'required' => true,
-				'matches' => 'password'
-			)
-		));
+		<!--  Init-file -->
+		<?php require_once 'core/init.php'; ?>
 
-		if ($validation->passed()) {
-			$salt = Hash::salt(32);
-
-			$user->update(array(
-				'password' => Hash::make(Input::get('password'), $salt),
-				'salt' => $salt,
-			), $reset->user_id);
-			$db->delete('password_resets', array('hash', '=', $hash));
-
-			/*
-				Visa meddelande om att lösenordet återställts.
-			*/
-		} else {
-			/*
-				Visa meddelande om att lösenordet inte godkänns.
-			*/
-		}
-	} else if (Input::exists('get')) {
-		$hash = Input::get('reset');
-		$reset = $db->get('password_resets', array('hash', '=', $hash))->result();
-
-		//Kontrollera att hashen finns i databasen
-		if ($db->count()) {
-			//Kontrollera att det inte har gått mer än 15 minuter sedan mailet skickades.
-			if (time() < ($reset->time + 900)) {
-				/*
-					Visa reset-sida
-				*/
-			} else {
-				$db->delete('password_resets', array('hash', '=', $hash));
+		<!-- CSS-links -->
+		<?php include 'includes/data/css-links.php'; ?>	
+	</head>
+	<body>
+		<?php
+			$user = new User();
+			if ($user->isLoggedIn()) {
 				Redirect::to('index.php');
 			}
-		} else {
-			Redirect::to('index.php');
-		}
-	} else {
-		Redirect::to('index.php');
-	}
+		?>
+
+		<!-- Navbar -->
+		<?php include 'includes/navbar.php'; ?>
+
+		<!-- Main function -->
+		<?php include 'includes/modules/aterstall.php'; ?> 
+
+		
+		<!-- Footer -->
+		<?php include 'includes/footer.php'; ?>
+
+		<!-- JavaScript-links -->
+		<?php include 'includes/data/js-links.php'; ?>
+
+	</body>
+</html>

@@ -14,6 +14,7 @@
 							<li role="presentation" id="findrecipe"><a href="index.php"><span class="fa fa-search"></span> Hitta recept</a></li>
 						</ul>
 <?php
+
 				if ($user->isLoggedIn()) {
 					$fullname = $user->data()->fullname;
 
