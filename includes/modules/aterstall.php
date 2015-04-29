@@ -57,7 +57,9 @@
 		$hash = Input::get('h');
 		$reset = $db->get('password_resets', array('hash', '=', $hash))->results();
 
-		echo 'Reset-tid: ' . $reset->time . '<br>';
+		print_r($reset);
+
+		echo '<br><br>Reset-tid: ' . $reset->time . '<br>';
 		echo 'Nuvarande tid: ' . time();
 
 		//Kontrollera att hashen finns i databasen
