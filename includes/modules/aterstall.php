@@ -59,7 +59,7 @@
 
 		print_r($reset);
 
-		echo '<br><br>Reset-tid: ' . $reset->time . '<br>';
+		echo '<br><br>Reset-tid: ' . ($reset->time + 900) . '<br>';
 		echo 'Nuvarande tid: ' . time();
 
 		//Kontrollera att hashen finns i databasen
