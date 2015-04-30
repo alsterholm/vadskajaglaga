@@ -15,7 +15,7 @@
 				throw new Exception('Problemz!');
 			}
 		}
-
+	
 		public static function get($id) {
 			if ($id) {
 				$db = DB::getInstance();

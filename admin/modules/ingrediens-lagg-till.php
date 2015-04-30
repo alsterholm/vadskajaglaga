@@ -78,7 +78,7 @@
 	$(document).ready(function() {
 		$('#i-add').addClass('active');
 	});
-	
+
 	$('#name').keyup(function() {
 		$('#preview').html($('#name').val());
 	});
