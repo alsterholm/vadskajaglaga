@@ -1,28 +1,16 @@
 <?php
 
 	if (Input::exists()) {
-		$validate = new Validate();
-
-		$validation = $validate->check($_POST, array(
-			'name' => array(
-				'unique' => 'ingredients'
-			)
-		));
-		// MÅSTE VARA: if validation NOT passed... annars uppdateras inget med samma namn!! Validering känns kanske overkill!!
-		if (!$validation->passed()) {
-			try {
-				$db = DB::getInstance();
-				$db->update('ingredients', Input::get('id'), array(
-					'name' => Input::get('name'),
-					'bgcolor' => Input::get('bgcolor'),
-					'fgcolor' => Input::get('fgcolor')
-				));
-				echo '<div style="color: #408A33;margin-bottom:20px;margin-top:20px;">Ingrediensen ändrad!</div>';
-			} catch (Exception $e) {
-				echo 'Databasfel';
-			}
-		} else {
-			echo '<div style="color: #A62323;margin-bottom:20px;margin-top:20px;">Namnet finns redan i databasen</div>';
+		try {
+			$db = DB::getInstance();
+			$db->update('ingredients', Input::get('id'), array(
+				'name' => Input::get('name'),
+				'bgcolor' => Input::get('bgcolor'),
+				'fgcolor' => Input::get('fgcolor')
+			));
+			echo '<div style="color: #408A33;margin-bottom:20px;margin-top:20px;">Ingrediensen ändrad!</div>';
+		} catch (Exception $e) {
+			echo 'Databasfel';
 		}
 	}
 

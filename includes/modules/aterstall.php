@@ -37,7 +37,6 @@
 			echo 'success';
 
 		} else {
-			echo '<script>alert("Validation fail")</script>';
 ?>
 	
 						<div class="row">
