@@ -1,4 +1,7 @@
 <?php
+/**
+Klassen hanterar de Tokens som används på vår sida
+*/
 
 	class Token{
 		public static function generate() {

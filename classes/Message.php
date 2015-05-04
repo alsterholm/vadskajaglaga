@@ -1,4 +1,9 @@
 <?php
+	/**
+	Klassen hanterar meddelanden som skickas invia "kontakta oss" funktionen
+
+	*/
+
 	class Message {
 		private 	$_db,
 					$_data;

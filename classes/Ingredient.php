@@ -1,5 +1,8 @@
 <?php
+	/**
+	Klassen hanterar ingredienserna i databasen.
 
+*/
 	class Ingredient {
 		public static function all() {
 			$db = DB::getInstance();
@@ -15,7 +18,7 @@
 				throw new Exception('Problemz!');
 			}
 		}
-	
+
 		public static function get($id) {
 			if ($id) {
 				$db = DB::getInstance();

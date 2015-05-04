@@ -1,4 +1,8 @@
 <?php
+	/**
+	Klassen hanterar valideringen på vår sida 
+
+	*/
 
 	class Validate {
 		private $_passed = false,
@@ -12,7 +16,7 @@
 		public function check($source, $items = array()) {
 			foreach ($items as $item => $rules) {
 				foreach ($rules as $rule => $rule_value) {
-					
+
 					$value = $source[$item];
 
 					if ($rule === 'required' && empty($value)) {
@@ -43,7 +47,7 @@
 							case 'email':
 								if (!filter_var($value, FILTER_VALIDATE_EMAIL)) {
 									$this->addError("{$item} is not a valid email adress.");
-								} 
+								}
 							break;
 							case 'fullname':
 								if (strpos($value, ' ') == false) {

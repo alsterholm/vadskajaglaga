@@ -1,4 +1,9 @@
 <?php
+	/**
+	Klassen hanterar recepten på vår sida
+
+	*/
+
 	class Recipe {
 		private 	$_db,
 					$_data;

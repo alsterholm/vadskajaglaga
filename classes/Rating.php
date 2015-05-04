@@ -1,4 +1,8 @@
 <?php
+	/**
+	Klassen hanterar betygen på recepten
+
+	*/
 
 	class Rating {
 

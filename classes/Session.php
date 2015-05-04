@@ -16,7 +16,7 @@
 		*/
 		public static function exists($name) {
 			return (isset($_SESSION[$name])) ? true : false;
-		}	
+		}
 
 		/**
 		Functionen lägger till en ny session

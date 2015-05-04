@@ -1,4 +1,8 @@
 <?php
+  /**
+  Klassen hanterar ip-loggningen i databasen.
+  */
+
   class Log {
 
     public static function getAll() {

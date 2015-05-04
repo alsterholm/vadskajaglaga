@@ -1,5 +1,5 @@
 <?php
-	
+
 	/**
 	Klassen hanterar redirects på sidan
 

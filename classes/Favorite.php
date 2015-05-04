@@ -1,5 +1,8 @@
 <?php
+	/**
+	Klassen hanterar favorit recept. Att lägga till och ta bort sina favoritrecept
 
+	*/
 	class Favorite {
 
 		public static function get() {

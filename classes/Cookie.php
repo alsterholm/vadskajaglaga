@@ -28,12 +28,12 @@
 			if (setcookie($name, $value, time() + $expiry, '/')) {
 				return true;
 			}
-			return false;	
+			return false;
 		}
 
 		/**
 		Funktionen raderar en cookie
-		
+
 		*/
 		public static function delete($name) {
 			self::put($name, '', time() - 1);

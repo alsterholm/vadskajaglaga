@@ -1,9 +1,13 @@
 <?php
+	/**
+	Klassen sköter utskicken av mail som sker från hemsidan
+
+	*/
 	class Mail{
 
-		
+
 		public static function send($to_name, $to_email, $subject = null, $message = null, $from = null){
-			
+
 			if(!$subject){
 				$subject = 'Automatgenererat svar';
  			}
@@ -19,7 +23,7 @@
  				break;
 
  				case 'info': $from = 'info@vadskajaglaga.se';
- 				break;	
+ 				break;
 
  				default: $from = 'info@vadskajaglaga.se';
  			}

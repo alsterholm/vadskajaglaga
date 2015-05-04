@@ -1,4 +1,8 @@
 <?php
+	/**
+	Klassen hanterar användare av sidan
+
+	*/
 
 	class User {
 		private $_db,
