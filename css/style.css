@@ -449,6 +449,11 @@ ol.recipe-directions {
 	font-weight: bold;
 }
 
+#comment-success,
+#comment-failure {
+	display: none;
+}
+
 @media (max-width: 990px) {
 	recipe-pic {
 		display: none;

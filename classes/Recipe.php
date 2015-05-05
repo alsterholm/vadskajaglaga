@@ -23,6 +23,10 @@
 			return $this->_data;
 		}
 
+		public function exists() {
+			return ($this->_data) ? true : false;
+		}
+
 		public function update($fields = array(), $id = null) {
 			if (!$id) {
 				if (!$this->_db->update('recipes', $id, $fields)) {
