@@ -16,10 +16,10 @@
       }
 
       $rating = '';
+      $stars = 0;
+      $loggedIn = ($user->isLoggedIn()) ? 'rate-logged-in' : 'rate-not-logged-in';
       if ($r = Rating::get($recipe->data()->id)) {
          $r = round($r);
-         $stars = 0;
-         $loggedIn = ($user->isLoggedIn()) ? 'rate-logged-in' : 'rate-not-logged-in';
          while ($stars < 5) {
             if ($r <= $stars) {
                $rating .= '<button href="#" class="rating-star ' . $loggedIn . ' rating-star-gray glyphicon glyphicon-star" id="star-' . ($stars + 1) . '"></button> ';
@@ -30,7 +30,10 @@
          }
          $rating .= '<input type="hidden" id="rec-rating" value="' . $r . '">';
       } else {
-         $rating = 'Ej betygsatt';
+         while ($stars < 5) {
+            $rating .= '<button href="#" class="rating-star ' . $loggedIn . ' rating-star-gray glyphicon glyphicon-star" id="star-' . ($stars + 1) . '"></button> ';
+            $stars++;
+         }
       }
 ?>
  	<section class="header">
