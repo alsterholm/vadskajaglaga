@@ -62,14 +62,15 @@
 		}
 	}
 
-	if (Input::exists('get') && !$success) {
-		$hash = Input::get('h');
-		$reset = $db->get('password_resets', array('hash', '=', $hash))->first();
+	if (!$success) {
+		if (Input::exists('get')) {
+			$hash = Input::get('h');
+			$reset = $db->get('password_resets', array('hash', '=', $hash))->first();
 
-		//Kontrollera att hashen finns i databasen
-		if ($db->count()) {
-			//Kontrollera att det inte har gått mer än 15 minuter sedan mailet skickades.
-			if (time() < ($reset->time + 900)) {
+			//Kontrollera att hashen finns i databasen
+			if ($db->count()) {
+				//Kontrollera att det inte har gått mer än 15 minuter sedan mailet skickades.
+				if (time() < ($reset->time + 900)) {
 ?>
 
 						<form action="" method="post">
@@ -97,14 +98,15 @@
 
 
 <?php
+				} else {
+					$db->delete('password_resets', array('hash', '=', $hash));
+					Redirect::to('index.php');
+				}
 			} else {
-				$db->delete('password_resets', array('hash', '=', $hash));
 				Redirect::to('index.php');
 			}
 		} else {
 			Redirect::to('index.php');
 		}
-	} else {
-		Redirect::to('index.php');
 	}
 ?>
