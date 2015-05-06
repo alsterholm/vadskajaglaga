@@ -16,7 +16,7 @@
 				$rating = 0;
 
 				foreach ($db->results() as $entry) {
-					$rating += $entry;
+					$rating += (int) $entry->rating;
 				}
 
 				if ($db->count()) {
@@ -25,6 +25,24 @@
 					return false;
 				}
 			}
+		}
+
+		public static function rate($recipe, $rating) {
+			$user = new User();
+			$db = DB::getInstance();
+
+			if ($user->isLoggedIn()) {
+				$db->query("SELECT * FROM ratings WHERE recipe_id = ? AND user_id = ?", array($recipe, $user->data()->id));
+				if (!$db->count()) {
+					$db->insert('ratings', array(
+						'recipe_id' => $recipe,
+						'rating' => $rating,
+						'user_id' => $user->data()->id
+					));
+					return true;
+				}
+			}
+			return false;
 		}
 
 		public static function ratings($fields = array()) {

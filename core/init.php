@@ -15,8 +15,7 @@ $GLOBALS['config'] = array(
 	),
 	'session' => array(
 		'session_name' => 'user',
-		'token_name' => 'token',
-		'facebook' => ''
+		'token_name' => 'token'
 	)
 );
 
@@ -38,10 +37,6 @@ if (Cookie::exists(Config::get('remember/cookie_name')) && !Session::exists(Conf
 		$user = new User($hashCheck->first()->user_id);
 		$user->login();
 	}
-} else if (Session::exists(Config::get('session/facebook'))) {
-	$request = new FacebookRequest(Session::get(Config::get('session/facebook')), 'POST', '/me');
-	$response = $request->execute();
-	$graph = $response->getGraphObject(Graphuser::classname());
 }
 
 ?>

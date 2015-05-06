@@ -63,8 +63,10 @@ $('#addcomment').on('click', function() {
 });
 
 $('.not-logged-in').on('click', function() {
-	$('.recipe-login').fadeIn(500);
-	$('.recipe-login').delay(2000).fadeOut(500);
+	if (!$('.recipe-login').is(':visible')) {
+		$('.recipe-login').slideDown(500);
+		$('.recipe-login').delay(2000).slideUp(500);
+	}
 });
 
 $('#portions-slider').on('change', function() {
@@ -73,5 +75,53 @@ $('#portions-slider').on('change', function() {
 	$('.ingr-portion-amount').each(function(index) {
 		$(this).html(ingrAmounts[index] * $('#portions-slider').val());
 	});
-});	
+});
 
+$('.rating-star').hover(function() {
+	$(this).addClass('rating-star-gold');
+	$(this).prevAll().addClass('rating-star-gold');
+	$(this).nextAll().addClass('rating-star-gray');
+	$(this).nextAll().removeClass('rating-star-gold');
+});
+
+$('#rating-stars').mouseout(function() {
+	$('.rating-star').removeClass('rating-star-gold');
+	$('.rating-star').removeClass('rating-star-gray');
+
+	var rating = Number($('#rec-rating').val());
+	
+	$('.rating-star').each(function(index) {
+		if (index < rating) {
+			$(this).addClass('rating-star-gold');
+		} else {
+			$(this).addClass('rating-star-gray');
+		}
+	})
+});
+
+$('.rate-not-logged-in').on('click', function() {
+	if (!$('.rating-login').is(':visible')) {
+		$('.rating-login').slideDown(500);
+		$('.rating-login').delay(2000).slideUp(500);
+	}
+});
+
+$('.rate-logged-in').on('click', function() {
+	var recipe = $('#recipe-id').val();
+	var rating = $(this).attr('id').substr(5,6);
+
+	$.post('rate-recipe.php', {recipe: recipe, rating: rating})
+		.done(function(data) {
+			if (data == 1) {
+				if (!$('.rating-success').is(':visible')) {
+					$('.rating-success').slideDown(500);
+					$('.rating-success').delay(2000).slideUp(500);
+				}
+			} else {
+				if (!$('.rating-failure').is(':visible')) {
+					$('.rating-failure').slideDown(500);
+					$('.rating-failure').delay(2000).slideUp(500);
+				}
+			}
+		});
+});

@@ -30,10 +30,7 @@
 
 		<!-- Main function -->
 		<?php include 'includes/modules/recept.php'; ?>
-
-		<!-- Footer -->
-		<?php //include 'includes/footer.php'; ?>
-
+		
 		<!-- JavaScript-links -->
 		<?php include 'includes/data/js-links.php'; ?>
 		<script src="js/bootstrap-slider.js"></script>

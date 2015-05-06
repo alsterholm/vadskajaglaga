@@ -265,6 +265,34 @@ input[type=checkbox]:checked + label:before { letter-spacing: 8px; } /* allow sp
 	background-color: #EEE;
 }
 
+.rating-star {
+	background: none;
+	border: none;
+	padding-left: 2px;
+	padding-right: 0px;
+	margin: 0;
+}
+
+.rating-star-gray,
+.rating-star-gold {
+	text-shadow: 0px 0px 2px #000000;
+	font-size: 15px !important;
+}
+
+.rating-star-gray:hover,
+.rating-star-gold:hover {
+	color: #F1E85B;
+	text-decoration: none;
+}
+
+.rating-star-gray {
+	color: #666;
+}
+
+.rating-star-gold {
+	color: #F1E85B;
+}
+
 @media (max-width: 767px) {
 	.mob-space {
 		margin-bottom: 10px;
@@ -453,6 +481,19 @@ ol.recipe-directions {
 	color: #BA1D1D;
 	display: none;
 	margin-right: 20px;
+}
+
+.rating-success {
+	display: none;
+	margin-left: 20px;
+	color: #79c44d;
+}
+
+.rating-failure,
+.rating-login {
+	color: #BA1D1D;
+	display: none;
+	margin-left: 20px;
 }
 
 #comment-success,

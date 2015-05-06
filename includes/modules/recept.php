@@ -1,4 +1,3 @@
- 	<!-- Recipes -->
 <?php
 
    require_once 'core/init.php';
@@ -14,6 +13,24 @@
          $image = 'img/recipe/' . $recipe->data()->id . '.jpg';
       } else {
          $image = 'img/recipe/noimage.jpg';
+      }
+
+      $rating = '';
+      if ($r = Rating::get($recipe->data()->id)) {
+         $r = round($r);
+         $stars = 0;
+         $loggedIn = ($user->isLoggedIn()) ? 'rate-logged-in' : 'rate-not-logged-in';
+         while ($stars < 5) {
+            if ($r <= $stars) {
+               $rating .= '<button href="#" class="rating-star ' . $loggedIn . ' rating-star-gray glyphicon glyphicon-star" id="star-' . ($stars + 1) . '"></button> ';
+            } else {
+               $rating .= '<button href="#" class="rating-star ' . $loggedIn . ' rating-star-gold glyphicon glyphicon-star" id="star-' . ($stars + 1) . '"></button> ';
+            }
+            $stars++;
+         }
+         $rating .= '<input type="hidden" id="rec-rating" value="' . $r . '">';
+      } else {
+         $rating = 'Ej betygsatt';
       }
 ?>
  	<section class="header">
@@ -38,20 +55,30 @@
                            </p>
 								</div>
 								<div class="col-md-4 col-sm-3">
-									<img src="<?php echo $image; ?>" class="img-responsive recipe-pic">
+									<img src="<?php echo $image; ?>" class="img-responsive recipe-pic thumbnail">
 								</div>
+                     </div>
+                     <br>
+                     <div class="row">
+                        <div class="col-md-12 center">
+                              <div class="rating-success">Tack för ditt betyg!</div>
+                              <div class="rating-failure">Du har redan betygsatt det här receptet!</div>
+                              <div class="rating-login">Du måste vara inloggad för att betygsätta recept!</div>
+                              <div class="recipe-login">Du måste vara inloggad för att spara favoritrecept!</div>
+                        </div>
                      </div>
                      <br>
                      <div class="row">
                         <div class="col-sm-5">
                            <div class="recipe-time">
+                              Betyg: <span id="rating-stars"><?php echo $rating; ?></span>
+                              <br>
 										<span class="glyphicon glyphicon-time" aria-hidden="true"></span> Tid: Ca <?php echo $recipe->data()->time; ?> minuter
 									</div>
                         </div>
                         <div class="col-sm -7">
 									<div class="recipe-btns right">
                               <input type="hidden" id="recipe-id" value="<?php echo Input::get('id') ?>">
-                              <span class="recipe-login">Du måste vara inloggad för att spara favoritrecept!</span>
    										<button type="button" id="favorite-btn" class="btn <?php if (Favorite::check($recipe->data()->id)) { echo 'btn-danger'; } else { echo 'btn-default'; } if (!$user->isLoggedIn()) { echo ' not-logged-in'; } ?>" aria-label="left align"
                                     data-toggle="tooltip" data-placement="top" title="<?php if (Favorite::check($recipe->data()->id)) { echo 'Favoritmarkerat'; } else { echo 'Lägg till som favorit'; } ?>">
    											<span class="glyphicon glyphicon-heart-empty"></span>
