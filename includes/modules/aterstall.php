@@ -40,8 +40,15 @@
 							<div class="col-md-10 col-md-offset-1 alert alert-danger center">
 								Ditt lösenord har återställts!
 							</div>
+							<br><br>
 							<div class="center"><a href="logga-in.php" class="btn btn-success">Logga in</a></div>
-						</div>
+						</div>					
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</header>
 						
 
 <?php
@@ -55,15 +62,9 @@
 								<ul>
 									<li>Ditt lösenord måste bestå av <strong>minst 6 tecken</strong></li>
 									<li>Lösenorden i båda fälten måste stämma överens</li>
-								</ul> 
+								</ul>
 							</div>
-						</div>					
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-</header>
+						</div>
 <?php
 		}
 	}
