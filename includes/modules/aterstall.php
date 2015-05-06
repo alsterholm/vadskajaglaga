@@ -37,10 +37,11 @@
 			
 ?>
 						<div class="row">
-							<div class="col-md-10 col-md-offset-1 alert alert-danger center">
+							<div class="col-md-10 col-md-offset-1 alert alert-success center">
 								Ditt lösenord har återställts!
 							</div>
-							<br><br>
+						</div>
+						<div class="row">
 							<div class="center"><a href="logga-in.php" class="btn btn-success">Logga in</a></div>
 						</div>					
 					</div>
@@ -57,7 +58,7 @@
 ?>
 	
 						<div class="row">
-							<div class="col-md-10 col-md-offset-1 alert alert-success">
+							<div class="col-md-10 col-md-offset-1 alert alert-danger">
 								Något gick fel:<br><br>
 								<ul>
 									<li>Ditt lösenord måste bestå av <strong>minst 6 tecken</strong></li>
