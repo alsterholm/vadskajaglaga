@@ -449,14 +449,44 @@ ol.recipe-directions {
 	font-weight: bold;
 }
 
+.recipe-login {
+	color: #BA1D1D;
+	display: none;
+	margin-right: 20px;
+}
+
 #comment-success,
 #comment-failure {
 	display: none;
 }
 
+.recipe-btns-mobile {
+	display: none;
+}
+
+.back-to-search {
+	margin-top: -10px;
+	margin-bottom: 10px;
+}
+
 @media (max-width: 990px) {
-	recipe-pic {
+	.recipe-time {
+		text-align: center;
+		font-size: 24px;
+		margin-bottom: 20px;
+	}
+
+	#favorite-btn {
+		font-size: 28px;
+		padding: 10px 15px 5px 15px;
+	}
+
+	.recipe-btns {
 		display: none;
+	}
+
+	.recipe-btns-mobile {
+		display: block;
 	}
 }
 

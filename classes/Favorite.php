@@ -26,10 +26,13 @@
 		public static function check($id) {
 			$user = new User();
 
-			$db = DB::getInstance();
-			$db->query('SELECT * FROM favorites WHERE recipe_id = ? AND user_id = ?', array($id, $user->data()->id));
+			if ($user->exists()) {
+				$db = DB::getInstance();
+				$db->query('SELECT * FROM favorites WHERE recipe_id = ? AND user_id = ?', array($id, $user->data()->id));
 
-			return $db->count();
+				return $db->count();
+			}
+			return false;
 		}
 
 		public static function add($fields) {

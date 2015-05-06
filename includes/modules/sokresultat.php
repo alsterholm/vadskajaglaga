@@ -9,15 +9,19 @@
 							<div class="well well-lg main-section">
 								<h1>Sökresultat</h1>
 									<?php
-										if (Input::exists()) {
-											$ingredients = rtrim(Input::get('ingr_ids'), ',');
+										if (Input::exists() || Cookie::exists('search')) {
+											if (Input::exists()) {
+												Cookie::put('search', Input::get('ingr_ids'), 1800);
+												$ingredients = rtrim(Input::get('ingr_ids'), ',');
+											} else {
+												$ingredients = rtrim(Cookie::get('search'), ',');
+											}
+
 											$ingredients = explode(',', $ingredients);
 											$results = 0;
 
 											foreach(Recipe::all() as $recipe) {
 												$valid = true;
-
-
 												$req_ingr = '';
 
 												foreach (Ingredient::in($recipe->id) as $recipe_ingr) {
@@ -47,16 +51,17 @@
 														<div class="list-group-item">
 															<div class="row">
 																<div class="col-md-3">
-																<a href="recept.php?id=' . $recipe->id . '" class="thumbnail">
-																	<img class="img-responsive" src="img/recipe/' . $recipe->id . '.jpg" title="' . $recipe->name . '">
-																</a>
+																	<a href="recept.php?id=' . $recipe->id . '" class="thumbnail">
+																		<img class="img-responsive" src="img/recipe/' . $recipe->id . '.jpg" title="' . $recipe->name . '">
+																	</a>
+																</div>
 															</div>
 															<div class="col-md-9">
 																<a href="recept.php?id=' . $recipe->id . '">
 																	<h4 class="list-group-item-heading">'. $recipe->name . '</h4>
 																</a>
 																<p class="list-group-item-text">' . $recipe->description . '</p>
-																<h6><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Tid: Ca ' . $recipe->time . ' minuter>' . $rating . '</h6>
+																<h6><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Tid: Ca ' . $recipe->time . ' minuter' . $rating . '</h6>
 															</div>
 														</div>
 													';

@@ -1,5 +1,16 @@
+var ingrAmounts = new Array();
+
+$('.ingr-portion-amount').each(function(index) {
+	ingrAmounts.push($(this).html());
+});
+
+$('.ingr-portion-amount').each(function(index) {
+	$(this).html(ingrAmounts[index] * 4);
+});
+
 $(function () {
-  $('[data-toggle="tooltip"]').tooltip()
+	$('[data-toggle="tooltip"]').tooltip();
+	$('.slider').slider();
 });
 
 $('#favorite-btn').on('click', function() {
@@ -50,3 +61,17 @@ $('#addcomment').on('click', function() {
 			}
 		})
 });
+
+$('.not-logged-in').on('click', function() {
+	$('.recipe-login').fadeIn(500);
+	$('.recipe-login').delay(2000).fadeOut(500);
+});
+
+$('#portions-slider').on('change', function() {
+	$('#portions').html($('#portions-slider').val());
+
+	$('.ingr-portion-amount').each(function(index) {
+		$(this).html(ingrAmounts[index] * $('#portions-slider').val());
+	});
+});	
+

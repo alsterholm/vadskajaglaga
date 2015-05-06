@@ -36,6 +36,7 @@
 
 		<!-- JavaScript-links -->
 		<?php include 'includes/data/js-links.php'; ?>
+		<script src="js/bootstrap-slider.js"></script>
 		<script src="js/recept.js"></script>
 		
 	</body>

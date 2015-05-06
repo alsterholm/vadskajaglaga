@@ -4,6 +4,7 @@
    require_once 'core/init.php';
    if (Input::exists('get')) {
       $recipe = new Recipe(Input::get('id'));
+      $user = new User();
 
       if (!$recipe->exists()) {
          Redirect::to(404);
@@ -21,6 +22,14 @@
 					<div class="col-md-2"></div>
 					<div class="col-md-8">
 						<div class="well well-lg main-section">
+                  <?php if (Cookie::exists('search')) { ?>
+                     <div class="row">
+                        <div class="col-md-12 center back-to-search">
+                           <a href="sokresultat.php">&laquo; Tillbaka till sökresultat</a>
+                           <hr>
+                        </div>
+                     </div>
+                  <?php } ?>
                      <div class="row">
 								<div class="col-md-8 col-sm-9">
 									<h1 class="recipe"><?php echo $recipe->data()->name; ?></h1>
@@ -42,23 +51,31 @@
                         <div class="col-sm -7">
 									<div class="recipe-btns right">
                               <input type="hidden" id="recipe-id" value="<?php echo Input::get('id') ?>">
-										<button type="button" id="favorite-btn" class="btn <?php if (Favorite::check($recipe->data()->id)) { echo 'btn-danger'; } else { echo 'btn-default'; } ?>" aria-label="left align"
-                                 data-toggle="tooltip" data-placement="top" title="<?php if (Favorite::check($recipe->data()->id)) { echo 'Favoritmarkerat'; } else { echo 'Lägg till som favorit'; } ?>">
-											<span class="glyphicon glyphicon-heart-empty"></span>
-										</button>
-										<button type="button" class="btn btn-default" aria-label="left align" data-toggle="tooltip" data-placement="top" title="Spara som PDF">
-											<span class="fa fa-file-pdf-o"></span>
-										</button>
-										<button type="button" class="btn btn-default" aria-label="left align" data-toggle="tooltip" data-placement="top" title="Skriv ut">
-											<span class="glyphicon glyphicon-print"></span>
-										</button>
+                              <span class="recipe-login">Du måste vara inloggad för att spara favoritrecept!</span>
+   										<button type="button" id="favorite-btn" class="btn <?php if (Favorite::check($recipe->data()->id)) { echo 'btn-danger'; } else { echo 'btn-default'; } if (!$user->isLoggedIn()) { echo ' not-logged-in'; } ?>" aria-label="left align"
+                                    data-toggle="tooltip" data-placement="top" title="<?php if (Favorite::check($recipe->data()->id)) { echo 'Favoritmarkerat'; } else { echo 'Lägg till som favorit'; } ?>">
+   											<span class="glyphicon glyphicon-heart-empty"></span>
+   										</button>
 									</div>
+                           <?php if ($user->isLoggedIn()) { ?>
+                           <div class="recipe-btns-mobile center">
+                              <input type="hidden" id="recipe-id" value="<?php echo Input::get('id') ?>">
+                              <span class="mobile-favorite">
+                                 <button type="button" id="favorite-btn" class="btn <?php if (Favorite::check($recipe->data()->id)) { echo 'btn-danger'; } else { echo 'btn-default'; } if (!$user->isLoggedIn()) { echo ' not-logged-in'; } ?>" aria-label="left align"
+                                    data-toggle="tooltip" data-placement="top" title="<?php if (Favorite::check($recipe->data()->id)) { echo 'Favoritmarkerat'; } else { echo 'Lägg till som favorit'; } ?>">
+                                    <span class="glyphicon glyphicon-heart-empty"></span>
+                                 </button>
+                              </span>
+                           </div>
+                           <?php } ?>
                         </div>
                      </div>
                      <br>
 							<div class="row">
 								<div class="col-md-4 ingredients">
 								<h2 class="recipe">Ingredienser</h2>
+                        Antal portioner: <span id="portions">4</span><br>
+                        <input type="range" id="portions-slider" value="4" min="1" max="10"><br>
                         <table class="table table-striped ingredients">
                            <tbody>
                               <?php
@@ -66,7 +83,7 @@
                               foreach (Ingredient::in($recipe->data()->id) as $ingredient) {
                                  echo '
                                  <tr>
-                                    <td>' . $ingredient->amount . ' ' . $ingredient->unit . '</td>
+                                    <td><span class="ingr-portion-amount">' . $ingredient->amount . '</span> ' . $ingredient->unit . '</td>
                                     <td>' . Ingredient::get($ingredient->ingredient) . '</td>
                                  </tr>
                                  ';
