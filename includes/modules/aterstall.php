@@ -37,8 +37,10 @@
 			
 ?>
 						<div class="row">
-							<div class="col-md-10 col-md-offset-1 alert alert-success center">
-								Ditt lösenord har återställts!
+							<div class="col-md-10 col-md-offset-1 alert alert-success">
+								<div class="center">
+									Ditt lösenord har återställts!
+								</div>
 							</div>
 						</div>
 						<div class="row">
