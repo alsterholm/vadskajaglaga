@@ -27,14 +27,24 @@
 
 		if ($validation->passed()) {
 			$salt = Hash::salt(32);
-			echo '<script>alert("Validation success")</script>';
-
+			
 			$db->update('users', $reset->user_id, array(
 				'password' => Hash::make(Input::get('password'), $salt),
 				'salt' => $salt
 			));
+
+			$success = true;
 			
-			echo 'success';
+?>
+						<div class="row">
+							<div class="col-md-10 col-md-offset-1 alert alert-danger center">
+								Ditt lösenord har återställts!
+							</div>
+							<div class="center"><a href="logga-in.php" class="btn btn-success">Logga in</a></div>
+						</div>
+						
+
+<?php
 
 		} else {
 ?>
@@ -52,7 +62,7 @@
 		}
 	}
 
-	if (Input::exists('get')) {
+	if (Input::exists('get') && !$success) {
 		$hash = Input::get('h');
 		$reset = $db->get('password_resets', array('hash', '=', $hash))->first();
 
