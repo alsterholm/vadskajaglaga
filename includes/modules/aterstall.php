@@ -32,7 +32,7 @@
 				'password' => Hash::make(Input::get('password'), $salt),
 				'salt' => $salt
 			));
-
+			$db->delete('password_resets', array('hash', '=', $hash));
 			$success = true;
 			
 ?>
