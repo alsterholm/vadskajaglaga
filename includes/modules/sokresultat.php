@@ -55,13 +55,13 @@
 																		<img class="img-responsive" src="img/recipe/' . $recipe->id . '.jpg" title="' . $recipe->name . '">
 																	</a>
 																</div>
-															</div>
-															<div class="col-md-9">
-																<a href="recept.php?id=' . $recipe->id . '">
-																	<h4 class="list-group-item-heading">'. $recipe->name . '</h4>
-																</a>
-																<p class="list-group-item-text">' . $recipe->description . '</p>
-																<h6><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Tid: Ca ' . $recipe->time . ' minuter' . $rating . '</h6>
+																<div class="col-md-9">
+																	<a href="recept.php?id=' . $recipe->id . '">
+																		<h4 class="list-group-item-heading">'. $recipe->name . '</h4>
+																	</a>
+																	<p class="list-group-item-text">' . $recipe->description . '</p>
+																	<h6><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Tid: Ca ' . $recipe->time . ' minuter' . $rating . '</h6>
+																</div>
 															</div>
 														</div>
 													';
