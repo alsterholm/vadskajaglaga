@@ -11,7 +11,7 @@
 									</p>
 									<br><br>
 									<div class="center">
-										<a class="btn btn-success"><span class="glyphicon glyphicon-home"></span> Tillbaka till startsidan</a>
+											<a class="btn btn-success" href="index.php"><span class="glyphicon glyphicon-home"></span> Tillbaka till startsidan</a>
 									</div>
 							</div>
 						</div>
