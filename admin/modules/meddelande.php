@@ -4,6 +4,7 @@ if (Input::exists('get')) {
 	$id = Input::get('id');
 
 	$message = new Message($id);
+}
 ?>
 
 	<h1>Meddelande från <?php echo $message->data()->fullname ?></h1>
@@ -25,7 +26,11 @@ if (Input::exists('get')) {
 					</select>
 				</div>
 				<div class="col-sm-4 right">
-					<button type="button" class="btn btn-primary">Uppdatera</button>
+					<?php
+					echo '
+					<a id="' . $id . '" class="btn btn-primary update-status">Uppdatera</a>
+					'
+					?>
 				</div>
 			</div>
 			<br><br><hr><br>
@@ -35,6 +40,31 @@ if (Input::exists('get')) {
 		</div>
 	</div>
 
-<?php
-}
-?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+<script src="js/jquery.autocomplete.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<script>
+
+$(document).ready(function() {
+		$('#a-message').addClass('active');
+	});
+
+$('.update-status').on('click', function() {
+		var id = $(this).attr('id');
+		var status = $('#status option:selected').val();
+		var button = $(this);
+
+
+		$.post('update-status.php', { id: id, status: status}, function(data) {
+			if (data == 1) {
+				button.switchClass('btn-primary', 'btn-success', 500);
+				button.delay(2000).switchClass('btn-success', 'btn-primary', 500);
+			} else {
+				alert("Något gick fel...");
+			}
+		});
+	});
+
+</script>
