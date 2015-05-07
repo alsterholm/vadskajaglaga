@@ -21,11 +21,6 @@ $('#register-btn').on('click', function(e) {
 		$('#email-alert').slideDown(500);
 		$('#email-group').addClass('has-error');
 		$('#email-alert').delay(2000).slideUp(500);
-	} else if (!emailExists(email)) {
-		$('#taken-email').html(email);
-		$('#exists-alert').slideDown(500);
-		$('#email-group').addClass('has-error');
-		$('#exists-alert').delay(2000).slideUp(500);
 	} else if (password.length < 6) {
 		$('#password-alert').slideDown(500);
 		$('#password-group').addClass('has-error');
@@ -36,7 +31,16 @@ $('#register-btn').on('click', function(e) {
 		$('#repeat-group').addClass('has-error');
 		$('#repeat-alert').delay(2000).slideUp(500);
 	} else {
-		alert('success!');
+		$.post('verify-email.php', {email: email}, function(data) {
+			if (data == 1) {
+				$('#taken-email').html(email);
+				$('#exists-alert').slideDown(500);
+				$('#email-group').addClass('has-error');
+				$('#exists-alert').delay(2000).slideUp(500);
+			} else {
+				$('#register-form').submit();
+			}
+		});
 	}
 
 })
@@ -65,14 +69,3 @@ $('#password_again').keyup(function() {
 		$('#password-group').removeClass('has-error');
 	}
 });
-
-function emailExists(email) {
-	$.post('verify-email', {email: email})
-		.done(function(data) {
-			if (data == 1) {
-				return true;
-			} else {
-				return false;
-			}
-		});
-}
