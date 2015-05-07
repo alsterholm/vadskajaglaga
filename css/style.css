@@ -510,6 +510,10 @@ ol.recipe-directions {
 	margin-bottom: 10px;
 }
 
+.register-alert {
+	display: none;
+}
+
 @media (max-width: 990px) {
 	.recipe-time {
 		text-align: center;

@@ -39,6 +39,6 @@
 
 		<!-- JavaScript-links -->
 		<?php include 'includes/data/js-links.php'; ?>
-
+		<script src="js/register.js"></script>
 	</body>
 </html>
