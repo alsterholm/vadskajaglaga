@@ -29,7 +29,7 @@ if (Input::exists('get')) {
 					<?php
 					echo '
 					<a id="' . $id . '" class="btn btn-primary update-status">Uppdatera</a>
-					'
+					';
 					?>
 				</div>
 			</div>
