@@ -76,13 +76,7 @@
 												<textarea name="instructions" id="instructions" placeholder="Instruktioner för tillagning" class="form-control" rows="10"></textarea>
 											</div>
 											<div class="col-md-4">
-												<textarea class="form-control" name="ingr" rows="19" placeholder="Skriv vilka ingredienser och respektive mängd som behövs för att laga receptet.
-
-Exempel:
-Potatis: 2 st
-Mjöl: 4 dl
-Smör: 50g
-"></textarea>
+												<textarea class="form-control" name="ingr" rows="19" placeholder="Skriv vilka ingredienser och respektive mängd som behövs för att laga receptet"></textarea>
 											</div>
 										</div><br>
 										<input type="hidden" name="token" value="<?php echo $token; ?>">

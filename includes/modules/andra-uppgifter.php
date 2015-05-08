@@ -1,71 +1,3 @@
-<?php
-require_once 'core/init.php';
-
-$user = new User();
-
-if(!$user->isLoggedIn()){
-	Redirect::to('index.php');
-}
-
-if(Input::exists()){
-	if(Token::check(Input::get('token'))){
-		$validate = new Validate();
-
-		if(!Input::get('email') ==  $user->data()->email){
-			$validation = $validate->check($_POST, array(
-				'fullname' => array(
-					'required' => true,
-					'min' => 2,
-					'max' => 50,
-					'fullname' => true,
-					'alphabetical' => true
-					),
-				'email' => array(
-					'required' => true,
-					'unique' => 'users',
-					'email' => true
-					)
-
-				));
-		} else {
-			$validation = $validate->check($_POST, array(
-				'fullname' => array(
-					'required' => true,
-					'min' => 2,
-					'max' => 50,
-					'fullname' => true,
-					'alphabetical' => true
-					)
-				));
-
-		}
-		if($validation->passed()){
-
-			try{
-				$user->update(array(
-					'fullname' => Input::get('fullname'),
-					'email' => Input::get('email')
-					));
-
-				Session::flash('home', 'Your details have been updated.');
-				Redirect::to('mina-uppgifter.php');
-
-			}catch(Exception $e){
-				echo 'databasfel';
-				//die($e->getMessage());
-			}
-
-		}else{
-			foreach ($validation->errors() as $error) {
-				echo $error, '<br>';
-			}
-		}
-	}
-
-}
-
-?>
-
 		<header>
 			<section class="header">
 				<div class="container">
@@ -74,6 +6,67 @@ if(Input::exists()){
 						<div class="col-md-8">
 							<div class="well well-lg main-section">
 								<h1>Ändra uppgifter</h1>
+<?php
+require_once 'core/init.php';
+
+$user = new User();
+
+if(!$user->isLoggedIn()){
+	Redirect::to(401);
+}
+
+if (Input::exists()) {
+	if (Token::check(Input::get('token'))) {
+		$validate = new Validate();
+
+		if (Input::get('email') !=  $user->data()->email) {
+			$validation = $validate->check($_POST, array(
+				'fullname' => array(
+					'required' => true,
+					'min' => 2,
+					'max' => 50,
+					'fullname' => true,
+					'alphabetical' => true
+				),
+				'email' => array(
+					'required' => true,
+					'unique' => 'users',
+					'email' => true
+				)
+			));
+		} else {
+			$validation = $validate->check($_POST, array(
+				'fullname' => array(
+					'required' => true,
+					'min' => 2,
+					'max' => 50,
+					'fullname' => true,
+					'alphabetical' => true
+				)
+			));
+		}
+		
+		if ($validation->passed()) {
+			try {
+				$user->update(array(
+					'fullname' => Input::get('fullname'),
+					'email' => Input::get('email')
+				));
+				Redirect::to('mina-uppgifter.php?change=settings');
+			} catch (Exception $e) {
+				Redirect::to(500);
+			}
+		} else {
+?>
+								<div class="row">
+									<div class="col-md-12 alert alert-danger"><span class="glyphicon glyphicon glyphicon-exclamation-sign"></span> Något gick fel!</div>
+								</div>
+<?php
+		}
+	}
+}
+
+?>
 								<div class="row">
 									<div class="col-md-12">
 										<form action="" method="post" class="form-horizontal">

@@ -15,4 +15,3 @@
 				e.preventDefault();
 			});
 		</script>
-		<script src="js/main.js"></script>

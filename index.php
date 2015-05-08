@@ -39,6 +39,7 @@
 
 		<!-- JavaScript-links -->
 		<?php include 'includes/data/js-links.php'; ?>
+		<script src="js/ingredients.js"></script>
 		<script>
 			$('#findrecipe').addClass('active');
 		</script>

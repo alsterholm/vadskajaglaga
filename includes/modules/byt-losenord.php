@@ -35,8 +35,7 @@ if (Input::exists()) {
 					'salt' =>$salt
 				));
 
-				Session::flash('home', 'Your password has been changed!');
-				Redirect::to('mina-uppgifter.php');
+				Redirect::to('mina-uppgifter.php?change=password');
 			}
 
 		} else {

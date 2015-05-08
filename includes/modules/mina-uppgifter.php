@@ -6,7 +6,24 @@
 						<div class="col-md-8">
 							<div class="well well-lg main-section">
 								<h1>Mina uppgifter</h1>
-								
+								<?php 
+								if (Input::exists('get')) {
+									$message = '';
+
+									if (Input::get('change') == 'password') {
+										$message = 'Ditt lösenord har ändrats!';
+									} else if (Input::get('change') == 'settings') {
+										$message = 'Dina uppgifter har ändrats!';
+									}
+								?>
+								<div class="row">
+									<div class="col-md-12 alert alert-success">
+										<span class="glyphicon glyphicon-ok-sign"></span> <?php echo $message ?>
+									</div>
+								</div>
+								<?php
+								}
+								?>
 								<div class="row">
 									<div class="col-md-12">
 										<form action="" method="post" class="form-horizontal">
