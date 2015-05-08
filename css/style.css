@@ -305,6 +305,10 @@ input[type=checkbox]:checked + label:before { letter-spacing: 8px; } /* allow sp
 	.btn-social {
 		font-size: 16px;
 	}
+
+	.hide-mob {
+		display: none;
+	}
 }
 
 @media (min-width: 768px) {

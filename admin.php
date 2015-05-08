@@ -78,8 +78,8 @@
 			</div>
 
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+				<div class="hide-mob">
 				<?php
-
 					if (Input::exists('get')) {
 						switch (Input::get('p')) {
 							case 'start': include 'admin/modules/start.php';
@@ -157,7 +157,7 @@
 						include 'admin/modules/start.php';
 					}
 				?>
-
+				</div>
 				<div class="mob-only">
 					Administratörspanelen är inaktiverad för mobila enheter.
 				</div>
