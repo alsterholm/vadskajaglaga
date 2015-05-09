@@ -53,7 +53,6 @@
 				<div class="col-sm-3 col-md-2 sidebar">
 					<ul class="nav nav-sidebar">
 						<li id="a-start"><a href="?p=start">Översikt</a></li>
-						<li id="a-stats"><a href="?p=stats">Statistik</a></li>
 						<li id="a-message"><a href="?p=message">Meddelanden</a></li>
 					</ul>
 					<h4>Recept</h4>
@@ -83,9 +82,6 @@
 					if (Input::exists('get')) {
 						switch (Input::get('p')) {
 							case 'start': include 'admin/modules/start.php';
-							break;
-
-							case 'stats': include 'admin/modules/statistik.php';
 							break;
 
 							case 'message':
