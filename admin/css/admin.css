@@ -125,3 +125,15 @@ body {
   margin-top: 40px;
   border-bottom: 1px solid #ccc;
  }
+
+ #new-ban {
+  display: none; 
+ }
+
+ #new-ban-success {
+  display: none;
+ }
+
+ #remove-success {
+  display: none;
+ }

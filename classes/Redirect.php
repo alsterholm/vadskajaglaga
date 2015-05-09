@@ -16,6 +16,10 @@
 							header('Location: 401.php');
 							exit();
 						break;
+						case 403:
+							header('Location: 403.php');
+							exit();
+						break;
 						case 500:
 							header('Location: 500.php');
 							exit();

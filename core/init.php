@@ -25,6 +25,10 @@ spl_autoload_register(function($class) {
 	}
 });
 
+if (IPBan::check($_SERVER['REMOTE_ADDR'])) {
+	Redirect::to(403);
+}
+
 require_once 'functions/general.php';
 
 // Kontrollerar ifall användaren valt att bli ihågkommen, och loggar i så fall in denne.
