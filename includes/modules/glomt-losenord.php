@@ -29,7 +29,7 @@
 													Vad ska jag laga?
 												';
 
-												if (Mail::send($user->data()->fullname, $email, 'Glömt lösenord', $message, 'info')) {
+												if (Mail::send($user->data()->fullname, $email, $message, 'Återställning av lösenord', 'info')) {
 													$db->insert('password_resets', array(
 														'hash' => $hash,
 														'user_id' => $user_id,

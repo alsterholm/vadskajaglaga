@@ -5,7 +5,6 @@
 		<table class="table table-striped sortable">
 			<thead>
 				<tr>
-					<td>ID</td>
 					<td>Email</td>
 					<td>Status</td>
 				</tr>
@@ -27,7 +26,6 @@
 
 						echo '
 							<tr ' . $trclass . '>
-								<td>' . $message->id . '</td>
 								<td><a ' . $link . '>' . $message->email . '</a></td>
 								<td>' . Message::status($message->status) . '</td>
 							</tr>

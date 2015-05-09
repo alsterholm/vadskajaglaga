@@ -137,3 +137,11 @@ body {
  #remove-success {
   display: none;
  }
+
+ #contact-message-error {
+  display: none;
+ }
+
+ #contact-message-success {
+  display: none;
+ }

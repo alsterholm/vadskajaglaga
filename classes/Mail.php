@@ -3,10 +3,10 @@
 	Klassen sköter utskicken av mail som sker från hemsidan
 
 	*/
-	class Mail{
+	class Mail {
 
 
-		public static function send($to_name, $to_email, $subject = null, $message = null, $from = null){
+		public static function send($to_name, $to_email, $message = null, $subject = null, $from = null){
 
 			if(!$subject){
 				$subject = 'Automatgenererat svar';
@@ -22,9 +22,6 @@
  				case 'kontakt': $from = 'kontakt@vadskajaglaga.se';
  				break;
 
- 				case 'info': $from = 'info@vadskajaglaga.se';
- 				break;
-
  				default: $from = 'info@vadskajaglaga.se';
  			}
 
@@ -37,7 +34,7 @@
 			$headers .= 'From: Vad ska jag laga? <' . $from . '>' . "\r\n";
 
 
- 			if(!mail($to, $subject, $message, $headers)){
+ 			if(!mail($to_email, $subject, $message, $headers)){
  				return false;
  			} else {
  				return true;

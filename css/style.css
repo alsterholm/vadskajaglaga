@@ -402,15 +402,6 @@ input[type=checkbox]:checked + label:before { letter-spacing: 8px; } /* allow sp
 	text-decoration: none;
 }
 
-.message-finished td:before {
-	content: " ";
-	position: absolute;
-	top: 60%;
-	left: 0;
-	border-bottom: 1px solid #ddd;
-	width: 100%;
-}
-
 .message-flagged,
 .message-flagged a {
 	color: #F76700;
