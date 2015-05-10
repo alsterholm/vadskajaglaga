@@ -94,6 +94,8 @@
 				?>
 				</tbody>
 			</table>
+			<input type="hidden" id="user-id" value="<?php echo $user->data()->id; ?>">
+			<button class="btn btn-danger btn-block" id="group-btn"><span class="glyphicon glyphicon-lock"></span> Gör till <?php echo ($user->data()->group) ? 'vanlig medlem' : 'Administratör'; ?></button>
 		</div>
 	<div class="col-md-6">
 		<table class="table table-striped sortable">
@@ -130,5 +132,18 @@
 <script>
 	$(document).ready(function() {
 		$('#u-list').addClass('active');
+	});
+
+	$('#group-btn').on('click', function() {
+		var id = $('#user-id').val();
+		
+		$.post('change-group.php', {id: id}, function(data) {
+			if (data == 1) {
+				$('#group-btn').switchClass('btn-danger', 'btn-success', 500);
+				$('#group-btn').html('Användargrupp ändrad!');
+			} else {
+				alert(data);
+			}
+		});
 	});
 </script>
