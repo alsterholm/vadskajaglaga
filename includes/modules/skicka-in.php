@@ -23,8 +23,7 @@
 														'required' => true
 													),
 													'portions' => array(
-														'required' => true,
-														'numerical' => true
+														'required' => true
 													),
 													'instructions' => array(
 														'required' => true
