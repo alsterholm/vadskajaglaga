@@ -49,7 +49,7 @@
 														echo '
 															<div class="center">
 																Vi har nu mottagit ditt receptförslag. Tack!<br><br>
-																<a class="btn btn-success" href="skicka-in.php">Tillbaka</a>
+																<a class="btn btn-success" href="index.php">Tillbaka</a>
 															</div>';
 													} catch (Exception $e) {
 														Redirect::to(500);
