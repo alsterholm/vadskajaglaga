@@ -29,9 +29,11 @@
 
 		public function update($fields = array(), $id = null) {
 			if (!$id) {
-				if (!$this->_db->update('recipes', $id, $fields)) {
-					throw new Exception('Uppdateringsfel!');
-				}
+				$id = $this->data()->id;
+			}
+
+			if (!$this->_db->update('recipes', $id, $fields)) {
+				throw new Exception('Uppdateringsfel!');
 			}
 		}
 

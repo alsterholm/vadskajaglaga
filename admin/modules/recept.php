@@ -2,7 +2,19 @@
 <br>
 <?php
 	if (Input::exists()) {
-		
+		$id = Input::get('id');
+		$recipe = new Recipe($id);
+
+		try {
+			$recipe->update(array(
+				'name' => Input::get('name'),
+				'description' => Input::get('description'),
+				'instructions' => Input::get('instructions'),
+				'time' => Input::get('time')
+			));
+		} catch (Exception $e) {
+			echo '<script>alert("Något gick fel...");</script>';
+		}
 	}
 
 	if (Input::exists('get')) {
