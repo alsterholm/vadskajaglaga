@@ -67,16 +67,16 @@
 									<form action="" method="post" class="form-horizontal">
 										<div class="row">										
 											<div class="col-md-8">										
-												<input type="text" name="name" id="name" class="form-control" placeholder="Receptets namn">
+												<input type="text" name="name" id="name" class="form-control" placeholder="Receptets namn" required>
 												<br>
-												<textarea name="description" id="description" placeholder="Kort beskrivning av receptet" class="form-control"></textarea>
+												<textarea name="description" id="description" placeholder="Kort beskrivning av receptet" class="form-control" required></textarea>
 												<br>
-												<input type="text" name="portions" placeholder="Antalet portioner som receptet gäller för" id="ingrdts" class="form-control">
+												<input type="text" name="portions" placeholder="Antalet portioner som receptet gäller för" id="ingrdts" class="form-control" required>
 												<br>
-												<textarea name="instructions" id="instructions" placeholder="Instruktioner för tillagning" class="form-control" rows="10"></textarea>
+												<textarea name="instructions" id="instructions" placeholder="Instruktioner för tillagning" class="form-control" rows="10" required></textarea>
 											</div>
 											<div class="col-md-4">
-												<textarea class="form-control" name="ingr" rows="19" placeholder="Skriv vilka ingredienser och respektive mängd som behövs för att laga receptet"></textarea>
+												<textarea class="form-control" name="ingr" rows="19" placeholder="Skriv vilka ingredienser och respektive mängd som behövs för att laga receptet" required></textarea>
 											</div>
 										</div><br>
 										<input type="hidden" name="token" value="<?php echo $token; ?>">
