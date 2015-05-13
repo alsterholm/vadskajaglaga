@@ -74,6 +74,7 @@
 												<br>
 												<textarea name="instructions" id="instructions" placeholder="Instruktioner för tillagning" class="form-control" rows="10" required></textarea>
 											</div>
+												<br>
 											<div class="col-md-4">
 												<textarea class="form-control" name="ingr" rows="19" placeholder="Skriv vilka ingredienser och respektive mängd som behövs för att laga receptet" required></textarea>
 											</div>
