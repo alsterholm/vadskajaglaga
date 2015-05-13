@@ -10,7 +10,7 @@ if (!$user->isLoggedIn()) {
 if (Input::exists()) {
 
 	if (Token::check(Input::get('token'))) {
-		
+
 		$validate = new Validate();
 		$validation = $validate->check($_POST, array(
 			'password_current' => array(
@@ -45,7 +45,7 @@ if (Input::exists()) {
 		}
 	}
 }
-?>	
+?>
 
 
 	<header>
@@ -61,13 +61,13 @@ if (Input::exists()) {
 										<form action="" method="post" class="form-horizontal">
 											<fieldset>
 												<label for="pw_cur">Nuvarande lösenord:</label>
-												<input type="password" name="password_current" id="pw_cur" class="form-control">
+												<input type="password" name="password_current" id="pw_cur" class="form-control" required>
 												<br>
 												<label for="pw_new">Nytt lösenord:</label>
-												<input type="password" name="password_new" id="pw_new" class="form-control">
+												<input type="password" name="password_new" id="pw_new" class="form-control" required>
 												<div style="margin-top: 10px"></div>
 												<label for="pw_new_r">Upprepa nytt lösenord:</label>
-												<input type="password" name="password_new_again" id="pw_new_r" class="form-control">
+												<input type="password" name="password_new_again" id="pw_new_r" class="form-control" required>
 												<input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
 												<br><br>
 												<div class="col-xs-6 center">
