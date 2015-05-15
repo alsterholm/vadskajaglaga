@@ -9,6 +9,8 @@ $('#ingredients').autocomplete ({
     onSelect: function (suggestion) {
     	addIngr();
     }
+}).setOptions({
+	triggerSelectOnValidInput: false
 });
 
 $('#add-ingredient').on('click', function() {

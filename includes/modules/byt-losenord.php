@@ -38,10 +38,6 @@ if (Input::exists()) {
 				Redirect::to('mina-uppgifter.php?change=password');
 			}
 
-		} else {
-			foreach ($validation->errors() as $error) {
-				echo $error, '<br>';
-			}
 		}
 	}
 }
@@ -57,6 +53,10 @@ if (Input::exists()) {
 							<div class="well well-lg main-section">
 								<h1>Byt lösenord</h1>
 								<div class="row">
+									<div class="col-md-12 alert alert-danger change-pw-alert" id="error-empty"><span class="glyphicon glyphicon-exclamation-sign"></span> Du måste fylla i alla fält</div>
+									<div class="col-md-12 alert alert-danger change-pw-alert" id="error-current"><span class="glyphicon glyphicon-exclamation-sign"></span> Ditt nuvarande lösenord är fel</div>
+									<div class="col-md-12 alert alert-danger change-pw-alert" id="error-repeat"><span class="glyphicon glyphicon-exclamation-sign"></span> Lösenorden stämmer inte överens</div>
+									<div class="col-md-12 alert alert-danger change-pw-alert" id="error-length"><span class="glyphicon glyphicon-exclamation-sign"></span> Ditt nya lösenord måste vara minst 6 tecken</div>
 									<div class="col-md-12">
 										<form action="" method="post" class="form-horizontal">
 											<fieldset>
@@ -71,7 +71,7 @@ if (Input::exists()) {
 												<input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
 												<br><br>
 												<div class="col-xs-6 center">
-													<button type="submit" class="btn btn-success"><span class="fa fa-check"></span> Spara</button>
+													<button id="btn-change" class="btn btn-success"><span class="fa fa-check"></span> Spara</button>
 												</div>
 												<div class="col-xs-6 center">
 													<a href="mina-uppgifter.php" class="btn btn-danger"><span class="fa fa-close"></span> Tillbaka</a>

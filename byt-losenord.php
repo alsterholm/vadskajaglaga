@@ -6,7 +6,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
     	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<title>Ändra uppgifter - Vad ska jag laga?</title>
+		<title>Byt lösenord - Vad ska jag laga?</title>
 
 		<link rel="icon" type="image/png" href="img/icon.png">
 
@@ -42,6 +42,6 @@
 
 		<!-- JavaScript-links -->
 		<?php include 'includes/data/js-links.php'; ?>
-
+		<script src="js/byt-losenord.js"></script>
 	</body>
 </html>
