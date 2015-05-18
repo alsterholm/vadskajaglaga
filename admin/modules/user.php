@@ -111,7 +111,7 @@
 					if ($log->user == $id){
 						echo '
 						<tr>
-							<td><a href="?p=u-list&id=' . $log->id . '">' . $log->ip . '</a></td>
+							<td><a href="#">' . $log->ip . '</a></td>
 							<td>' . $log->time . '</td>
 						</tr>
 						';
