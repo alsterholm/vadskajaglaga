@@ -30,6 +30,7 @@
 										<div class="row">
 											<div class="col-md-12">
 												<div id="fullname-alert" class="register-alert alert alert-sm alert-danger"><span class="glyphicon glyphicon-exclamation-sign"></span> Du måste ange både för- och efternamn!</div>
+												<div id="fullname-alpha-alert" class="register-alert alert alert-sm alert-danger"><span class="glyphicon glyphicon-exclamation-sign"></span> Ditt namn får endast innehålla bokstäver!</div>
 												<div id="empty-alert" class="register-alert alert alert-sm alert-danger"><span class="glyphicon glyphicon-exclamation-sign"></span> Du måste fylla i alla fält!</div>
 												<div id="email-alert" class="register-alert alert alert-sm alert-danger"><span class="glyphicon glyphicon-exclamation-sign"></span> Du måste ange en gilitg e-post adress!</div>
 												<div id="exists-alert" class="register-alert alert alert-sm alert-danger"><span class="glyphicon glyphicon-exclamation-sign"></span> E-postadressen <strong><span id="taken-email"></span></strong> är redan registrerad.</div>

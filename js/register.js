@@ -1,4 +1,5 @@
 var regEmail = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+var regName = /^([A-Za-z ])+$/;
 
 $('#register-btn').on('click', function(e) {
 	e.preventDefault();
@@ -17,6 +18,10 @@ $('#register-btn').on('click', function(e) {
 		$('#fullname-alert').slideDown(500);
 		$('#fullname-group').addClass('has-error');
 		$('#fullname-alert').delay(2000).slideUp(500);
+	} else if (!regName.test(fullname)) {
+		$('#fullname-alpha-alert').slideDown(500);
+		$('#fullname-group').addClass('has-error');
+		$('#fullname-alpha-alert').delay(2000).slideUp(500);
 	} else if (!regEmail.test(email))  {
 		$('#email-alert').slideDown(500);
 		$('#email-group').addClass('has-error');
