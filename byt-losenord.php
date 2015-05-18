@@ -21,21 +21,15 @@
 	</head>
 
 <?php
-
 	$user = new User();
-
 ?>
 
-
 	<body>
-		
 		<!-- Navbar -->
 		<?php include 'includes/navbar.php'; ?>
 
-
 		<!-- Main function -->
 		<?php include 'includes/modules/byt-losenord.php'; ?> 
-
 		
 		<!-- Footer -->
 		<?php include 'includes/footer.php'; ?>

@@ -58,7 +58,7 @@ if (Input::exists()) {
 									<div class="col-md-12 alert alert-danger change-pw-alert" id="error-repeat"><span class="glyphicon glyphicon-exclamation-sign"></span> Lösenorden stämmer inte överens</div>
 									<div class="col-md-12 alert alert-danger change-pw-alert" id="error-length"><span class="glyphicon glyphicon-exclamation-sign"></span> Ditt nya lösenord måste vara minst 6 tecken</div>
 									<div class="col-md-12">
-										<form action="" method="post" class="form-horizontal">
+										<form action="" id="change-password-form" method="post" class="form-horizontal">
 											<fieldset>
 												<label for="pw_cur">Nuvarande lösenord:</label>
 												<input type="password" name="password_current" id="pw_cur" class="form-control" required>
