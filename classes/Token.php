@@ -1,6 +1,8 @@
 <?php
 /**
-Klassen hanterar de Tokens som används på vår sida
+	Klassen hanterar de Tokens som används på vår sida
+
+	@author Jimmy Lindström
 */
 
 	class Token{

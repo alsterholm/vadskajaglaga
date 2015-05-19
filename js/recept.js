@@ -1,3 +1,5 @@
+// @author Andreas Indal
+
 var ingrAmounts = new Array();
 
 $('.ingr-portion-amount').each(function(index) {

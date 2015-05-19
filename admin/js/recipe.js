@@ -1,3 +1,5 @@
+// @author Andreas Indal
+
 $('#add-recipe').on('click', function() {
 	var rname = $('#rname').val();
 	var rtime = $('#rtime').val();

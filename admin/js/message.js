@@ -1,3 +1,5 @@
+// @author Andreas Indal
+
 $(document).ready(function() {
 	$('#a-message').addClass('active');
 });

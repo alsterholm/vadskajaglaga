@@ -1,10 +1,14 @@
 <?php
 	/**
-	Klassen hanterar favorit recept. Att lägga till och ta bort sina favoritrecept
-
+		Klassen hanterar favorit recept. Att lägga till och ta bort sina favoritrecept
+		
+		@author Andreas Indal
 	*/
 	class Favorite {
 
+		/**
+			Hämtar alla favoritmarkeringar för den inloggade användaren
+		*/
 		public static function get() {
 			$user = new User();
 
@@ -14,6 +18,9 @@
 			return $db->results();
 		}
 
+		/**
+			Kontrollerar huruvida den inloggade användaren har några favoritmarkeringar eller inte
+		*/
 		public static function exists() {
 			$user = new User();
 
@@ -23,6 +30,11 @@
 			return $db->count();
 		}
 
+		/**
+			Kontrollerar huruvida ett recept är favoritmarkerat av den inloggade användaren
+
+			@param $id 	Receptets id
+		*/
 		public static function check($id) {
 			$user = new User();
 
@@ -35,12 +47,15 @@
 			return false;
 		}
 
+		/**
+			Lägger till en ny favorit för en användare
+
+			@param $fields 	Data som ska läggas till i databastabellen
+		*/
 		public static function add($fields) {
 			$db = DB::getInstance();
 			if (!$db->insert('favorites', $fields)) {
-				throw new Exception("Problemz");
+				throw new Exception("Det gick inte att lägga till favoriten");
 			}
 		}
 	}
-
-?>

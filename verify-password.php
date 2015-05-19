@@ -1,6 +1,8 @@
 <?php
+// @author Andreas Indal
 
 require_once 'core/init.php';
+protect();
 
 if (Input::exists()) {
 	$password = Input::get('password');

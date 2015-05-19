@@ -1,3 +1,5 @@
+// @author Andreas Indal
+
 $(document).ready(function() {
 	$('#user-table').filterTable({
 		inputSelector: '#input-filter'

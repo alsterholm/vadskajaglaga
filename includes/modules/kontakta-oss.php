@@ -66,7 +66,6 @@
 													}
 												} else {
 													echo '<script>alert("Det gick inte att skicka ditt meddelande");</script>';
-													
 												}
 											} else {
 												Redirect::to(404);

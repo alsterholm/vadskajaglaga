@@ -1,13 +1,14 @@
 <?php
 	/**
-	KLassen förenklar hämtning av värden ur $GLOBALS arrayen
+		Klassen förenklar hämtning av värden ur $GLOBALS arrayen
 
-
+		@author Jimmy Lindström
 	*/
 	class Config {
 		/**
-		Funktionen tar emot en parameter ($path = tex. 'session/session_name') från vilken den sedan hämtar information från $GLOBALS arrayen.
+			Funktionen tar emot en parameter från vilken den sedan hämtar information från $GLOBALS arrayen.
 
+			@param $path Sökväg till värdet som skall hämtas
 		*/
 		public static function get($path = null) {
 			if ($path) {
@@ -24,5 +25,3 @@
 			return false;
 		}
 	}
-
-?>

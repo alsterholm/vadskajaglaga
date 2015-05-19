@@ -1,6 +1,9 @@
 <?php
+// @author Andreas Indal
+
 require_once 'core/init.php';
 $user = new User();
+protect();
 
 if (Input::exists()) {
 	if (Token::check(Input::get('token'))) {

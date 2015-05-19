@@ -1,6 +1,8 @@
 <?php
+// @author Andreas Indal
 
 require_once 'core/init.php';	
+admin();
 
 if (Input::exists()) {
 	$ip = Input::get('ip');

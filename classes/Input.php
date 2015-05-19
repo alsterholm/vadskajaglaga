@@ -1,15 +1,15 @@
 <?php
 	/**
-	Klassen kontrollerar input på sidan
-
+		Klassen hanterar all GET- och POST-input.
+		
+		@author Jimmy Lindström
 	*/
 	class Input {
 
 		/**
-		Kontrollerar ifall input existerar och ifall det är input av typer post ellet get
-
-		Tar emot en parameter med den typ($type) av input som skickas. post är valt som standard
-
+			Kontrollerar ifall input existerar
+			
+			@param $type 	Källan från vilken input-data ska kontrolleras
 		*/
 		public static function exists($type = 'post') {
 			switch ($type) {
@@ -26,9 +26,9 @@
 		}
 
 		/**
-		Returnerar angiven input
+			Returnerar angiven input
 
-		Tar emot en parameter med det element($item) som skall hämtas
+			@param $item 	Namnet på det element som ska hämtas
 		*/
 		public static function get($item) {
 			if (isset($_POST[$item])) {
@@ -39,5 +39,3 @@
 			return '';
 		}
 	}
-
-?>

@@ -1,12 +1,14 @@
 <?php
 	/**
-	Klassen hanterar redirects på sidan
+		Klassen hanterar redirects på sidan
+
+		@author Jimmy Lindström
 	*/
 	class Redirect {
 
 		/**
-		Functionen förenklar användandet av redirects.
-		Tar emot en parameter som motsvarar vart men vill redirecta($location)
+			Functionen förenklar användandet av redirects.
+			Tar emot en parameter som motsvarar vart men vill redirecta($location)
 		*/
 		public static function to($location = null) {
 			if ($location) {

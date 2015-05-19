@@ -1,6 +1,7 @@
 <?php
 
    require_once 'core/init.php';
+   
    if (Input::exists('get')) {
       $recipe = new Recipe(Input::get('id'));
       $user = new User();

@@ -1,6 +1,7 @@
 <?php
 
 require_once 'core/init.php';
+admin();
 
 if (Input::exists()) {
 	$id = Input::get('id');

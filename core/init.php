@@ -25,6 +25,7 @@ spl_autoload_register(function($class) {
 	}
 });
 
+// Kontrollerar om IP-adressen användaren ansluter med är bannad.
 if (IPBan::check($_SERVER['REMOTE_ADDR'])) {
 	exit('Din IP-adress ' . $_SERVER['REMOTE_ADDR'] . ' är avstängd.');
 }
@@ -32,7 +33,6 @@ if (IPBan::check($_SERVER['REMOTE_ADDR'])) {
 require_once 'functions/general.php';
 
 // Kontrollerar ifall användaren valt att bli ihågkommen, och loggar i så fall in denne.
-
 if (Cookie::exists(Config::get('remember/cookie_name')) && !Session::exists(Config::get('session/session_name'))) {
 	$hash = Cookie::get(Config::get('remember/cookie_name'));
 	$hashCheck = DB::getInstance()->get('users_session', array('hash', '=', $hash));

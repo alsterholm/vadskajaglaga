@@ -1,10 +1,13 @@
 <?php
-	require_once 'core/init.php';
+// @author Andreas Indal
 
-	if (Input::exists()) {
-		$db = DB::getInstance();
-		$id = Input::get('id');
+require_once 'core/init.php';
+admin();
 
-		$db->get('ip_bans', array('id', '=', $id));
-		echo $db->first()->reason;
-	}
+if (Input::exists()) {
+	$db = DB::getInstance();
+	$id = Input::get('id');
+
+	$db->get('ip_bans', array('id', '=', $id));
+	echo $db->first()->reason;
+}

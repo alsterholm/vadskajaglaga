@@ -1,3 +1,4 @@
+// @author Andreas Indal
 $('#btn-change').on('click', function(e) {
 	e.preventDefault();
 

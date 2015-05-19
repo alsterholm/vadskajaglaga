@@ -1,4 +1,6 @@
 <?php
+// @author Jimmy Lindström
+
 require_once 'core/init.php';
 
 if (Input::exists()) {
@@ -23,5 +25,3 @@ if (Input::exists()) {
 	Redirect::to('logga-in.php?login=false');
 }
 Redirect::to(404);
-
-?>

@@ -1,7 +1,8 @@
 <?php
 	/**
-	Klassen hanterar valideringen på vår sida 
-
+		Klassen hanterar valideringen på vår sida 
+		
+		@author Jimmy Lindström
 	*/
 
 	class Validate {
