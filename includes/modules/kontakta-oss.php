@@ -65,8 +65,7 @@
 														Redirect::to(500);
 													}
 												} else {
-													//fixa error-hantering på registrera.php
-													echo 'Valideringsfel';
+													echo '<script>alert("Det gick inte att skicka ditt meddelande");</script>';
 													
 												}
 											} else {

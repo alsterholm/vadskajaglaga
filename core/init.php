@@ -26,7 +26,7 @@ spl_autoload_register(function($class) {
 });
 
 if (IPBan::check($_SERVER['REMOTE_ADDR'])) {
-	Redirect::to(403);
+	exit('Din IP-adress ' . $_SERVER['REMOTE_ADDR'] . ' är avstängd.');
 }
 
 require_once 'functions/general.php';

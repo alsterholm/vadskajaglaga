@@ -10,6 +10,8 @@
 									<h1>Skicka in recept</h1>
 
 									<?php
+										protect();
+										
 										if (Input::exists()) {
 											if (Token::check(Input::get('token'))) {
 												$validation = new Validate();
@@ -55,8 +57,7 @@
 														Redirect::to(500);
 													}
 												} else {
-													//VALIDATION, FIXA
-													Redirect::to(404);
+													echo '<script>alert("Du måste fylla i alla fält.");</script>';
 												}
 											} else {
 												Redirect::to(404);

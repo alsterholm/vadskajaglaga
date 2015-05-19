@@ -2,14 +2,7 @@
 
 	require_once 'core/init.php';
 
-	$user = new User();
-	if ($user->isLoggedIn()) {
-      if (!$user->isAdmin()) {
-         Redirect::to(401);
-      }
-   } else {
-      Redirect::to(401);
-   }
+	admin();
 
 	if (Input::exists()) {
 		try {

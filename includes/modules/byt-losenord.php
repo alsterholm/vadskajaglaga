@@ -3,12 +3,9 @@ require_once 'core/init.php';
 
 $user = new User();
 
-if (!$user->isLoggedIn()) {
-	Redirect::to('index.php');
-}
+protect();
 
 if (Input::exists()) {
-
 	if (Token::check(Input::get('token'))) {
 
 		$validate = new Validate();
@@ -21,13 +18,12 @@ if (Input::exists()) {
 				'min' => 6),
 			'password_new_again' => array(
 				'required' => true,
-				'min' => 6,
 				'matches' => 'password_new')
 		));
 
 		if ($validation->passed()) {
 			if (Hash::make(Input::get('password_current'), $user->data()->salt) !== $user->data()->password) {
-				echo 'Your current password is wrong';
+				echo '<script>alert("Ditt nuvarande lösenord är fel.");</script>';
 			} else {
 				$salt = Hash::salt(32);
 				$user->update(array(
@@ -37,7 +33,6 @@ if (Input::exists()) {
 
 				Redirect::to('mina-uppgifter.php?change=password');
 			}
-
 		}
 	}
 }

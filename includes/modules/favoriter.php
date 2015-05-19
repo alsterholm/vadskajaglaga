@@ -10,6 +10,8 @@
 								<div class="row">
 									<div class="col-md-12">
 										<?php
+											protect();
+
 											if (Favorite::exists()) {
 												foreach (Favorite::get() as $favorite) {
 													$recipe = new Recipe($favorite->recipe_id);
@@ -28,7 +30,7 @@
 													';
 												}
 											} else {
-												echo '<div class="center">Du har inte lagt till några favoritrecept!';
+												echo '<div class="center">Du har inte lagt till några favoritrecept!</div>';
 											}
 										?>
 										</div>

@@ -10,10 +10,7 @@
 require_once 'core/init.php';
 
 $user = new User();
-
-if(!$user->isLoggedIn()){
-	Redirect::to(401);
-}
+protect();
 
 if (Input::exists()) {
 	if (Token::check(Input::get('token'))) {

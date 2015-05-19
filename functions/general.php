@@ -9,4 +9,15 @@
 			Redirect::to(401);
 		}
 	}
+
+	function admin() {
+		$user = new User();
+		if ($user->isLoggedIn()) {
+				if (!$user->isAdmin()) {
+					Redirect::to(401);
+				}
+			} else {
+				Redirect::to(401);
+		}
+	}
 ?>

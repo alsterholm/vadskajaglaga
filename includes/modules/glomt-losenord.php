@@ -36,7 +36,7 @@
 														'time' => time()
 													));
 												} else {
-													Redirect::to(404);
+													Redirect::to(500);
 												}
 											}
 										}

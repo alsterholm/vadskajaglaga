@@ -7,6 +7,7 @@
 							<div class="well well-lg main-section">
 								<h1>Mina uppgifter</h1>
 								<?php 
+
 								if (Input::exists('get')) {
 									$message = '';
 

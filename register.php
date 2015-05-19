@@ -51,14 +51,11 @@ if (Input::exists()) {
 				Redirect::to('index.php');
 
 			} catch (Exception $e) {
-				Redirect::to(404);
+				Redirect::to(500);
 			}
 		} else {
-			//fixa error-hantering på registrera.php
 			Redirect::to('registrera.php?register=false');
 		}
 	}
-	echo 'TOKEN-FEL';
 }
-
-?>
+Redirect::to(401);
