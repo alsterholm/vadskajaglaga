@@ -28,11 +28,6 @@
 								<div class="row">
 									<div class="col-md-2"></div>
 									<div class="col-md-8">
-										<a href="#" class="btn btn-block btn-social btn-lg btn-facebook"><span class="fa fa-facebook"></span> Logga in med Facebook</a>
-										<br>
-										<div class="login-divider"><p>ELLER</p></div>
-										<br>
-										<br>
 										<form action="login-router.php" method="post" class="form-horizontal">
 											<fieldset>
 												<div class="row">
