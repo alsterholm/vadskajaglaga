@@ -1,13 +1,14 @@
 <?php
 
+error_reporting(0);
 session_start();
 
 $GLOBALS['config'] = array(
 	'mysql' => array(
-		'host' => '127.0.0.1',
-		'username' => 'root',
-		'password' => '',
-		'db' => 'vadskajaglaga'
+		'host' => 'vsjl-176896.mysql.binero.se',
+		'username' => '176896_eh34757',
+		'password' => 'p#keR68861',
+		'db' => '176896-vsjl'
 	),
 	'remember' => array(
 		'cookie_name' => 'hash',

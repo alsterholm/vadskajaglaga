@@ -43,7 +43,6 @@ if (Input::exists()) {
 			<section class="header">
 				<div class="container">
 					<div class="row">
-						<div class="col-md-3"></div>
 						<div class="col-md-6">
 							<div class="well well-lg main-section">
 								<h1>Byt lösenord</h1>
@@ -76,6 +75,18 @@ if (Input::exists()) {
 									</div>
 								</div>
 							</div>
+						</div>
+						<div class="col-md-6">
+							<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+							<!-- Vad ska jag laga -->
+							<ins class="adsbygoogle"
+							     style="display:block"
+							     data-ad-client="ca-pub-2210940611345808"
+							     data-ad-slot="2194676377"
+							     data-ad-format="auto"></ins>
+							<script>
+							(adsbygoogle = window.adsbygoogle || []).push({});
+							</script>
 						</div>
 					</div>
 				</div>

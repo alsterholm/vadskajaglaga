@@ -10,10 +10,10 @@
          Redirect::to(404);
       }
 
-      if (file_exists('img/recipe/' . $recipe->data()->id) . '.jpg') {
+      if (file_exists('img/recipe/' . $recipe->data()->id . '.jpg')) {
          $image = 'img/recipe/' . $recipe->data()->id . '.jpg';
       } else {
-         $image = 'img/recipe/noimage.jpg';
+         $image = 'img/recipe/no-image.jpg';
       }
 
       $rating = '';
@@ -40,8 +40,7 @@
  	<section class="header">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-2"></div>
-					<div class="col-md-8">
+					<div class="col-md-9">
 						<div class="well well-lg main-section">
                   <?php if (Cookie::exists('search')) { ?>
                      <div class="row">
@@ -190,6 +189,18 @@
                         ?>
                      </div>
 						</div>
+					</div>
+					<div class="col-md-3">
+						<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+						<!-- Vad ska jag laga -->
+						<ins class="adsbygoogle"
+						     style="display:block"
+						     data-ad-client="ca-pub-2210940611345808"
+						     data-ad-slot="2194676377"
+						     data-ad-format="auto"></ins>
+						<script>
+						(adsbygoogle = window.adsbygoogle || []).push({});
+						</script>
 					</div>
 				</div>
 			</div>

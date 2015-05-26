@@ -2,8 +2,7 @@
 			<section class="header">
 				<div class="container">
 					<div class="row">
-						<div class="col-md-2"></div>
-						<div class="col-md-8">
+						<div class="col-md-9">
 							<div class="well well-lg main-section">
 								<fieldset>
 									<h1>Hitta recept</h1>
@@ -27,6 +26,18 @@
 									</div>
 								</fieldset>
 							</div>
+						</div>
+						<div class="col-md-4">
+							<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+							<!-- Vad ska jag laga -->
+							<ins class="adsbygoogle"
+							     style="display:block"
+							     data-ad-client="ca-pub-2210940611345808"
+							     data-ad-slot="2194676377"
+							     data-ad-format="auto"></ins>
+							<script>
+							(adsbygoogle = window.adsbygoogle || []).push({});
+							</script>
 						</div>
 					</div>
 				</div>

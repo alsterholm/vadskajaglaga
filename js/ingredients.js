@@ -9,8 +9,6 @@ $('#ingredients').autocomplete ({
     onSelect: function (suggestion) {
     	addIngr();
     }
-}).setOptions({
-	triggerSelectOnValidInput: false
 });
 
 $('#add-ingredient').on('click', function() {
@@ -40,6 +38,9 @@ function addIngr() {
 				var oldVal = $('#ingr_ids').val();
 				var newVal = oldVal.replace(ingredient.id + ',', '');
 				$('#ingr_ids').val(newVal);
+				if ($('#chosen-ingredients').html() == '') {
+					$('.choices').slideToggle(500);
+				}
 			});
 		} else {
 			$("#chosen-ingredients:contains('" + ingredient.value + "')").effect('shake', {times: 2, distance: 5}, 200);

@@ -3,8 +3,7 @@
 		<section class="header">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-2"></div>
-					<div class="col-md-8">
+					<div class="col-md-9">
 						<div class="list-group">
 							<div class="well well-lg main-section">
 								<h1>Sökresultat</h1>
@@ -28,6 +27,7 @@
 													$req_ingr .= $recipe_ingr->ingredient . ',';
 												}
 
+
 												$req_ingr = rtrim($req_ingr, ',');
 												$req_ingr = explode(',', $req_ingr);
 
@@ -40,7 +40,8 @@
 
 												if ($valid) {
 													$results = 1;
-
+													$img = (file_exists('img/recipe/' . $recipe->id . '.jpg')) ? $recipe->id : 'no-image';
+													
 													if ($r = Rating::get($recipe->id)) {
 														$rating = '<span class="right"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>' . $r . '/5</span>';
 													} else {
@@ -52,7 +53,7 @@
 															<div class="row">
 																<div class="col-md-3">
 																	<a href="recept.php?id=' . $recipe->id . '" class="thumbnail">
-																		<img class="img-responsive" src="img/recipe/' . $recipe->id . '.jpg" title="' . $recipe->name . '">
+																		<img class="img-responsive" src="img/recipe/' . $img . '.jpg" title="' . $recipe->name . '">
 																	</a>
 																</div>
 																<div class="col-md-9">
@@ -77,6 +78,18 @@
 									?>
 							</div>
 						</div>
+					</div>
+					<div class="col-md-3">
+						<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+						<!-- Vad ska jag laga -->
+						<ins class="adsbygoogle"
+						     style="display:block"
+						     data-ad-client="ca-pub-2210940611345808"
+						     data-ad-slot="2194676377"
+						     data-ad-format="auto"></ins>
+						<script>
+						(adsbygoogle = window.adsbygoogle || []).push({});
+						</script>
 					</div>
 				</div>
 			</div>
